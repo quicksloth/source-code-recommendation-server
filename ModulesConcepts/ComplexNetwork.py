@@ -33,12 +33,12 @@ class ComplexNetwork(object):
 
         for doc in self.textual_train_base:
             print doc
-            doc_splitted = doc.split()
-            for idx, word in enumerate(doc_splitted):
-                if idx-1 == len(doc_splitted):
+            words = doc.split()
+            for idx, word in enumerate(words):
+                if idx-1 == len(words):
                     break
                 print word
-                next_word = doc_splitted[idx + 1]
+                next_word = words[idx + 1]
                 print "next word = %s" % next_word
                 self.adjacency_list[word, next_word] = self.adjacency_list[word, next_word]+1\
                     if self.adjacency_list[word, next_word]\
