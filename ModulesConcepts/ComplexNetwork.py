@@ -31,14 +31,14 @@ class ComplexNetwork(object):
         Returns trained """
 
         for doc in self.textual_train_base:
-            print doc
             words = doc.split()
             for idx, word in enumerate(words):
                 if idx+1 == len(words):
                     break
-                next_word = words[idx + 1]
-                self.adjacency_list[word, next_word] = self.adjacency_list[word, next_word]+1\
-                    if (word, next_word) in self.adjacency_list.keys()\
+                next_word = words[idx + 1].lower()
+                current_word = word.lower()
+                self.adjacency_list[current_word, next_word] = self.adjacency_list[current_word, next_word]+1\
+                    if (current_word, next_word) in self.adjacency_list.keys()\
                     else 1
 
         print self.adjacency_list
