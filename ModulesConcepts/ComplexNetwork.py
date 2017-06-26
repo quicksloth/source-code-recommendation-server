@@ -13,7 +13,7 @@ class ComplexNetwork(object):
         # TODO if textual_train_base is empty : load save complex network by file *adjacency_list_complex_network.npy*
         if textual_train_base:
             self.textual_train_base = textual_train_base
-            self.train_network
+            self.train_network()
             self.__save_complex_network()
         else:
             self.__load_complex_network()
@@ -26,7 +26,6 @@ class ComplexNetwork(object):
         """Save ComplexNetwork data into a file and returns the data"""
         return self.complex_network_file
 
-    @property
     def train_network(self):
         """Create structure and train ComplexNetwork based on textual_train_base
         Returns trained """
