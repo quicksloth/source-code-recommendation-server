@@ -34,14 +34,12 @@ class ComplexNetwork(object):
             print doc
             words = doc.split()
             for idx, word in enumerate(words):
-                if idx-1 == len(words):
+                if idx+1 == len(words):
                     break
-                print word
                 next_word = words[idx + 1]
-                print "next word = %s" % next_word
                 self.adjacency_list[word, next_word] = self.adjacency_list[word, next_word]+1\
-                    if self.adjacency_list[word, next_word]\
-                    else 0
+                    if (word, next_word) in self.adjacency_list.keys()\
+                    else 1
 
         print self.adjacency_list
         return self.adjacency_list
@@ -54,6 +52,6 @@ class ComplexNetwork(object):
         return 0.3
 
 t1 = 'Lorem ipsum dolor sit amet Nullam metus.'
-t2 = 'Consectetur adipiscing elit.'
+t2 = 'Lorem ipsum Consectetur adipiscing elit.'
 textual = [t1, t2]
 ComplexNetwork(textual_train_base=textual)
