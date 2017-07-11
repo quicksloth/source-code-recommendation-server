@@ -12,12 +12,6 @@ class ComplexNetwork(object):
     def __init__(self):
         # TODO fix this logic => continous training
         self.adjacency_list = dict([])
-        # if textual_train_base:
-        #     self.textual_train_base = textual_train_base
-        #     self.train_network()
-        #     self.__save_complex_network()
-        # else:
-        #     self.__load_complex_network()
 
     def __load_complex_network(self):
         """Returns the ComplexNetwork data loaded by a file"""
@@ -53,6 +47,7 @@ class ComplexNetwork(object):
 
     def get_contextual_distance(self, one_word, second_word):
         """Create structure and train ComplexNetwork based on textual_train_base"""
+        # print len(self.adjacency_list['lorem'])
         print(self.adjacency_list)
         print(one_word)
         print(second_word)
