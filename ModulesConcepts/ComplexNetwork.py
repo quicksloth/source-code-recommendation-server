@@ -58,4 +58,9 @@ t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
 t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
 textual = [t1, t2]
 cn = ComplexNetwork()
-cn.train_network(textual_train_base=textual)
+cn_al = cn.train_network(textual_train_base=textual)
+print len(cn_al)
+
+textual = ["bla ble bli blo bu", "la le li lo lu"]
+cn_al = cn.train_network(textual_train_base=textual)
+print  len(cn_al)
