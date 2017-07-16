@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class ComplexNetwork(object):
     """A ComplexNetwork of Words build by sites text about computer science and programming.
         This will be used to measure words contextual distance.
@@ -14,13 +17,15 @@ class ComplexNetwork(object):
         # TODO fix this logic => continous training
         self.adjacency_list = dict([])
 
-    def __load_complex_network(self):
-        """Returns the ComplexNetwork data loaded by a file"""
-        return self.complex_network_file
+    def load_complex_network(self):
+        """Load complex network by file"""
+        np_file = open(self.complex_network_file, 'r')
+        self.adjacency_list = np.load(np_file)
 
-    def __save_complex_network(self):
-        """Save ComplexNetwork data into a file and returns the data"""
-        return self.complex_network_file
+    def save_complex_network(self):
+        """Save complex network by file"""
+        np_file = open(self.complex_network_file, 'w')
+        np.save(np_file, self.adjacency_list)
 
     def train_network(self, textual_train_base):
         """
@@ -52,7 +57,7 @@ class ComplexNetwork(object):
                     else:
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
-        print self.adjacency_list
+        # print self.adjacency_list
         return self.adjacency_list
 
     def get_contextual_distance(self, one_word, second_word):
@@ -71,10 +76,15 @@ t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
 textual = [t1, t2]
 cn = ComplexNetwork()
 cn_al = cn.train_network(textual_train_base=textual)
-print len(cn_al)
+# print len(cn_al)
 
 textual = ["bla ble bli blo bu", "la le li lo lu"]
 cn_al = cn.train_network(textual_train_base=textual)
-print len(cn_al)
+# print len(cn_al)
 
-print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
+# print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
+
+cn.save_complex_network()
+print cn.adjacency_list
+cn.load_complex_network()
+print cn.adjacency_list
