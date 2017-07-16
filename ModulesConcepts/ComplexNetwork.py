@@ -10,21 +10,25 @@ class ComplexNetwork(object):
         textual_train_base: A array of strings to train complex network based on co-occurrence
     """
     complex_network_file = "adjacency_list_complex_network.npy"
+    complex_network_file_last_version = "adjacency_list_complex_network_last_version.npy"
     default_weight = 1
     neighbor_distance = 1
 
     def __init__(self):
-        # TODO fix this logic => continous training
         self.adjacency_list = dict([])
 
-    def load_complex_network(self):
+    def __load_complex_network(self, filename=None):
         """Load complex network by file"""
-        np_file = open(self.complex_network_file, 'r')
+        if not filename:
+            filename = self.complex_network_file
+        np_file = open(filename, 'r')
         self.adjacency_list = np.load(np_file)
 
-    def save_complex_network(self):
+    def __save_complex_network(self, filename=None):
         """Save complex network by file"""
-        np_file = open(self.complex_network_file, 'w')
+        if not filename:
+            filename = self.complex_network_file
+        np_file = open(filename, 'w')
         np.save(np_file, self.adjacency_list)
 
     def train_network(self, textual_train_base):
@@ -34,6 +38,8 @@ class ComplexNetwork(object):
         of all words of all strings in array
         At the end, save CcomplexNetwork.
         """
+        # TODO fix logic of saving
+        self.__save_complex_network(filename=self.complex_network_file_last_version)
 
         for doc in textual_train_base:
             words = doc.split()
@@ -57,6 +63,7 @@ class ComplexNetwork(object):
                     else:
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
+        self.__save_complex_network()
         # print self.adjacency_list
         return self.adjacency_list
 
@@ -71,6 +78,7 @@ class ComplexNetwork(object):
             return 0
 
 
+# TESTING COMPLEX NETWORK class -------
 t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
 t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
 textual = [t1, t2]
@@ -84,7 +92,7 @@ cn_al = cn.train_network(textual_train_base=textual)
 
 # print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
 
-cn.save_complex_network()
-print cn.adjacency_list
-cn.load_complex_network()
-print cn.adjacency_list
+# cn.save_complex_network()
+# print cn.adjacency_list
+# cn.load_complex_network()
+# print cn.adjacency_list
