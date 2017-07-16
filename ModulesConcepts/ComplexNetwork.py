@@ -8,6 +8,7 @@ class ComplexNetwork(object):
     """
     complex_network_file = "adjacency_list_complex_network.npy"
     default_weight = 1
+    neighbor_distance = 3
 
     def __init__(self):
         # TODO fix this logic => continous training
@@ -22,25 +23,33 @@ class ComplexNetwork(object):
         return self.complex_network_file
 
     def train_network(self, textual_train_base):
-        """Create structure and train ComplexNetwork based on textual_train_base
-        Returns trained """
+        """
+        Train ComplexNetwork based on textual_train_base:
+        extract co-occurrence in Nth (cooccurrence) of all words of all strings in array
+        At the end, save complexNetwork
+        """
 
         for doc in textual_train_base:
             words = doc.split()
             for idx, word in enumerate(words):
-                # TODO parametrize co-occurrence (numbers)
                 if idx + 1 == len(words):
                     break
-                next_word = words[idx + 1].lower()
-                current_word = word.lower()
 
-                if current_word in self.adjacency_list.keys():
-                    if next_word in self.adjacency_list[current_word].keys():
-                        self.adjacency_list[current_word][next_word] += self.default_weight
+                for neighbor in range(1, self.neighbor_distance+1):
+                    # TODO improve this logic inside range
+                    if idx + neighbor == len(words):
+                        break
+
+                    next_word = words[idx + neighbor].lower()
+                    current_word = word.lower()
+
+                    if current_word in self.adjacency_list.keys():
+                        if next_word in self.adjacency_list[current_word].keys():
+                            self.adjacency_list[current_word][next_word] += self.default_weight
+                        else:
+                            self.adjacency_list[current_word][next_word] = self.default_weight
                     else:
-                        self.adjacency_list[current_word][next_word] = self.default_weight
-                else:
-                    self.adjacency_list[current_word] = {next_word: self.default_weight}
+                        self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         print self.adjacency_list
         return self.adjacency_list
@@ -60,6 +69,7 @@ textual = [t1, t2]
 cn = ComplexNetwork()
 cn_al = cn.train_network(textual_train_base=textual)
 print len(cn_al)
+
 
 textual = ["bla ble bli blo bu", "la le li lo lu"]
 cn_al = cn.train_network(textual_train_base=textual)
