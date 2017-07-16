@@ -28,7 +28,7 @@ class ComplexNetwork(object):
         for doc in textual_train_base:
             words = doc.split()
             for idx, word in enumerate(words):
-                # TODO parametrize concurrency (numbers)
+                # TODO parametrize co-occurrence (numbers)
                 if idx + 1 == len(words):
                     break
                 next_word = words[idx + 1].lower()
