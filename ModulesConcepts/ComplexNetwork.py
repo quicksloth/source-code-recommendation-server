@@ -8,7 +8,7 @@ class ComplexNetwork(object):
     """
     complex_network_file = "adjacency_list_complex_network.npy"
     default_weight = 1
-    neighbor_distance = 3
+    neighbor_distance = 1
 
     def __init__(self):
         # TODO fix this logic => continous training
@@ -25,8 +25,9 @@ class ComplexNetwork(object):
     def train_network(self, textual_train_base):
         """
         Train ComplexNetwork based on textual_train_base:
-        extract co-occurrence in Nth (cooccurrence) of all words of all strings in array
-        At the end, save complexNetwork
+        extract co-occurrence in Nth neighbor (neighbor_distance)
+        of all words of all strings in array
+        At the end, save CcomplexNetwork.
         """
 
         for doc in textual_train_base:
@@ -35,7 +36,7 @@ class ComplexNetwork(object):
                 if idx + 1 == len(words):
                     break
 
-                for neighbor in range(1, self.neighbor_distance+1):
+                for neighbor in range(1, self.neighbor_distance + 1):
                     # TODO improve this logic inside range
                     if idx + neighbor == len(words):
                         break
@@ -55,12 +56,14 @@ class ComplexNetwork(object):
         return self.adjacency_list
 
     def get_contextual_distance(self, one_word, second_word):
-        """Create structure and train ComplexNetwork based on textual_train_base"""
-        # print len(self.adjacency_list['lorem'])
-        print(self.adjacency_list)
-        print(one_word)
-        print(second_word)
-        return 0.3
+        """Get distance between one_word to another (second_word) """
+        one_word = one_word.lower()
+        second_word = second_word.lower()
+        if one_word in self.adjacency_list.keys() \
+                and second_word in self.adjacency_list[one_word].keys():
+            return 1.0 / self.adjacency_list[one_word][second_word]
+        else:
+            return 0
 
 
 t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
@@ -70,7 +73,8 @@ cn = ComplexNetwork()
 cn_al = cn.train_network(textual_train_base=textual)
 print len(cn_al)
 
-
 textual = ["bla ble bli blo bu", "la le li lo lu"]
 cn_al = cn.train_network(textual_train_base=textual)
-print  len(cn_al)
+print len(cn_al)
+
+print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
