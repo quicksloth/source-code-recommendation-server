@@ -19,16 +19,12 @@ class ComplexNetwork(object):
 
     def __load_complex_network(self, filename=None):
         """Load complex network by file"""
-        if not filename:
-            filename = self.complex_network_file
-        np_file = open(filename, 'r')
+        np_file = open(filename or self.complex_network_filee, 'r')
         self.adjacency_list = np.load(np_file)
 
     def __save_complex_network(self, filename=None):
         """Save complex network by file"""
-        if not filename:
-            filename = self.complex_network_file
-        np_file = open(filename, 'w')
+        np_file = open(filename or self.complex_network_file, 'w')
         np.save(np_file, self.adjacency_list)
 
     def train_network(self, textual_train_base):
