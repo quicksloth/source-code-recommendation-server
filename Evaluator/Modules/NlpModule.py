@@ -18,6 +18,7 @@ class NlpModule(AbstractModule):
         self.complex_network = ComplexNetwork(textual_train_base=textual)
 
     def evaluate_code(self, input_bus_vo, code_id):
+        #  TODO evaluate code in nlo
         self.complex_network.get_contextual_distance(one_word="lorem", second_word="ipsum")
 
 # t = NlpModule([1], 3)

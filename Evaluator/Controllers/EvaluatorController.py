@@ -1,5 +1,5 @@
 from Evaluator.Modules.LowCouplingModule import LowCouplingModule
-
+# TODO search how to import from another folder in the same level
 
 class EvaluatorController(object):
     """
@@ -7,8 +7,11 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
-    modules = [LowCouplingModule([1], 1)]
+    # modules = [Controllers.t([1], 1)]
 
+    def evaluate_all_code(self):
+        # TODO develop all codes
+        return []
 
-t = EvaluatorController()
-print t.modules
+# t = EvaluatorController()
+# print t.modules

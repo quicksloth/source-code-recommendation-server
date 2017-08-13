@@ -11,6 +11,7 @@ class UnderstandingModule(AbstractModule):
         AbstractModule.__init__(self, internal_weights, weight)
 
     def evaluate_code(self, input_bus_vo, code_id):
+        #  TODO evaluate code in understanding
         return code_id
 
 # t = NlpModule([1], 3)
