@@ -1,4 +1,4 @@
-from Evaluator.Modules.LowCouplingModule import LowCouplingModule
+from src.Modules.LowCouplingModule import LowCouplingModule
 # TODO search how to import from another folder in the same level
 
 class EvaluatorController(object):

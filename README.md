@@ -2,6 +2,10 @@
 
 Implements Evaluation Component of QuickSloth system
 
+## Prerequisites
+
+* python3
+
 ## Used Concepts
 
 * Complex Network of Words

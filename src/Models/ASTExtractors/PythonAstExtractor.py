@@ -1,5 +1,5 @@
-from sets import Set
 import ast
+
 
 class PythonAstExtractor:
     """
@@ -11,17 +11,17 @@ class PythonAstExtractor:
         try:
             return ast.parse(code_text)
         except:
-            raise Exception('Error in parsing extractedAst')
+            raise Exception('Error in parsing extracted_ast')
 
     @staticmethod
-    def extract_comments(extractedAst):
-        # TODO extract comments from extractedAst
+    def extract_comments(extracted_ast):
+        # TODO extract comments from extracted_ast
         return ""
 
     @staticmethod
-    def extract_variables_names(extractedAst):
-        var_names = Set([])
-        for node in ast.walk(extractedAst):
+    def extract_variables_names(extracted_ast):
+        var_names = set([])
+        for node in ast.walk(extracted_ast):
             if isinstance(node, ast.Assign):
                 for node_target in node.targets:
                     if isinstance(node_target, ast.Name):
@@ -32,17 +32,17 @@ class PythonAstExtractor:
         return list(var_names)
 
     @staticmethod
-    def extract_functions_names(extractedAst):
-        return extract_by_type(extractedAst, ast.FunctionDef)
+    def extract_functions_names(extracted_ast):
+        return extract_by_type(extracted_ast, ast.FunctionDef)
 
     @staticmethod
-    def extract_classes(extractedAst):
-        return extract_by_type(extractedAst, ast.ClassDef)
+    def extract_classes(extracted_ast):
+        return extract_by_type(extracted_ast, ast.ClassDef)
 
     @staticmethod
-    def extract_libs(extractedAst):
-        lib_names = Set([])
-        for node in extractedAst.body:
+    def extract_libs(extracted_ast):
+        lib_names = set([])
+        for node in extracted_ast.body:
             if isinstance(node, ast.Import):
                 for node_name in node.names:
                     lib_names.add(split_by_point(node_name.name))
@@ -50,9 +50,10 @@ class PythonAstExtractor:
                 lib_names.add(split_by_point(node.module))
         return list(lib_names)
 
+
 def split_by_point(text):
     return text.split('.')[0]
 
-def extract_by_type(extractedAst, type):
-    return [node.name for node in ast.walk(extractedAst) if isinstance(node, type)]
 
+def extract_by_type(extracted_ast, type):
+    return [node.name for node in ast.walk(extracted_ast) if isinstance(node, type)]
