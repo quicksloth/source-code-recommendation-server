@@ -22,11 +22,11 @@ class PythonAstExtractor:
     def extract_variables_names(extractedAst):
         var_names = Set([])
         for node in extractedAst.body:
-            # if isinstance(node, ast.Assign):
-                # for node_name in node.names:
-                #     var_names.add(node_name.name)
-            # elif isinstance(node, ast.ImportFrom):
-            #     var_names.add(node.module)
+            if isinstance(node, ast.Assign):
+                for node_name in node.names:
+                    var_names.add(node_name.name)
+            elif isinstance(node, ast.ImportFrom):
+                var_names.add(node.module)
         return list(var_names)
 
     @staticmethod
@@ -51,7 +51,7 @@ class PythonAstExtractor:
         for node in extractedAst.body:
             if isinstance(node, ast.Import):
                 for node_name in node.names:
-                    lib_names.add(node_name.name)
+                    lib_names.add(node_name.name.split('.')[0])
             elif isinstance(node, ast.ImportFrom):
-                lib_names.add(node.module)
+                lib_names.add(node.module.split('.')[0])
         return list(lib_names)
