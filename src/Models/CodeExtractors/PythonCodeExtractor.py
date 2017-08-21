@@ -1,7 +1,12 @@
 import ast
+import tokenize
+
+from io import StringIO
+
+from Models.CodeExtractors.AbstractCodeExtrator import AbstractCodeExtractor
 
 
-class PythonAstExtractor:
+class PythonCodeExtractor(AbstractCodeExtractor):
     """
         Class to extract data of Python code (string)
     """
@@ -14,8 +19,9 @@ class PythonAstExtractor:
             raise Exception('Error in parsing extracted_ast')
 
     @staticmethod
-    def extract_comments(extracted_ast):
+    def extract_comments(code):
         # TODO extract comments from extracted_ast
+        extract(code)
         return ""
 
     @staticmethod
@@ -57,3 +63,40 @@ def split_by_point(text):
 
 def extract_by_type(extracted_ast, type):
     return [node.name for node in ast.walk(extracted_ast) if isinstance(node, type)]
+
+
+def extract(code):
+    res = []
+    comment = None
+    string_io = StringIO(code)
+    # pass in stringio.readline to generate_tokens
+    for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
+        if toktype == tokenize.COMMENT:
+            print(tokenize.untokenize([(toktype, tokval)]))
+    print(tokenize.generate_tokens(string_io.readline))
+            # print(toktype)
+
+expr = """
+import ast
+import os
+import collections.OrderedDict as od
+import javalang
+from os import *
+# Teste comment
+bla="bla"
+test, test2 = "teste"
+\"\"\"docstring\"\"\"
+# # def foo():
+#    t = "testing"
+#    print("hello world")
+def foobar():
+   t = "testing"
+   print("hello world")
+class Test:
+    def bar(self):
+        print ('ola')
+"""
+
+p = PythonCodeExtractor()
+p.extract_comments(expr)
+# print (expr)
