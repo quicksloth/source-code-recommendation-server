@@ -1,3 +1,4 @@
+from sets import Set
 import ast
 
 class PythonAstExtractor:
@@ -7,90 +8,50 @@ class PythonAstExtractor:
 
     @staticmethod
     def extract_ast(code_text):
-        return ast.parse(code_text)
+        try:
+            return ast.parse(code_text)
+        except:
+            raise Exception('Error in parsing extractedAst')
 
     @staticmethod
-    def extract_comments(ast):
+    def extract_comments(extractedAst):
+        # TODO extract comments from extractedAst
         return ""
 
     @staticmethod
-    def extract_variables_names(ast):
-        # TODO extract variables from ast
-        return ast
-# Assign
-    @staticmethod
-    def extract_functions_names(ast):
-        function_definitions = [node for node in ast.body if isinstance(node, ast.FunctionDef)]
-        return [f.name for f in function_definitions]
+    def extract_variables_names(extractedAst):
+        var_names = Set([])
+        for node in extractedAst.body:
+            # if isinstance(node, ast.Assign):
+                # for node_name in node.names:
+                #     var_names.add(node_name.name)
+            # elif isinstance(node, ast.ImportFrom):
+            #     var_names.add(node.module)
+        return list(var_names)
 
     @staticmethod
-    def extract_classes(ast):
-        # TODO extract classes from ast
-        return ast
+    def extract_functions_names(extractedAst):
+        # TODO: use ast.walk and implement visitor
+        function_names = []
+        for i_node in ast.iter_child_nodes(extractedAst):
+            print i_node
+            if isinstance(i_node, ast.FunctionDef):
+                # print i_node
+                function_names.append(i_node.name)
+
+        return function_names
 
     @staticmethod
-    def extract_libs(ast):
-        libs = [node for node in ast.body if isinstance(node, ast.Import)]
-        return libs
+    def extract_classes(extractedAst):
+        return [node.name for node in extractedAst.body if isinstance(node, ast.ClassDef)]
 
-
-# JAVA------
-# javafile  = "BufferedReader br = new BufferedReader(new FileReader(\"file.txt\")); " \
-#             "try {" \
-#             "StringBuilder sb = new StringBuilder();" \
-#             "String line = br.readLine();" \
-#             "while (line != null) {" \
-#             "sb.append(line);" \
-#             "sb.append(System.lineSeparator());" \
-#             "line = br.readLine();" \
-#             "}" \
-#             "String everything = sb.toString();" \
-#             "} finally {" \
-#             "br.close();" \
-#             "}"
-#
-# tokens = javalang.tokenizer.tokenize("FileInputStream inputStream = new FileInputStream(\"foo.txt\");")
-# parser = javalang.parser.Parser(tokens)
-# t = parser.parse_expression()
-# print t
-#  -------
-
-# JAVA2------
-# import plyj.parser as plyj
-
-# print tree.package.name
-# print tree
-#  -------
-
-# Python------
-# code = '''def extract_ast(code_text): return code_text'''
-expr="""
-import ast
-import os
-import javalang
-test = "teste"
-def foo():
-   print("hello world")
-   ast.parse("def bar(t): return t")
-"""
-# expr2 = "import ast\ntest = \"teste\"\ndef foo():\nprint(\"hello world\")\nast.parse(\"def bar(t): return t\")"
-# tree = ast.parse(code)
-tree2 = ast.parse(expr)
-# tree3 = ast.parse(expr2)
-
-print tree2.__dict__
-imports = [node for node in tree2.body if isinstance(node, ast.Import)]
-print imports
-
-# print tree3.__dict__
-
-# [node for node in module.body if isinstance(node, ast.FunctionDef)]
-
-# print tree
-# print tree.__dict__
-# print tree2
-
-# t = ast.dump(tree)
-
-
-#  -------
+    @staticmethod
+    def extract_libs(extractedAst):
+        lib_names = Set([])
+        for node in extractedAst.body:
+            if isinstance(node, ast.Import):
+                for node_name in node.names:
+                    lib_names.add(node_name.name)
+            elif isinstance(node, ast.ImportFrom):
+                lib_names.add(node.module)
+        return list(lib_names)
