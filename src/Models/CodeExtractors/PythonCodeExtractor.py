@@ -75,9 +75,10 @@ def extract(code):
     string_io = StringIO(code)
     # pass in stringio.readline to generate_tokens
     for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
+        # print(line)
         if toktype == tokenize.COMMENT:
             print(line)
-            print(tokenize.untokenize([(toktype, tokval)]))
+        #     print(tokenize.untokenize([(toktype, tokval)]))
             # return tokenize.untokenize(result).decode('utf-8')
             # print(tokenize.generate_tokens(string_io.readline))
 
@@ -128,6 +129,6 @@ class Test:
 """
 
 p = PythonCodeExtractor()
-# p.extract_comments(expr)
+p.extract_comments(expr)
 p.extract_number_of_lines(expr)
 # print (expr)
