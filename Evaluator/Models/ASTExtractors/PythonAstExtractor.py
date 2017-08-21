@@ -21,29 +21,23 @@ class PythonAstExtractor:
     @staticmethod
     def extract_variables_names(extractedAst):
         var_names = Set([])
-        for node in extractedAst.body:
+        for node in ast.walk(extractedAst):
             if isinstance(node, ast.Assign):
-                for node_name in node.names:
-                    var_names.add(node_name.name)
-            elif isinstance(node, ast.ImportFrom):
-                var_names.add(node.module)
+                for node_target in node.targets:
+                    if isinstance(node_target, ast.Name):
+                        var_names.add(node_target.id)
+                    elif isinstance(node_target, ast.Tuple):
+                        for elt in node_target.elts:
+                            var_names.add(elt.id)
         return list(var_names)
 
     @staticmethod
     def extract_functions_names(extractedAst):
-        # TODO: use ast.walk and implement visitor
-        function_names = []
-        for i_node in ast.iter_child_nodes(extractedAst):
-            print i_node
-            if isinstance(i_node, ast.FunctionDef):
-                # print i_node
-                function_names.append(i_node.name)
-
-        return function_names
+        return extract_by_type(extractedAst, ast.FunctionDef)
 
     @staticmethod
     def extract_classes(extractedAst):
-        return [node.name for node in extractedAst.body if isinstance(node, ast.ClassDef)]
+        return extract_by_type(extractedAst, ast.ClassDef)
 
     @staticmethod
     def extract_libs(extractedAst):
@@ -51,7 +45,14 @@ class PythonAstExtractor:
         for node in extractedAst.body:
             if isinstance(node, ast.Import):
                 for node_name in node.names:
-                    lib_names.add(node_name.name.split('.')[0])
+                    lib_names.add(split_by_point(node_name.name))
             elif isinstance(node, ast.ImportFrom):
-                lib_names.add(node.module.split('.')[0])
+                lib_names.add(split_by_point(node.module))
         return list(lib_names)
+
+def split_by_point(text):
+    return text.split('.')[0]
+
+def extract_by_type(extractedAst, type):
+    return [node.name for node in ast.walk(extractedAst) if isinstance(node, type)]
+
