@@ -1,4 +1,5 @@
-from ASTExtractors.PythonAstExtractor import PythonAstExtractor
+from Models.ASTExtractors.PythonAstExtractor import PythonAstExtractor
+
 
 class InputBus:
     """
@@ -6,7 +7,7 @@ class InputBus:
         to extract more data from these
     """
 
-    def __init__(self, user = {}, searched_codes = {}, language = 'python'):
+    def __init__(self: object, user: object = {}, searched_codes: object = {}, language: object = 'python') -> object:
         self.user = user
         self.searched_codes = searched_codes
         if language == 'python':
@@ -37,7 +38,7 @@ class InputBus:
 
 
 # Python------
-expr="""
+expr = """
 import ast
 import os
 import collections.OrderedDict as od
@@ -54,15 +55,15 @@ def foobar():
    print("hello world")
 class Test:
     def bar(self):
-        print 'ola'
+        print ('ola')
 """
 
 inputBus = InputBus()
 extracted_ast = inputBus.extract_ast(expr)
 # print extracted_ast.__dict__
 # print ast.iter_child_nodes(extracted_ast)
-print inputBus.extract_functions_from_ast(expr)
-print inputBus.extract_classes_from_ast(expr)
-print inputBus.extract_libs_from_ast(expr)
-print inputBus.extract_variables_from_ast(expr)
+print(inputBus.extract_functions_from_ast(expr))
+print(inputBus.extract_classes_from_ast(expr))
+print(inputBus.extract_libs_from_ast(expr))
+print(inputBus.extract_variables_from_ast(expr))
 # print ast.dump(extracted_ast)
