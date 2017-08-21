@@ -1,0 +1,29 @@
+# import javalang
+
+# JAVA------
+# javafile  = "BufferedReader br = new BufferedReader(new FileReader(\"file.txt\")); " \
+#             "try {" \
+#             "StringBuilder sb = new StringBuilder();" \
+#             "String line = br.readLine();" \
+#             "while (line != null) {" \
+#             "sb.append(line);" \
+#             "sb.append(System.lineSeparator());" \
+#             "line = br.readLine();" \
+#             "}" \
+#             "String everything = sb.toString();" \
+#             "} finally {" \
+#             "br.close();" \
+#             "}"
+#
+# tokens = javalang.tokenizer.tokenize("FileInputStream inputStream = new FileInputStream(\"foo.txt\");")
+# parser = javalang.parser.Parser(tokens)
+# t = parser.parse_expression()
+# print t
+#  -------
+
+# JAVA2------
+# import plyj.parser as plyj
+
+# print tree.package.name
+# print tree
+#  -------
