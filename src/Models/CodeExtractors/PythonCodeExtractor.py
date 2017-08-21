@@ -12,6 +12,10 @@ class PythonCodeExtractor(AbstractCodeExtractor):
     """
 
     @staticmethod
+    def extract_number_of_lines(extracted_ast):
+        pass
+
+    @staticmethod
     def extract_ast(code_text):
         try:
             return ast.parse(code_text)
@@ -74,7 +78,6 @@ def extract(code):
         if toktype == tokenize.COMMENT:
             print(tokenize.untokenize([(toktype, tokval)]))
     print(tokenize.generate_tokens(string_io.readline))
-            # print(toktype)
 
 expr = """
 import ast

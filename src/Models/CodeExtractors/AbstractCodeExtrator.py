@@ -32,3 +32,8 @@ class AbstractCodeExtractor:
     def extract_libs(extracted_ast):
         # Abstract method, defined by convention only
         raise NotImplementedError("Subclass must implement abstract method")
+
+    @staticmethod
+    def extract_number_of_lines(extracted_ast):
+        # Abstract method, defined by convention only
+        raise NotImplementedError("Subclass must implement abstract method")
