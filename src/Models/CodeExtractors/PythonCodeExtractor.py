@@ -13,7 +13,7 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_number_of_lines(extracted_ast):
-        pass
+        print(count_loc(extracted_ast))
 
     @staticmethod
     def extract_ast(code_text):
@@ -70,14 +70,41 @@ def extract_by_type(extracted_ast, type):
 
 
 def extract(code):
-    res = []
+    result = []
     comment = None
     string_io = StringIO(code)
     # pass in stringio.readline to generate_tokens
     for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
         if toktype == tokenize.COMMENT:
+            print(line)
             print(tokenize.untokenize([(toktype, tokval)]))
-    print(tokenize.generate_tokens(string_io.readline))
+            # return tokenize.untokenize(result).decode('utf-8')
+            # print(tokenize.generate_tokens(string_io.readline))
+
+
+def count_loc(lines):
+    nb_lines = 0
+    docstring = False
+    for line in lines:
+        line = line.strip()
+
+        if line == "" \
+                or line.startswith("#") \
+                or docstring and not (line.startswith('"""') or line.startswith("'''")) \
+                or (line.startswith("'''") and line.endswith("'''") and len(line) > 3) \
+                or (line.startswith('"""') and line.endswith('"""') and len(line) > 3):
+            continue
+
+        # this is either a starting or ending docstring
+        elif line.startswith('"""') or line.startswith("'''"):
+            docstring = not docstring
+            continue
+
+        else:
+            nb_lines += 1
+
+    return nb_lines
+
 
 expr = """
 import ast
@@ -101,5 +128,6 @@ class Test:
 """
 
 p = PythonCodeExtractor()
-p.extract_comments(expr)
+# p.extract_comments(expr)
+p.extract_number_of_lines(expr)
 # print (expr)
