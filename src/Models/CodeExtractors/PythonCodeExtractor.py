@@ -23,6 +23,16 @@ class PythonCodeExtractor(AbstractCodeExtractor):
             raise Exception('Error in parsing extracted_ast')
 
     @staticmethod
+    def extract_doc_strings(extracted_ast):
+        doc_strings = []
+        for node in ast.walk(extracted_ast):
+            if isinstance(node, (ast.FunctionDef, ast.ClassDef, ast.Module)):
+                doc_string = ast.get_docstring(node, clean=True)
+                if doc_string:
+                    doc_strings.append(doc_string)
+        return doc_strings
+
+    @staticmethod
     def extract_comments(code):
         # TODO extract comments from extracted_ast
         extract(code)
@@ -70,41 +80,43 @@ def extract_by_type(extracted_ast, type):
 
 
 def extract(code):
-    result = []
-    comment = None
+    comments = []
     string_io = StringIO(code)
+
     # pass in stringio.readline to generate_tokens
     for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
-        # print(line)
         if toktype == tokenize.COMMENT:
-            print(line)
-        #     print(tokenize.untokenize([(toktype, tokval)]))
-            # return tokenize.untokenize(result).decode('utf-8')
-            # print(tokenize.generate_tokens(string_io.readline))
+            print(str(tokenize.COMMENT))
+            comment = "".join(filter(lambda char: char != str(tokenize.COMMENT), tokval))
+            if comment and comment != '':
+                print(tokval)
+                comments.append(comment)
 
 
-def count_loc(lines):
-    nb_lines = 0
-    docstring = False
-    for line in lines:
-        line = line.strip()
 
-        if line == "" \
-                or line.startswith("#") \
-                or docstring and not (line.startswith('"""') or line.startswith("'''")) \
-                or (line.startswith("'''") and line.endswith("'''") and len(line) > 3) \
-                or (line.startswith('"""') and line.endswith('"""') and len(line) > 3):
-            continue
 
-        # this is either a starting or ending docstring
-        elif line.startswith('"""') or line.startswith("'''"):
-            docstring = not docstring
-            continue
-
-        else:
-            nb_lines += 1
-
-    return nb_lines
+# def count_loc(lines):
+#     nb_lines = 0
+#     docstring = False
+#     for line in lines:
+#         line = line.strip()
+#
+#         if line == "" \
+#                 or line.startswith("#") \
+#                 or docstring and not (line.startswith('"""') or line.startswith("'''")) \
+#                 or (line.startswith("'''") and line.endswith("'''") and len(line) > 3) \
+#                 or (line.startswith('"""') and line.endswith('"""') and len(line) > 3):
+#             continue
+#
+#         # this is either a starting or ending docstring
+#         elif line.startswith('"""') or line.startswith("'''"):
+#             docstring = not docstring
+#             continue
+#
+#         else:
+#             nb_lines += 1
+#
+#     # return nb_lines
 
 
 expr = """
@@ -115,20 +127,23 @@ import javalang
 from os import *
 # Teste comment
 bla="bla"
+'''testeinasdnkansdjkas'''
 test, test2 = "teste"
-\"\"\"docstring\"\"\"
 # # def foo():
 #    t = "testing"
 #    print("hello world")
 def foobar():
+   \"\"\"docstring\"\"\"
    t = "testing"
    print("hello world")
 class Test:
+    \"\"\"docstring test\"\"\"
     def bar(self):
         print ('ola')
 """
 
 p = PythonCodeExtractor()
 p.extract_comments(expr)
-p.extract_number_of_lines(expr)
+# p.extract_number_of_lines(expr)
+# print(p.extract_doc_strings(p.extract_ast(expr)))
 # print (expr)
