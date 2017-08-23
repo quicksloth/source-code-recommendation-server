@@ -1,9 +1,9 @@
 import ast
 import tokenize
-
+import numpy
 from io import StringIO
 
-from Models.CodeExtractors.AbstractCodeExtrator import AbstractCodeExtractor
+from AbstractCodeExtrator import AbstractCodeExtractor
 
 
 class PythonCodeExtractor(AbstractCodeExtractor):
@@ -24,19 +24,30 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_doc_strings(extracted_ast):
-        doc_strings = []
+        doc_strings = set([])
         for node in ast.walk(extracted_ast):
             if isinstance(node, (ast.FunctionDef, ast.ClassDef, ast.Module)):
                 doc_string = ast.get_docstring(node, clean=True)
                 if doc_string:
-                    doc_strings.append(doc_string)
+                    doc_strings.add(doc_string)
         return doc_strings
 
     @staticmethod
-    def extract_comments(code):
-        # TODO extract comments from extracted_ast
-        extract(code)
-        return ""
+    def extract_comments(code, extracted_ast):
+        exclude_chars = ["#", "'''", ' ']
+        comments = set([])
+        string_io = StringIO(code)
+
+        # pass in stringio.readline to generate_tokens
+        for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
+            if toktype == tokenize.COMMENT or (line.startswith("'''") and line.endswith("'''")):
+                # if it uses # or ''' is a comment in python and clean comments
+                comment = "".join(filter(lambda char: char not in exclude_chars, tokval))
+                if comment and comment != '':
+                    comments.add(comment)
+
+        doc_strings = PythonCodeExtractor.extract_doc_strings(extracted_ast)
+        return numpy.concatenate((list(comments), list(doc_strings)))
 
     @staticmethod
     def extract_variables_names(extracted_ast):
@@ -79,22 +90,6 @@ def extract_by_type(extracted_ast, type):
     return [node.name for node in ast.walk(extracted_ast) if isinstance(node, type)]
 
 
-def extract(code):
-    comments = []
-    string_io = StringIO(code)
-
-    # pass in stringio.readline to generate_tokens
-    for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
-        if toktype == tokenize.COMMENT:
-            print(str(tokenize.COMMENT))
-            comment = "".join(filter(lambda char: char != str(tokenize.COMMENT), tokval))
-            if comment and comment != '':
-                print(tokval)
-                comments.append(comment)
-
-
-
-
 # def count_loc(lines):
 #     nb_lines = 0
 #     docstring = False
@@ -128,7 +123,7 @@ from os import *
 # Teste comment
 bla="bla"
 '''testeinasdnkansdjkas'''
-test, test2 = "teste"
+test, test2 = "teste" # teste2 222 2
 # # def foo():
 #    t = "testing"
 #    print("hello world")
@@ -143,7 +138,7 @@ class Test:
 """
 
 p = PythonCodeExtractor()
-p.extract_comments(expr)
+print(p.extract_comments(expr, p.extract_ast(expr)))
 # p.extract_number_of_lines(expr)
 # print(p.extract_doc_strings(p.extract_ast(expr)))
 # print (expr)
