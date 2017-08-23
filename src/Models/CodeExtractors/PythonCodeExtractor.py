@@ -13,7 +13,14 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_number_of_lines(extracted_ast):
-        print(count_loc(extracted_ast))
+        max_lines = 0
+        for node in ast.walk(extracted_ast):
+            print(node.__dict__)
+            # if isinstance(node, dict) and 'lineno' in node.keys():
+            # if node['lineno']:
+            # max_lines = max((max_lines, none.lineno))
+
+        return max_lines
 
     @staticmethod
     def extract_ast(code_text):
@@ -114,8 +121,7 @@ def extract_by_type(extracted_ast, type):
 #     # return nb_lines
 
 
-expr = """
-import ast
+expr = """import ast
 import os
 import collections.OrderedDict as od
 import javalang
@@ -134,11 +140,11 @@ def foobar():
 class Test:
     \"\"\"docstring test\"\"\"
     def bar(self):
-        print ('ola')
-"""
+        print ('ola')"""
 
 p = PythonCodeExtractor()
-print(p.extract_comments(expr, p.extract_ast(expr)))
+# print(p.extract_variables_names(p.extract_ast(expr)))
+print(p.extract_number_of_lines(p.extract_ast(expr)))
 # p.extract_number_of_lines(expr)
 # print(p.extract_doc_strings(p.extract_ast(expr)))
 # print (expr)
