@@ -1,4 +1,4 @@
-from AbstractModule import AbstractModule
+from Modules.AbstractModule import AbstractModule
 
 
 class UnderstandingModule(AbstractModule):

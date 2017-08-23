@@ -10,4 +10,4 @@ class AbstractModule:
 
     def evaluate_code(self, input_bus_vo, code_id):
         # Abstract method, defined by convention only
-        raise NotImplementedError("Subclass must implement abtract method")
+        raise NotImplementedError("Subclass must implement abstract method")
