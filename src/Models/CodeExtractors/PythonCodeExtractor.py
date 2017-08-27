@@ -112,4 +112,3 @@ def split_by_point(text):
 
 def extract_by_type(extracted_ast, type):
     return [node.name for node in ast.walk(extracted_ast) if isinstance(node, type)]
-
