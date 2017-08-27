@@ -32,7 +32,6 @@ def hello_world():
 @app.route('/code-recommendations', methods=['GET'])
 def code_recommendations():
     # print(request.__dict__)
-    # print(request.data)
     # json_dict = json.loads(request.body.raw)
     # print(json_dict)
 
@@ -41,21 +40,17 @@ def code_recommendations():
 
 @app.route('/source', methods=['POST'])
 def source():
+    print('CANDJSNJAKSDBNKJASNDKJSANDJKSANDJKSANK')
     if request.method == 'POST':
-        return 'my code'
+        print(request.data)
+        tjson = json.loads(request.data)
+        print(tjson)
+    return 'source'
 
 
-def get_source_codes():
+def get_source_codes(data):
     url = 'http://127.0.0.1:5001/run_post'
-    data = {
-        'query': 'read file',
-        'libs': ['flask', 'request', 'json'],
-        'comments': ['122', 'todo: test'],
-        'language': 'Python',
-        'sites': ['stackoverflow'],
-    }
-
     requests.request(url=url, method='GET', data=data)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host=5000)

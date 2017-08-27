@@ -11,8 +11,9 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
+
 # TODO: temporary until all set client and crawler
-@app.route('/run_post')
+@app.route('/run_post', methods=['GET'])
 def run_post():
     url = 'http://127.0.0.1:5000/source'
     data = {
@@ -25,10 +26,10 @@ def run_post():
             },
         ],
     }
-
+    print('AQUI')
     headers = {'Content-Type': 'application/json'}
 
-    r = requests.post(url, data, headers)
+    requests.post(url=url, data=data, headers=headers)
 
     return 'post'
     # return json.dumps(r.json(), indent=4)

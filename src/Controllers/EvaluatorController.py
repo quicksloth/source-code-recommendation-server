@@ -1,7 +1,16 @@
-# from src.Modules.LowCouplingModule import LowCouplingModule
-import server
+import sys
+import os
 
-# TODO search how to import from another folder in the same level
+PACKAGE_PARENT = '..'
+SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
+sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
+
+import server
+from uuid import uuid4
+from Models.RequestCode import RequestCode
+
+rc = RequestCode(query='read file', libs=['os'], comments=['comments'], language='Python')
+
 
 class EvaluatorController(object):
     """
@@ -12,9 +21,12 @@ class EvaluatorController(object):
 
     # modules = [Controllers.t([1], 1)]
 
-    def evaluate_all_code(self):
-        server.get_source_codes()
+    @staticmethod
+    def init_get_recommendation_code():
+        request_id = str(uuid4())
+        data = rc.toRequestJSON(str(request_id))
+        server.get_source_codes(data=data)
         return []
 
-# t = EvaluatorController()
-# print t.modules
+t = EvaluatorController()
+print(t.init_get_recommendation_code())
