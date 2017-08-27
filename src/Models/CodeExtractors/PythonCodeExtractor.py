@@ -6,21 +6,15 @@ from io import StringIO
 from AbstractCodeExtrator import AbstractCodeExtractor
 
 
+class PythonComments(Enum):
+    single = '#'
+    multiline = "'''"
+
+
 class PythonCodeExtractor(AbstractCodeExtractor):
     """
         Class to extract data of Python code (string)
     """
-
-    @staticmethod
-    def extract_number_of_lines(extracted_ast):
-        max_lines = 0
-        for node in ast.walk(extracted_ast):
-            print(node.__dict__)
-            # if isinstance(node, dict) and 'lineno' in node.keys():
-            # if node['lineno']:
-            # max_lines = max((max_lines, none.lineno))
-
-        return max_lines
 
     @staticmethod
     def extract_ast(code_text):
@@ -28,6 +22,12 @@ class PythonCodeExtractor(AbstractCodeExtractor):
             return ast.parse(code_text)
         except:
             raise Exception('Error in parsing extracted_ast')
+
+    @staticmethod
+    def extract_number_of_lines(code_text):
+        # TODO: issues-8 (https://github.com/quicksloth/source-code-recommendation-server/issues/8)
+        #  look another way to extract number of lines from ast instead of count \n
+        return code_text.count('\n')
 
     @staticmethod
     def extract_doc_strings(extracted_ast):
@@ -41,17 +41,24 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_comments(code, extracted_ast):
-        exclude_chars = ["#", "'''", ' ']
+        exclude_chars = [PythonComments.single, PythonComments.multiline]
         comments = set([])
         string_io = StringIO(code)
+        multiline_started = false
+        multiline_comments = ''
 
         # pass in stringio.readline to generate_tokens
         for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
-            if toktype == tokenize.COMMENT or (line.startswith("'''") and line.endswith("'''")):
+            if toktype == tokenize.COMMENT:
                 # if it uses # or ''' is a comment in python and clean comments
                 comment = "".join(filter(lambda char: char not in exclude_chars, tokval))
+                # or (line.startswith("'''") and line.endswith("'''"))
                 if comment and comment != '':
                     comments.add(comment)
+                elif multiline_started == True and line.endswith(PythonComments.multiline):
+                    comments.add()
+                elif line.startswith(PythonComments.multiline):
+                    multiline_started = True
 
         doc_strings = PythonCodeExtractor.extract_doc_strings(extracted_ast)
         return numpy.concatenate((list(comments), list(doc_strings)))
@@ -97,30 +104,6 @@ def extract_by_type(extracted_ast, type):
     return [node.name for node in ast.walk(extracted_ast) if isinstance(node, type)]
 
 
-# def count_loc(lines):
-#     nb_lines = 0
-#     docstring = False
-#     for line in lines:
-#         line = line.strip()
-#
-#         if line == "" \
-#                 or line.startswith("#") \
-#                 or docstring and not (line.startswith('"""') or line.startswith("'''")) \
-#                 or (line.startswith("'''") and line.endswith("'''") and len(line) > 3) \
-#                 or (line.startswith('"""') and line.endswith('"""') and len(line) > 3):
-#             continue
-#
-#         # this is either a starting or ending docstring
-#         elif line.startswith('"""') or line.startswith("'''"):
-#             docstring = not docstring
-#             continue
-#
-#         else:
-#             nb_lines += 1
-#
-#     # return nb_lines
-
-
 expr = """import ast
 import os
 import collections.OrderedDict as od
@@ -142,9 +125,29 @@ class Test:
     def bar(self):
         print ('ola')"""
 
+expr2 = '''
+import unittest
+from algorithms import sorting
+
+class Test( unittest.TestCase ):
+
+  def testBubblesort( self ):
+    A = [8, 5, 3, 1, 9, 6, 0, 7, 4, 2, 5]
+    sorting.bubblesort( A )
+    for i in range( 1, len( A ) ):
+        if A[i - 1] < A[i]:
+          self.fail( "bubblesort method fails." )
+'''
+
+expr3 = '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \n'''
+
 p = PythonCodeExtractor()
-# print(p.extract_variables_names(p.extract_ast(expr)))
-print(p.extract_number_of_lines(p.extract_ast(expr)))
+# print(p.extract_libs(p.extract_ast(expr3)))
+# print(p.extract_variables_names(p.extract_ast(expr3)))
+# print(p.extract_functions_names(p.extract_ast(expr3)))
+# print(p.extract_classes(p.extract_ast(expr3)))
+# print(p.extract_comments(expr3, p.extract_ast(expr3)))
+# print(p.extract_doc_strings(p.extract_ast(expr3)))
+print(p.extract_number_of_lines(expr2))
 # p.extract_number_of_lines(expr)
-# print(p.extract_doc_strings(p.extract_ast(expr)))
 # print (expr)
