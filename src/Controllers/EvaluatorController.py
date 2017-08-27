@@ -1,4 +1,6 @@
-from src.Modules.LowCouplingModule import LowCouplingModule
+# from src.Modules.LowCouplingModule import LowCouplingModule
+import server
+
 # TODO search how to import from another folder in the same level
 
 class EvaluatorController(object):
@@ -7,10 +9,11 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
+
     # modules = [Controllers.t([1], 1)]
 
     def evaluate_all_code(self):
-        # TODO develop all codes
+        server.get_source_codes()
         return []
 
 # t = EvaluatorController()
