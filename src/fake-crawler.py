@@ -17,7 +17,7 @@ def hello_world():
 def run_post():
     url = 'http://127.0.0.1:5000/source'
     data = {
-        'clientID': 'AHMAD123',
+        "clientID": "AHMAD123",
         'searchResult': [
             {
                 'documentation': 'reading a file',
@@ -26,10 +26,9 @@ def run_post():
             },
         ],
     }
-    print('AQUI')
     headers = {'Content-Type': 'application/json'}
 
-    requests.post(url=url, data=data, headers=headers)
+    requests.post(url=url, data=json.dumps(data), headers=headers)
 
     return 'post'
     # return json.dumps(r.json(), indent=4)

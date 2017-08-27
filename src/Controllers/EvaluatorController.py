@@ -26,7 +26,15 @@ class EvaluatorController(object):
         request_id = str(uuid4())
         data = rc.toRequestJSON(str(request_id))
         server.get_source_codes(data=data)
-        return []
 
-t = EvaluatorController()
-print(t.init_get_recommendation_code())
+    @staticmethod
+    def evaluate_search_codes(request):
+        print('test')
+        # print(request.__dict__)
+        print(request.is_json)
+        # print(request.json)
+        request_json = request.get_json()
+        print(request_json)
+        print(request_json.get('clientID'))
+        print(request_json.get('searchResult'))
+

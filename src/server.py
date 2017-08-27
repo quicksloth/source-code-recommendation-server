@@ -1,9 +1,12 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 import json
+from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
 
+# TODO: look at
+# request.headers.get('X-Forwarded-For', request.remote_addr)
 
 @app.route('/')
 def hello_world():
@@ -41,10 +44,10 @@ def code_recommendations():
 @app.route('/source', methods=['POST'])
 def source():
     print('CANDJSNJAKSDBNKJASNDKJSANDJKSANDJKSANK')
-    if request.method == 'POST':
-        print(request.data)
-        tjson = json.loads(request.data)
-        print(tjson)
+    # t = jsonify(json.loads(request.data))
+    # print(t.__dict__)
+    # print(t)
+    EvaluatorController().evaluate_search_codes(request)
     return 'source'
 
 
