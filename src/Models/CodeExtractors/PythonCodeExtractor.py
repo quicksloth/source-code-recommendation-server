@@ -2,13 +2,15 @@ import ast
 import tokenize
 import numpy
 from io import StringIO
+from enum import Enum
 
 from AbstractCodeExtrator import AbstractCodeExtractor
 
 
-class PythonComments(Enum):
-    single = '#'
-    multiline = "'''"
+class PythonSyntax(Enum):
+    single_comment = '#'
+    multiline_comment = "'''"
+    espace_char = '\n'
 
 
 class PythonCodeExtractor(AbstractCodeExtractor):
@@ -27,7 +29,7 @@ class PythonCodeExtractor(AbstractCodeExtractor):
     def extract_number_of_lines(code_text):
         # TODO: issues-8 (https://github.com/quicksloth/source-code-recommendation-server/issues/8)
         #  look another way to extract number of lines from ast instead of count \n
-        return code_text.count('\n')
+        return code_text.count(PythonSyntax.espace_char.value)
 
     @staticmethod
     def extract_doc_strings(extracted_ast):
@@ -41,24 +43,33 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_comments(code, extracted_ast):
-        exclude_chars = [PythonComments.single, PythonComments.multiline]
+        exclude_chars = [PythonSyntax.single_comment.value,
+                         PythonSyntax.multiline_comment.value,
+                         PythonSyntax.espace_char.value, "'"]
         comments = set([])
         string_io = StringIO(code)
-        multiline_started = false
+        multiline_started = False
         multiline_comments = ''
 
         # pass in stringio.readline to generate_tokens
-        for toktype, tokval, begin, end, line in tokenize.generate_tokens(string_io.readline):
+        for toktype, tokval, _, _, line in tokenize.generate_tokens(string_io.readline):
+            comment = ''
             if toktype == tokenize.COMMENT:
-                # if it uses # or ''' is a comment in python and clean comments
-                comment = "".join(filter(lambda char: char not in exclude_chars, tokval))
-                # or (line.startswith("'''") and line.endswith("'''"))
-                if comment and comment != '':
-                    comments.add(comment)
-                elif multiline_started == True and line.endswith(PythonComments.multiline):
-                    comments.add()
-                elif line.startswith(PythonComments.multiline):
-                    multiline_started = True
+                comment = tokval
+            elif line.startswith(PythonSyntax.multiline_comment.value):
+                multiline_started = True
+                multiline_comments += tokval
+            elif multiline_started:
+                comment = multiline_comments
+                if line.endswith(PythonSyntax.multiline_comment.value):
+                    multiline_started = False
+
+            # clean comments (uses # or ''')
+            comment = "".join(filter(lambda char: char not in exclude_chars, comment))
+            # for exclude_char in exclude_chars:
+            #     comment = comment.replace(exclude_char, " ")
+            if comment != '':
+                comments.add(comment)
 
         doc_strings = PythonCodeExtractor.extract_doc_strings(extracted_ast)
         return numpy.concatenate((list(comments), list(doc_strings)))
@@ -111,10 +122,11 @@ import javalang
 from os import *
 # Teste comment
 bla="bla"
-'''testeinasdnkansdjkas'''
+'''testeinasdnkansdjkas
+testando comments
+'''
 test, test2 = "teste" # teste2 222 2
 # # def foo():
-#    t = "testing"
 #    print("hello world")
 def foobar():
    \"\"\"docstring\"\"\"
@@ -141,13 +153,21 @@ class Test( unittest.TestCase ):
 
 expr3 = '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \n'''
 
+expr4 = """
+t = 1
+'''tete0
+teste1
+teste2'''
+t = 2
+"""
+
 p = PythonCodeExtractor()
 # print(p.extract_libs(p.extract_ast(expr3)))
 # print(p.extract_variables_names(p.extract_ast(expr3)))
 # print(p.extract_functions_names(p.extract_ast(expr3)))
 # print(p.extract_classes(p.extract_ast(expr3)))
-# print(p.extract_comments(expr3, p.extract_ast(expr3)))
+print(p.extract_comments(expr, p.extract_ast(expr)))
 # print(p.extract_doc_strings(p.extract_ast(expr3)))
-print(p.extract_number_of_lines(expr2))
+# print(p.extract_number_of_lines(expr2))
 # p.extract_number_of_lines(expr)
 # print (expr)
