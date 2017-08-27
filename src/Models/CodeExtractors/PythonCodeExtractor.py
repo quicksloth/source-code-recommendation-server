@@ -66,8 +66,7 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
             # clean comments (uses # or ''')
             comment = "".join(filter(lambda char: char not in exclude_chars, comment))
-            # for exclude_char in exclude_chars:
-            #     comment = comment.replace(exclude_char, " ")
+
             if comment != '':
                 comments.add(comment)
 
