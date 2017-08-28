@@ -8,6 +8,6 @@ class AbstractModule:
         self.internal_weights = internal_weights
         self.weight = weight
 
-    def evaluate_code(self, input_bus_vo, code_id):
+    def evaluate_code(self, input_bus_vo, search_result_id, code_id):
         # Abstract method, defined by convention only
         raise NotImplementedError("Subclass must implement abstract method")
