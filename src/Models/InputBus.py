@@ -9,7 +9,7 @@ class InputBus:
 
     def __init__(self: object, user=None, searched_codes=None, language: object = 'python') -> object:
         if searched_codes is None:
-            searched_codes = {}
+            searched_codes = []
 
         if user is None:
             user = {}
@@ -17,35 +17,8 @@ class InputBus:
         self.user = user
         self.searched_codes = searched_codes
 
-        if language == 'python':
+        if language.lower() == 'python':
             self.code_extractor = PythonCodeExtractor()
 
-
-# Testing Python------
-# expr = """
-# import ast
-# import os
-# import collections.OrderedDict as od
-# import javalang
-# from os import *
-# # Teste comment
-# bla="bla"
-# test, test2 = "teste"
-# def foo():
-#    t = "testing"
-#    print("hello world")
-# def foobar():
-#    t = "testing"
-#    print("hello world")
-# class Test:
-#     def bar(self):
-#         print ('ola')
-# """
-#
-# inputBus = InputBus()
-# extracted_ast = inputBus.code_extractor.extract_ast(expr)
-# print(extracted_ast.__dict__)
-# print(inputBus.extract_functions_from_ast(expr))
-# print(inputBus.extract_classes_from_ast(expr))
-# print(inputBus.extract_libs_from_ast(expr))
-# print(inputBus.extract_variables_from_ast(expr))
+    def add_searched_code(self, sc):
+        self.searched_codes.append(sc)

@@ -9,7 +9,7 @@ class AbstractCodeExtractor:
         raise NotImplementedError("Subclass must implement abstract method")
 
     @staticmethod
-    def extract_comments(extracted_ast):
+    def extract_comments(code, extracted_ast):
         # Abstract method, defined by convention only
         raise NotImplementedError("Subclass must implement abstract method")
 
