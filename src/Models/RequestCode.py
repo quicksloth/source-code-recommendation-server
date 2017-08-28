@@ -7,9 +7,9 @@ class RequestCode(object):
     """
 
     def __init__(self, query, libs, comments, language, request_id=''):
+        self.request_id = request_id
         self.query = query
         self.libs = libs if libs else []
-        self.request_id = request_id
         self.comments = comments if comments else []
         self.language = language if language else 'Python'
 

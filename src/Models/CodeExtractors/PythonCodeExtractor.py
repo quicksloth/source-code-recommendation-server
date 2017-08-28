@@ -4,7 +4,7 @@ import numpy
 from io import StringIO
 from enum import Enum
 
-from AbstractCodeExtrator import AbstractCodeExtractor
+from Models.CodeExtractors.AbstractCodeExtrator import AbstractCodeExtractor
 
 
 class PythonSyntax(Enum):
