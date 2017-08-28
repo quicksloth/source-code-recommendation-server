@@ -46,11 +46,12 @@ teste2'''
 t = 2
 """
 
-p = PythonCodeExtractor()
-print(p.extract_libs(p.extract_ast(expr3)))
-print(p.extract_variables_names(p.extract_ast(expr3)))
-print(p.extract_functions_names(p.extract_ast(expr3)))
-print(p.extract_classes(p.extract_ast(expr3)))
-print(p.extract_comments(expr, p.extract_ast(expr)))
-print(p.extract_doc_strings(p.extract_ast(expr3)))
-print(p.extract_number_of_lines(expr2))
+# p = PythonCodeExtractor()
+# print(p.extract_libs(p.extract_ast(expr3)))
+# print(p.extract_variables_names(p.extract_ast(expr3)))
+# print(p.extract_functions_names(p.extract_ast(expr3)))
+# print(p.extract_classes(p.extract_ast(expr3)))
+# print(p.extract_comments(expr, p.extract_ast(expr)))
+# print(p.extract_doc_strings(p.extract_ast(expr3)))
+# print(p.extract_number_of_lines(expr2))
+

@@ -12,6 +12,7 @@ sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 import server
 from Modules.LowCouplingModule import LowCouplingModule
+from Modules.UnderstandingModule import UnderstandingModule
 from Models.RequestCode import RequestCode
 from Models.db.RequestDB import RequestDB
 from Models.InputBus import InputBus
@@ -26,19 +27,19 @@ class EvaluatorController(object):
 
     modules_weights = []
     lowCouplingModule = LowCouplingModule(weight=10)
+    understandingModule = UnderstandingModule(weight=10)
 
     @staticmethod
     def init_get_recommendation_code():
         request_id = str(uuid4())
 
         # TODO: remove mocked data - get from request
-        rc = RequestCode(query='read file', libs=['os', 'requests'], comments=['comments'], language='Python',
+        rc = RequestCode(query='read file', libs=['json', 'requests'], comments=['comments'], language='Python',
                          request_id=request_id)
         data = rc.toRequestJSON()
 
         RequestDB().add(rc)
         server.get_source_codes(data=data)
-
 
     @classmethod
     def evaluate_search_codes(cls, request):
@@ -53,9 +54,12 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(ib.searched_codes):
             for idy, t in enumerate(searched_code.codes):
-                lowcoupligscore = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx, code_id=idy)
-                print(lowcoupligscore)
-        # TODO: continue here => modules
+                lowcoupligscore = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
+                                                                      code_id=idy)
+
+                understandingModule = cls.understandingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
+                                                                      code_id=idy)
+                # TODO: continue here => modules
 
     @staticmethod
     def map_crawler_result(request_code, results):
@@ -72,18 +76,19 @@ class EvaluatorController(object):
                 variable_names = input_bus.code_extractor.extract_variables_names(ast)
                 function_names = input_bus.code_extractor.extract_functions_names(ast)
                 class_name = input_bus.code_extractor.extract_classes(ast)
+                lines = input_bus.code_extractor.extract_classes(ast)
 
                 c = Code(id=code_idx,
                          libs=libs,
                          comments=comments,
                          variable_names=variable_names,
                          function_names=function_names,
-                         class_name=class_name)
+                         class_name=class_name,
+                         lines_number=lines)
 
                 # print(c.__dict__)
                 sr.add_code(c)
 
             input_bus.add_searched_code(sr)
-            print(input_bus.__dict__)
+            # print(input_bus.__dict__)
         return input_bus
-

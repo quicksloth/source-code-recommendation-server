@@ -11,15 +11,15 @@ class LowCouplingModule(AbstractModule):
         AbstractModule.__init__(self, internal_weights, weight)
 
     def evaluate_code(self, input_bus_vo, search_result_id, code_id):
-        #  TODO TEST THIS => evaluate code in low coupling
-        # DEBUGGING
         user_libs = input_bus_vo.user.libs
-        print(user_libs)
         code_libs = input_bus_vo.searched_codes[search_result_id].codes[code_id].libs
-        print(code_libs)
-        result = set(code_libs).difference(set(user_libs))
-        print("result = %d" % len(result))
-        return len(result)
 
-# t = NlpModule([1], 3)
-# t.evaluate_code("t", 12)
+        diff = set(code_libs).difference(set(user_libs))
+        code_libs_size = len(code_libs)
+
+        result = 1
+        if code_libs_size > 0:
+            result -= (len(diff) / code_libs_size)
+
+        print(result)
+        return result
