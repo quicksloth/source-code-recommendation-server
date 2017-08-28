@@ -36,6 +36,7 @@ class EvaluatorController(object):
         RequestDB().add(rc)
         server.get_source_codes(data=data)
 
+
     @staticmethod
     def evaluate_search_codes(request):
         request_json = request.get_json()
@@ -45,11 +46,19 @@ class EvaluatorController(object):
         request_code = RequestCode(**rc[0])
         # TODO: delete request from json db
 
+        ib = EvaluatorController.map_crawler_result(request_code, results)
+
+        # for c in ib.searched_codes:
+        # TODO: continue here => modules
+
+    @staticmethod
+    def map_crawler_result(request_code, results):
+        input_bus = InputBus(user=request_code)
         for idx, result in enumerate(results):
             sr = SearchResult(id=idx, source_link=result.get('url'), documentation=result.get('documentation'))
 
-            input_bus = InputBus(user=request_code, searched_codes=sr)
-            for code in result.get('sourceCode'):
+            for code_idx, code in enumerate(result.get('sourceCode')):
+                # TODO: maybe extract ast in different threads
                 ast = input_bus.code_extractor.extract_ast(code_text=code)
 
                 libs = input_bus.code_extractor.extract_libs(ast)
@@ -58,7 +67,8 @@ class EvaluatorController(object):
                 function_names = input_bus.code_extractor.extract_functions_names(ast)
                 class_name = input_bus.code_extractor.extract_classes(ast)
 
-                c = Code(libs=libs,
+                c = Code(id=code_idx,
+                         libs=libs,
                          comments=comments,
                          variable_names=variable_names,
                          function_names=function_names,
@@ -67,6 +77,7 @@ class EvaluatorController(object):
                 # print(c.__dict__)
                 sr.add_code(c)
 
+            input_bus.add_searched_code(sr)
             print(input_bus.__dict__)
-
+        return input_bus
 

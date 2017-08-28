@@ -9,7 +9,7 @@ class InputBus:
 
     def __init__(self: object, user=None, searched_codes=None, language: object = 'python') -> object:
         if searched_codes is None:
-            searched_codes = {}
+            searched_codes = []
 
         if user is None:
             user = {}
@@ -20,3 +20,5 @@ class InputBus:
         if language.lower() == 'python':
             self.code_extractor = PythonCodeExtractor()
 
+    def add_searched_code(self, sc):
+        self.searched_codes.append(sc)
