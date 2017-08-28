@@ -1,5 +1,6 @@
 import os
 import sys
+from uuid import uuid4
 
 # TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
@@ -10,7 +11,6 @@ SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 import server
-from uuid import uuid4
 from Modules.LowCouplingModule import LowCouplingModule
 from Models.RequestCode import RequestCode
 from Models.db.RequestDB import RequestDB
