@@ -1,9 +1,11 @@
-import sys
 import os
+import sys
 
 # TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+from tinydb import where
+
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -11,8 +13,7 @@ sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 import server
 from uuid import uuid4
 from Models.RequestCode import RequestCode
-
-rc = RequestCode(query='read file', libs=['os'], comments=['comments'], language='Python')
+from Models.db.RequestDB import RequestDB
 
 
 class EvaluatorController(object):
@@ -22,22 +23,16 @@ class EvaluatorController(object):
 
     modules_weights = []
 
-    # modules = [Controllers.t([1], 1)]
-
     @staticmethod
     def init_get_recommendation_code():
         request_id = str(uuid4())
-        data = rc.toRequestJSON(str(request_id))
+        rc = RequestCode(query='read file', libs=['os'], comments=['comments'], language='Python')
+        rc.request_id = request_id
+        data = rc.toRequestJSON()
+        RequestDB().add(rc)
         server.get_source_codes(data=data)
 
     @staticmethod
     def evaluate_search_codes(request):
-        print('test')
-        # print(request.__dict__)
-        print(request.is_json)
-        # print(request.json)
         request_json = request.get_json()
-        print(request_json)
-        print(request_json.get('clientID'))
-        print(request_json.get('searchResult'))
-
+        print(RequestDB().get_request_by_id(request_json.get('requestID')))

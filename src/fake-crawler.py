@@ -15,9 +15,10 @@ def hello_world():
 # TODO: temporary until all set client and crawler
 @app.route('/run_post', methods=['GET'])
 def run_post():
+    requestId = request.get_json()
     url = 'http://127.0.0.1:5000/source'
     data = {
-        "clientID": "AHMAD123",
+        "requestID": requestId.get('requestID'),
         'searchResult': [
             {
                 'documentation': 'reading a file',

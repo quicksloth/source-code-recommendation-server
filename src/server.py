@@ -53,7 +53,8 @@ def source():
 
 def get_source_codes(data):
     url = 'http://127.0.0.1:5001/run_post'
-    requests.request(url=url, method='GET', data=data)
+    headers = {'Content-Type': 'application/json'}
+    requests.request(url=url, method='GET', data=data, headers=headers)
 
 if __name__ == "__main__":
     app.run(host=5000)
