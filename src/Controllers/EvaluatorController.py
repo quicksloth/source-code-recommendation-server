@@ -4,12 +4,14 @@ import sys
 # TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 import server
 from uuid import uuid4
+from Modules.LowCouplingModule import LowCouplingModule
 from Models.RequestCode import RequestCode
 from Models.db.RequestDB import RequestDB
 from Models.InputBus import InputBus
@@ -23,13 +25,14 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
+    lowCouplingModule = LowCouplingModule(weight=10)
 
     @staticmethod
     def init_get_recommendation_code():
         request_id = str(uuid4())
 
         # TODO: remove mocked data - get from request
-        rc = RequestCode(query='read file', libs=['os'], comments=['comments'], language='Python',
+        rc = RequestCode(query='read file', libs=['os', 'requests'], comments=['comments'], language='Python',
                          request_id=request_id)
         data = rc.toRequestJSON()
 
@@ -37,8 +40,8 @@ class EvaluatorController(object):
         server.get_source_codes(data=data)
 
 
-    @staticmethod
-    def evaluate_search_codes(request):
+    @classmethod
+    def evaluate_search_codes(cls, request):
         request_json = request.get_json()
         results = request_json.get('searchResult')
 
@@ -46,9 +49,12 @@ class EvaluatorController(object):
         request_code = RequestCode(**rc[0])
         # TODO: delete request from json db
 
-        ib = EvaluatorController.map_crawler_result(request_code, results)
+        ib = cls.map_crawler_result(request_code, results)
 
-        # for c in ib.searched_codes:
+        for idx, searched_code in enumerate(ib.searched_codes):
+            for idy, t in enumerate(searched_code.codes):
+                lowcoupligscore = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx, code_id=idy)
+                print(lowcoupligscore)
         # TODO: continue here => modules
 
     @staticmethod
