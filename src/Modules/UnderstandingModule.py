@@ -7,7 +7,8 @@ class UnderstandingModule(AbstractModule):
         the searched code
     """
 
-    threshold = 10
+    D = 10
+    E = 100
 
     def __init__(self, internal_weights=[1, 1], weight=1):
         AbstractModule.__init__(self, internal_weights, weight)
@@ -31,9 +32,9 @@ class UnderstandingModule(AbstractModule):
         max_min_diff = input_bus_vo.code_max_lines - input_bus_vo.code_min_lines
         ti = input_bus_vo.searched_codes[search_result_id].codes[code_id].lines_number
         code_lines_score = 0
-        if max_min_diff > self.threshold:
+        if max_min_diff > self.D:
             code_lines_score = 1 - (ti - input_bus_vo.code_min_lines) * (1 / max_min_diff)
         else:
             print('do other thing')
-            # code_lines_score = 1 - (self.threshold /)
+            code_lines_score = 1 - (self.D / self.E) * (ti - input_bus_vo.code_min_lines)
         return code_lines_score
