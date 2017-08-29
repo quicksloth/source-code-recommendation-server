@@ -58,7 +58,7 @@ class EvaluatorController(object):
                                                                       code_id=idy)
 
                 understandingModule = cls.understandingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
-                                                                      code_id=idy)
+                                                                            code_id=idy)
                 # TODO: continue here => modules
 
     @staticmethod
@@ -76,19 +76,17 @@ class EvaluatorController(object):
                 variable_names = input_bus.code_extractor.extract_variables_names(ast)
                 function_names = input_bus.code_extractor.extract_functions_names(ast)
                 class_name = input_bus.code_extractor.extract_classes(ast)
-                lines = input_bus.code_extractor.extract_classes(ast)
+                lines = input_bus.code_extractor.extract_number_of_lines(code_text=code)
 
-                c = Code(id=code_idx,
-                         libs=libs,
-                         comments=comments,
-                         variable_names=variable_names,
-                         function_names=function_names,
-                         class_name=class_name,
-                         lines_number=lines)
-
-                # print(c.__dict__)
-                sr.add_code(c)
+                sr.add_code(Code(id=code_idx,
+                                 libs=libs,
+                                 comments=comments,
+                                 variable_names=variable_names,
+                                 function_names=function_names,
+                                 class_name=class_name,
+                                 lines_number=lines))
 
             input_bus.add_searched_code(sr)
-            # print(input_bus.__dict__)
+
+        input_bus.set_distance_min_max_lines_size()
         return input_bus

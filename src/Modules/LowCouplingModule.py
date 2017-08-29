@@ -21,5 +21,4 @@ class LowCouplingModule(AbstractModule):
         if code_libs_size > 0:
             result -= (len(diff) / code_libs_size)
 
-        print(result)
         return result

@@ -14,7 +14,6 @@ def hello_world():
 @app.route('/run_post', methods=['GET'])
 def run_post():
     requestId = request.get_json()
-    print(requestId)
     url = 'http://127.0.0.1:5000/source'
     data = {
         "requestID": requestId.get('requestID'),
@@ -23,8 +22,9 @@ def run_post():
                 'documentation': 'reading a file',
                 'url': 'https://url.com',
                 'sourceCode': [
+                    '''import json\n''',
                     '''import json\nfrom uuid import uuid4\n''',
-                    '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \n'''
+                    '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \nprint(2)\n'''
                 ],
             },
         ],
