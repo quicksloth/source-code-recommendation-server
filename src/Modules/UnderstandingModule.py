@@ -9,17 +9,22 @@ class UnderstandingModule(AbstractModule):
 
     threshold = 10
 
-    def __init__(self, internal_weights=[1,1], weight=1):
+    def __init__(self, internal_weights=[1, 1], weight=1):
         AbstractModule.__init__(self, internal_weights, weight)
 
     def evaluate_code(self, input_bus_vo, search_result_id, code_id):
-        # input_bus_vo.searched_codes[search_result_id].codes[code_id].libs
-        # print(input_bus_vo.code_max_lines)
-        # print(input_bus_vo.code_min_lines)
-
         code_lines_score = self.evaluate_by_code_lines(code_id, input_bus_vo, search_result_id)
 
-        score = code_lines_score*self.internal_weights[0]
+        comments = input_bus_vo.searched_codes[search_result_id].codes[code_id].comments
+        new_comments_lines = 0
+        for comment in comments:
+            new_comments_lines += comment.count('\n')
+
+        comments_line_number = len(comments) + new_comments_lines
+        count_lines = input_bus_vo.searched_codes[search_result_id].codes[code_id].lines_number
+        comments_score = comments_line_number / (count_lines - comments_line_number)
+
+        score = (code_lines_score * self.internal_weights[0]) + (comments_score*self.internal_weights[1])
         return score * self.weight
 
     def evaluate_by_code_lines(self, code_id, input_bus_vo, search_result_id):
@@ -32,4 +37,3 @@ class UnderstandingModule(AbstractModule):
             print('do other thing')
             # code_lines_score = 1 - (self.threshold /)
         return code_lines_score
-
