@@ -1,4 +1,7 @@
-import numpy as np
+import os
+import pickle
+
+dirname = os.path.dirname(os.path.abspath(__file__))
 
 
 class ComplexNetwork(object):
@@ -9,23 +12,31 @@ class ComplexNetwork(object):
     Attributes:
         textual_train_base: A array of strings to train complex network based on co-occurrence
     """
-    complex_network_file = "adjacency_list_complex_network.npy"
-    complex_network_file_last_version = "adjacency_list_complex_network_last_version.npy"
+    complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
+    complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
     default_weight = 1
     neighbor_distance = 1
 
     def __init__(self):
         self.adjacency_list = dict([])
+        self.load_complex_network()
 
-    def __load_complex_network(self, filename=None):
+    def load_complex_network(self, filename=None):
         """Load complex network by file"""
-        np_file = open(filename or self.complex_network_filee, 'r')
-        self.adjacency_list = np.load(np_file)
+        try:
+            pfile = open((filename or self.complex_network_file), 'rb+')
+            self.adjacency_list = pickle.load(pfile)
+        except:
+            print('create new empty file')
+            self.__save_complex_network(filename=filename)
 
     def __save_complex_network(self, filename=None):
         """Save complex network by file"""
-        np_file = open(filename or self.complex_network_file, 'w')
-        np.save(np_file, self.adjacency_list)
+        try:
+            pfile = open((filename or self.complex_network_file), 'wb+')
+            pickle.dump(self.adjacency_list, pfile)
+        except:
+            print('error in dump dict')
 
     def train_network(self, textual_train_base):
         """
@@ -60,7 +71,6 @@ class ComplexNetwork(object):
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         self.__save_complex_network()
-        # print self.adjacency_list
         return self.adjacency_list
 
     # TODO: use this one function when complex network it's ok
@@ -74,7 +84,7 @@ class ComplexNetwork(object):
         else:
             return 0
 
-    def get_contextual_distance(self, one_word, second_word):
+    def get_contextual_distance(self):
         return 1
 
 # TESTING COMPLEX NETWORK class -------
@@ -82,8 +92,7 @@ class ComplexNetwork(object):
 # t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
 # textual = [t1, t2]
 # cn = ComplexNetwork()
-# cn_al = cn.train_network(textual_train_base=textual)
-# print len(cn_al)
+# print(len(cn_al))
 
 # textual = ["bla ble bli blo bu", "la le li lo lu"]
 # cn_al = cn.train_network(textual_train_base=textual)
@@ -94,4 +103,5 @@ class ComplexNetwork(object):
 # cn.save_complex_network()
 # print cn.adjacency_list
 # cn.load_complex_network()
-# print cn.adjacency_list
+# cn_al = cn.train_network(textual_train_base=textual)
+# print(cn.adjacency_list)

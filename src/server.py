@@ -29,5 +29,12 @@ def get_source_codes(data):
     requests.request(url=url, method='GET', data=data, headers=headers)
 
 
+@app.route('/train-network', methods=['POST'])
+def train_network():
+    train_base = request.get_json().get('train_text')
+    EvaluatorController().train_network(train_database=train_base)
+    return json.dumps({'success': True})
+
+
 if __name__ == "__main__":
     app.run(host=5000)

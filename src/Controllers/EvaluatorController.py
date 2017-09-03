@@ -5,6 +5,7 @@ from uuid import uuid4
 # TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -13,6 +14,7 @@ import server
 from Modules.NlpModule import NlpModule
 from Modules.LowCouplingModule import LowCouplingModule
 from Modules.UnderstandingModule import UnderstandingModule
+from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 from Models.RequestCode import RequestCode
 from Models.db.RequestDB import RequestDB
@@ -26,9 +28,10 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
-    lowCouplingModule = LowCouplingModule(weight=1)
-    understandingModule = UnderstandingModule(weight=1)
-    nlpModule = NlpModule(weight=1)
+    complex_network = ComplexNetwork()
+    low_coupling_module = LowCouplingModule(weight=1)
+    understanding_module = UnderstandingModule(weight=1)
+    nlp_module = NlpModule(weight=1)
 
     @staticmethod
     def init_get_recommendation_code():
@@ -58,17 +61,17 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
-                low_coupling_score = cls.lowCouplingModule.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
-                                                                         code_id=idy)
+                low_coupling_score = cls.low_coupling_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
+                                                                           code_id=idy)
 
-                understanding_score = cls.understandingModule.evaluate_code(input_bus_vo=input_bus,
-                                                                            search_result_id=idx,
-                                                                            code_id=idy)
+                understanding_score = cls.understanding_module.evaluate_code(input_bus_vo=input_bus,
+                                                                             search_result_id=idx,
+                                                                             code_id=idy)
 
-                nlp_score = cls.nlpModule.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
-                                                        code_id=idy)
+                nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
+                                                         code_id=idy)
 
-                sum_weight = (cls.lowCouplingModule.weight + cls.understandingModule.weight + cls.nlpModule.weight)
+                sum_weight = (cls.low_coupling_module.weight + cls.understanding_module.weight + cls.nlp_module.weight)
                 final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
                 code.score = final_score
 
@@ -89,3 +92,7 @@ class EvaluatorController(object):
 
         input_bus.set_distance_min_max_lines_size()
         return input_bus
+
+    def train_network(self, train_database):
+        self.complex_network.train_network(textual_train_base=train_database)
+        print(self.complex_network.adjacency_list)
