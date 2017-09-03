@@ -4,6 +4,7 @@ from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -40,7 +41,7 @@ def source():
 
 
 def get_source_codes(data):
-    url = 'http://127.0.0.1:5001/run_post'
+    url = 'http://127.0.0.1:5001/crawl'
     headers = {'Content-Type': 'application/json'}
     requests.request(url=url, method='GET', data=data, headers=headers)
 

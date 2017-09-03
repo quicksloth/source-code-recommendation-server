@@ -11,12 +11,12 @@ def hello_world():
 
 
 # TODO: temporary until all set client and crawler
-@app.route('/run_post', methods=['GET'])
-def run_post():
-    requestId = request.get_json()
+@app.route('/crawl', methods=['GET'])
+def crawl():
+    request_body = request.get_json()
     url = 'http://127.0.0.1:5000/source'
     data = {
-        "requestID": requestId.get('requestID'),
+        "requestID": request_body.get('requestID'),
         'searchResult': [
             {
                 'documentation': 'reading a file',
@@ -33,7 +33,7 @@ def run_post():
 
     requests.post(url=url, data=json.dumps(data), headers=headers)
 
-    return 'post'
+    return True
     # return json.dumps(r.json(), indent=4)
 
 
