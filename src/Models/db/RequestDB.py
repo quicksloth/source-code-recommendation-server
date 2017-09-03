@@ -14,5 +14,8 @@ class RequestDB(object):
         else:
             self.db.insert(request.__dict__)
 
+    def remove(self, request_id):
+        self.db.remove(where('request_id') == request_id)
+
     def get_request_by_id(self, request_id):
         return self.db.search(where('request_id') == request_id)
