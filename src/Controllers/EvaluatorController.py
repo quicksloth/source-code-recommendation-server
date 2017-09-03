@@ -53,16 +53,22 @@ class EvaluatorController(object):
         ib = cls.map_crawler_result(request_code, results)
 
         for idx, searched_code in enumerate(ib.searched_codes):
-            for idy, t in enumerate(searched_code.codes):
+            for idy, code in enumerate(searched_code.codes):
                 lowcoupling_score = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
                                                                         code_id=idy)
 
-                print('lowcoupligscore %f ' % lowcoupling_score)
                 understanding_score = cls.understandingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
                                                                             code_id=idy)
-                print('understandingModule %f ' % understanding_score)
+
+                sum_weight = (cls.lowCouplingModule.weight + cls.understandingModule.weight)
+                final_score = (lowcoupling_score + understanding_score) / sum_weight
+                code.score = final_score
+
                 # TODO: continue here => modules
-                print('--------------')
+
+        for idx, searched_code in enumerate(ib.searched_codes):
+            for idy, code in enumerate(searched_code.codes):
+                print(code.score)
 
     @staticmethod
     def map_crawler_result(request_code, results):
