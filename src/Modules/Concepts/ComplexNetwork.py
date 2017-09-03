@@ -1,9 +1,7 @@
-# import numpy as np
+import os
 import pickle
 
-
-def get_contextual_distance(one_word, second_word):
-    return 1
+dirname = os.path.dirname(os.path.abspath(__file__))
 
 
 class ComplexNetwork(object):
@@ -14,8 +12,8 @@ class ComplexNetwork(object):
     Attributes:
         textual_train_base: A array of strings to train complex network based on co-occurrence
     """
-    complex_network_file = "adjacency_list_complex_network.pickle"
-    complex_network_file_last_version = "adjacency_list_complex_network_last_version.pickle"
+    complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
+    complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
     default_weight = 1
     neighbor_distance = 1
 
@@ -89,12 +87,11 @@ class ComplexNetwork(object):
     def get_contextual_distance(self):
         return 1
 
-
 # TESTING COMPLEX NETWORK class -------
-t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
-t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
-textual = [t1, t2]
-cn = ComplexNetwork()
+# t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
+# t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
+# textual = [t1, t2]
+# cn = ComplexNetwork()
 # print(len(cn_al))
 
 # textual = ["bla ble bli blo bu", "la le li lo lu"]
@@ -105,6 +102,6 @@ cn = ComplexNetwork()
 
 # cn.save_complex_network()
 # print cn.adjacency_list
-cn.load_complex_network()
-cn_al = cn.train_network(textual_train_base=textual)
+# cn.load_complex_network()
+# cn_al = cn.train_network(textual_train_base=textual)
 # print(cn.adjacency_list)
