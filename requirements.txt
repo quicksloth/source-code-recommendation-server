@@ -1,0 +1,6 @@
+dataset==0.8.0
+Flask==0.12.2
+numpy==1.13.1
+requests==2.18.4
+tinydb==3.4.1
+urllib3==1.22
