@@ -6,7 +6,6 @@ from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -28,6 +27,15 @@ def get_source_codes(data):
     headers = {'Content-Type': 'application/json'}
     requests.request(url=url, method='GET', data=data, headers=headers)
 
+
+@app.route('/train-network', methods=['POST'])
+def train_network():
+    print('teste2')
+    print(request.get_json())
+    train_base = request.get_json().get('train_text')
+    print(train_base)
+    EvaluatorController().train_network(train_database=train_base)
+    return json.dumps({'success': True})
 
 if __name__ == "__main__":
     app.run(host=5000)
