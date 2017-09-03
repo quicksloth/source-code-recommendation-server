@@ -26,8 +26,8 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
-    lowCouplingModule = LowCouplingModule(weight=10)
-    understandingModule = UnderstandingModule(weight=10)
+    lowCouplingModule = LowCouplingModule(weight=1)
+    understandingModule = UnderstandingModule(weight=1)
 
     @staticmethod
     def init_get_recommendation_code():
@@ -54,12 +54,15 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(ib.searched_codes):
             for idy, t in enumerate(searched_code.codes):
-                lowcoupligscore = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
-                                                                      code_id=idy)
+                lowcoupling_score = cls.lowCouplingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
+                                                                        code_id=idy)
 
-                understandingModule = cls.understandingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
+                print('lowcoupligscore %f ' % lowcoupling_score)
+                understanding_score = cls.understandingModule.evaluate_code(input_bus_vo=ib, search_result_id=idx,
                                                                             code_id=idy)
+                print('understandingModule %f ' % understanding_score)
                 # TODO: continue here => modules
+                print('--------------')
 
     @staticmethod
     def map_crawler_result(request_code, results):

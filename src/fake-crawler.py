@@ -14,7 +14,7 @@ def hello_world():
 @app.route('/crawl', methods=['GET'])
 def crawl():
     request_body = request.get_json()
-    url = 'http://127.0.0.1:5000/source'
+    url = 'http://127.0.0.1:5000/source-codes'
     data = {
         "requestID": request_body.get('requestID'),
         'searchResult': [
@@ -23,7 +23,8 @@ def crawl():
                 'url': 'https://url.com',
                 'sourceCode': [
                     '''import json\n''',
-                    '''import json\nfrom uuid import uuid4\n''',
+                    '''import json\n\n\n\n\n\n\n\n\n\n\n\n\n''',
+                    '''import json\nfrom uuid import uuid4\n# you may also want''',
                     '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \nprint(2)\n'''
                 ],
             },
@@ -33,8 +34,7 @@ def crawl():
 
     requests.post(url=url, data=json.dumps(data), headers=headers)
 
-    return True
-    # return json.dumps(r.json(), indent=4)
+    return 'crawl'
 
 
 @app.route('/run_get')
