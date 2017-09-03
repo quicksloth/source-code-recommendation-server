@@ -5,6 +5,7 @@ from uuid import uuid4
 # TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -13,6 +14,7 @@ import server
 from Modules.NlpModule import NlpModule
 from Modules.LowCouplingModule import LowCouplingModule
 from Modules.UnderstandingModule import UnderstandingModule
+from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 from Models.RequestCode import RequestCode
 from Models.db.RequestDB import RequestDB
@@ -26,6 +28,7 @@ class EvaluatorController(object):
     """
 
     modules_weights = []
+    complex_network = ComplexNetwork()
     lowCouplingModule = LowCouplingModule(weight=1)
     understandingModule = UnderstandingModule(weight=1)
     nlpModule = NlpModule(weight=1)
@@ -89,3 +92,6 @@ class EvaluatorController(object):
 
         input_bus.set_distance_min_max_lines_size()
         return input_bus
+
+    def train_network(self, train_database):
+        self.complex_network.train_network(textual_train_base=train_database)

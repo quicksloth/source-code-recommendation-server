@@ -13,9 +13,9 @@ class NlpModule(AbstractModule):
         documentation and user code
     """
 
-    def __init__(self, internal_weights=[1, 1, 1, 1, 1], weight=1):
+    def __init__(self, internal_weights=[1, 1, 1, 1, 1], weight=1, complex_network=ComplexNetwork()):
         AbstractModule.__init__(self, internal_weights, weight)
-        self.complex_network = ComplexNetwork()
+        self.complex_network = complex_network
 
     def evaluate_code(self, input_bus_vo, search_result_id, code_id):
         #  TODO evaluate code in nlo

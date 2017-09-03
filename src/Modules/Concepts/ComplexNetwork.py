@@ -16,10 +16,11 @@ class ComplexNetwork(object):
 
     def __init__(self):
         self.adjacency_list = dict([])
+        self.__load_complex_network()
 
     def __load_complex_network(self, filename=None):
         """Load complex network by file"""
-        np_file = open(filename or self.complex_network_filee, 'r')
+        np_file = open(filename or self.complex_network_file, 'r')
         self.adjacency_list = np.load(np_file)
 
     def __save_complex_network(self, filename=None):
@@ -36,7 +37,7 @@ class ComplexNetwork(object):
         """
         # TODO fix logic of saving
         self.__save_complex_network(filename=self.complex_network_file_last_version)
-
+        print(textual_train_base)
         for doc in textual_train_base:
             words = doc.split()
             for idx, word in enumerate(words):
@@ -60,7 +61,7 @@ class ComplexNetwork(object):
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         self.__save_complex_network()
-        # print self.adjacency_list
+        print(self.adjacency_list)
         return self.adjacency_list
 
     # TODO: use this one function when complex network it's ok
