@@ -1,5 +1,5 @@
-from AbstractModule import AbstractModule
-from Concepts.ComplexNetwork import ComplexNetwork
+from Modules.AbstractModule import AbstractModule
+from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 t1 = 'Lorem ipsum dolor sit amet Nullam metus.'
 t2 = 'Lorem ipsum Consectetur adipiscing elit.'
@@ -13,13 +13,13 @@ class NlpModule(AbstractModule):
         documentation and user code
     """
 
-    def __init__(self, internal_weights, weight):
+    def __init__(self, internal_weights=[1, 1, 1, 1, 1], weight=1):
         AbstractModule.__init__(self, internal_weights, weight)
-        self.complex_network = ComplexNetwork(textual_train_base=textual)
+        self.complex_network = ComplexNetwork()
 
-    def evaluate_code(self, input_bus_vo, code_id):
+    def evaluate_code(self, input_bus_vo, search_result_id, code_id):
         #  TODO evaluate code in nlo
-        self.complex_network.get_contextual_distance(one_word="lorem", second_word="ipsum")
+        return self.complex_network.get_contextual_distance(one_word="lorem", second_word="ipsum")
 
 # t = NlpModule([1], 3)
 # t.evaluate_code("t", 12)

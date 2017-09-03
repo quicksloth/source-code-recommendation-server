@@ -1,5 +1,3 @@
-from email.mime import application
-
 from flask import Flask, request
 import requests
 import json
@@ -13,17 +11,22 @@ def hello_world():
 
 
 # TODO: temporary until all set client and crawler
-@app.route('/run_post', methods=['GET'])
-def run_post():
-    requestId = request.get_json()
-    url = 'http://127.0.0.1:5000/source'
+@app.route('/crawl', methods=['GET'])
+def crawl():
+    request_body = request.get_json()
+    url = 'http://127.0.0.1:5000/source-codes'
     data = {
-        "requestID": requestId.get('requestID'),
+        "requestID": request_body.get('requestID'),
         'searchResult': [
             {
                 'documentation': 'reading a file',
                 'url': 'https://url.com',
-                'sourceCode': ['''import json\nfrom uuid import uuid4\nwith open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \n''', '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \n'''],
+                'sourceCode': [
+                    '''import json\n''',
+                    '''import json\n\n\n\n\n\n\n\n\n\n\n\n\n''',
+                    '''import json\nfrom uuid import uuid4\n# you may also want''',
+                    '''with open(fname) as f:\n    content = f.readlines()\n# you may also want to remove whitespace characters like `\\n` at the end of each line\ncontent = [x.strip() for x in content] \nprint(2)\n'''
+                ],
             },
         ],
     }
@@ -31,8 +34,7 @@ def run_post():
 
     requests.post(url=url, data=json.dumps(data), headers=headers)
 
-    return 'post'
-    # return json.dumps(r.json(), indent=4)
+    return json.dumps({'success': True})
 
 
 @app.route('/run_get')

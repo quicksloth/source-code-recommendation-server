@@ -44,8 +44,7 @@ class PythonCodeExtractor(AbstractCodeExtractor):
     @staticmethod
     def extract_comments(code, extracted_ast):
         exclude_chars = [PythonSyntax.single_comment.value,
-                         PythonSyntax.multiline_comment.value,
-                         PythonSyntax.escape_char.value, "'"]
+                         PythonSyntax.multiline_comment.value, "'"]
         comments = set([])
         string_io = StringIO(code)
         multiline_started = False

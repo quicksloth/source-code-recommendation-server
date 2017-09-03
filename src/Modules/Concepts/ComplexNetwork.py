@@ -63,7 +63,8 @@ class ComplexNetwork(object):
         # print self.adjacency_list
         return self.adjacency_list
 
-    def get_contextual_distance(self, one_word, second_word):
+    # TODO: use this one function when complex network it's ok
+    def get_contextual_distance_right(self, one_word, second_word):
         """Get distance between one_word to another (second_word) """
         one_word = one_word.lower()
         second_word = second_word.lower()
@@ -73,17 +74,19 @@ class ComplexNetwork(object):
         else:
             return 0
 
+    def get_contextual_distance(self, one_word, second_word):
+        return 1
 
 # TESTING COMPLEX NETWORK class -------
-t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
-t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
-textual = [t1, t2]
-cn = ComplexNetwork()
-cn_al = cn.train_network(textual_train_base=textual)
+# t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
+# t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
+# textual = [t1, t2]
+# cn = ComplexNetwork()
+# cn_al = cn.train_network(textual_train_base=textual)
 # print len(cn_al)
 
-textual = ["bla ble bli blo bu", "la le li lo lu"]
-cn_al = cn.train_network(textual_train_base=textual)
+# textual = ["bla ble bli blo bu", "la le li lo lu"]
+# cn_al = cn.train_network(textual_train_base=textual)
 # print len(cn_al)
 
 # print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
