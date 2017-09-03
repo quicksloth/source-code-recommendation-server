@@ -36,11 +36,13 @@ class EvaluatorController(object):
         request_id = str(uuid4())
 
         # TODO: remove mocked data - get from request
-        rc = RequestCode(query='read file', libs=['json', 'requests'], comments=['comments'], language='Python',
-                         request_id=request_id)
-        data = rc.toRequestJSON()
-
-        RequestDB().add(rc)
+        request_code = RequestCode(query='read file',
+                                   libs=['json', 'requests'],
+                                   comments=['comments'],
+                                   language='Python',
+                                   request_id=request_id)
+        data = request_code.toRequestJSON()
+        RequestDB().add(request_code)
         server.get_source_codes(data=data)
 
     @classmethod
@@ -60,7 +62,8 @@ class EvaluatorController(object):
                 low_coupling_score = cls.lowCouplingModule.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                                          code_id=idy)
 
-                understanding_score = cls.understandingModule.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
+                understanding_score = cls.understandingModule.evaluate_code(input_bus_vo=input_bus,
+                                                                            search_result_id=idx,
                                                                             code_id=idy)
 
                 nlp_score = cls.nlpModule.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
@@ -70,10 +73,10 @@ class EvaluatorController(object):
                 final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
                 code.score = final_score
 
-        # TODO: continue here => modules
-        # for idx, searched_code in enumerate(input_bus.searched_codes):
-        #     for idy, code in enumerate(searched_code.codes):
-        #         print(code.score)
+                # TODO: continue here => modules
+                # for idx, searched_code in enumerate(input_bus.searched_codes):
+                #     for idy, code in enumerate(searched_code.codes):
+                #         print(code.score)
 
     @staticmethod
     def map_crawler_result(request_code, results):
