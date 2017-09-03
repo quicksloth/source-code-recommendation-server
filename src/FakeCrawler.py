@@ -53,16 +53,5 @@ def run_get():
     return 'get'
 
 
-def train_database():
-    url = 'http://127.0.0.1:5000/train-network'
-    headers = {'Content-Type': 'application/json'}
-    data = {
-        'train_text': ['read file', 'flask', 'request',
-                       'json', 'comments', '122', 'todo: test', 'language',
-                       'Python', 'sites stackoverflow lore lorem', 'lorem ipsumb amdksd'],
-    }
-    requests.request(url=url, method='POST', data=data, headers=headers)
-
-
 if __name__ == "__main__":
     app.run(port=5001)

@@ -6,7 +6,6 @@ from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -31,7 +30,8 @@ def get_source_codes(data):
 
 @app.route('/train-network', methods=['POST'])
 def train_network():
-    print('teste')
+    print('teste2')
+    print(request.get_json())
     train_base = request.get_json().get('train_text')
     print(train_base)
     EvaluatorController().train_network(train_database=train_base)
