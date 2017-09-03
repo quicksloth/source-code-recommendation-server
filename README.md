@@ -17,6 +17,10 @@ Implements Evaluation Component of QuickSloth system
 
 `pip3 install -r requirements`
 
+`cd src/`
+
 `export FLASK_APP=server.py`
 
-`flask run --reload --host=0.0.0.0`
+`flask run --reload`
+
+(optional `--host=0.0.0.0`)
