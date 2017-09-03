@@ -84,7 +84,7 @@ class ComplexNetwork(object):
         else:
             return 0
 
-    def get_contextual_distance(self):
+    def get_contextual_distance(self, one_word, second_word):
         return 1
 
 # TESTING COMPLEX NETWORK class -------

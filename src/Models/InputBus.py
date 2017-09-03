@@ -7,7 +7,7 @@ class InputBus:
         to extract more data from these
     """
 
-    def __init__(self: object, user=None, searched_codes=None, language: object = 'python') -> object:
+    def __init__(self, user=None, searched_codes=None, language='python'):
         if searched_codes is None:
             searched_codes = []
 
@@ -33,4 +33,3 @@ class InputBus:
 
         self.code_max_lines = max(lines)
         self.code_min_lines = min(lines)
-
