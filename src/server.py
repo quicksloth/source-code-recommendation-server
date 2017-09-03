@@ -1,5 +1,7 @@
 from flask import Flask, request
 import requests
+from flask import json
+
 from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
@@ -18,7 +20,7 @@ def code_recommendations():
 @app.route('/source-codes', methods=['POST'])
 def source():
     EvaluatorController().evaluate_search_codes(request)
-    return 'source'
+    return json.dumps({'success': True})
 
 
 def get_source_codes(data):

@@ -34,7 +34,7 @@ def crawl():
 
     requests.post(url=url, data=json.dumps(data), headers=headers)
 
-    return 'crawl'
+    return json.dumps({'success': True})
 
 
 @app.route('/run_get')
