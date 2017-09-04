@@ -20,7 +20,6 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_ast(code_text):
-        print(code_text)
         try:
             return ast.parse(code_text)
         except:
