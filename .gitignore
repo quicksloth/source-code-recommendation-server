@@ -109,3 +109,5 @@ ENV/
 */.idea/tasks.xml
 
 *.npy
+*.pickle
+src/Models/db/requestdb.json
