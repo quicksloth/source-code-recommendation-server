@@ -33,4 +33,5 @@ class CrawlerResultDTO(object):
                                          variable_names=variable_names,
                                          function_names=function_names,
                                          class_name=class_name,
-                                         lines_number=lines))
+                                         lines_number=lines,
+                                         code=code))

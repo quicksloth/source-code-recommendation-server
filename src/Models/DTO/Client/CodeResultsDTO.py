@@ -4,8 +4,13 @@ class CodeResultsDTO(object):
         code recommendations
     """
 
-    def __init__(self, codes):
+    def __init__(self, codes=None):
+        if codes is None:
+            codes = []
         self.codes = codes
 
-    # def serialize:
-    # TODO serialize this object to string
+    def add_code(self, code):
+        self.codes.append(code)
+
+        # def serialize:
+        # TODO serialize this object to string

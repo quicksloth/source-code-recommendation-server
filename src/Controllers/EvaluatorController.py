@@ -4,6 +4,7 @@ from uuid import uuid4
 
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -14,10 +15,13 @@ from Modules.LowCouplingModule import LowCouplingModule
 from Modules.UnderstandingModule import UnderstandingModule
 from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
+from Models.DTO.Client.CodeDTO import CodeDTO
+from Models.DTO.Client.CodeResultsDTO import CodeResultsDTO
 from Models.DTO.Crawler.CrawlerRequestDTO import CrawlerRequestDTO
+from Models.DTO.Crawler.CrawlerResultDTO import CrawlerResultDTO
+
 from Models.db.RequestDB import RequestDB
 from Models.InputBus import InputBus
-from Models.DTO.Crawler.CrawlerResultDTO import CrawlerResultDTO
 
 
 class EvaluatorController(object):
@@ -56,15 +60,14 @@ class EvaluatorController(object):
         RequestDB().remove(request_id)
 
         input_bus = cls.map_crawler_result(request_code, results)
+        code_results = CodeResultsDTO()
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
                 cls.evaluate_codes(code, idx, idy, input_bus)
+                code_results.add_code(CodeDTO().from_crawler_code(crawler_code=code, crawler_result=searched_code))
 
-        # TODO: continue here => modules
-        # for idx, searched_code in enumerate(input_bus.searched_codes):
-        #     for idy, code in enumerate(searched_code.codes):
-        #         print(code.score)
+        print(code_results.__dict__)
 
     @classmethod
     def evaluate_codes(cls, code, idx, idy, input_bus):

@@ -3,7 +3,7 @@ class CrawlerCodeDTO(object):
         Object that contains grouped all data of the code
     """
 
-    def __init__(self, id, libs, comments, variable_names, function_names, class_name, lines_number):
+    def __init__(self, id, libs, comments, variable_names, function_names, class_name, lines_number, code):
         self.id = id
         self.libs = libs if libs else []
         self.comments = comments if comments else []
@@ -12,3 +12,4 @@ class CrawlerCodeDTO(object):
         self.class_name = class_name if class_name else []
         self.lines_number = lines_number if lines_number else []
         self.score = 0.0
+        self.code = code
