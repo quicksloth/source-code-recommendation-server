@@ -1,4 +1,4 @@
-# Source CrawlerCodeDTO Recommendation Server
+# Source Code Recommendation Server
 
 Implements Evaluation Component of QuickSloth system
 
