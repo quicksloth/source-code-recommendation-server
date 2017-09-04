@@ -1,10 +1,12 @@
-from flask import Flask, request
+from flask import Flask, request, json
+from flask_socketio import SocketIO
 import requests
-from flask import json
 
 from Controllers.EvaluatorController import EvaluatorController
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '@server-secret'
+socketio = SocketIO(app)
 
 
 @app.route('/')
@@ -36,5 +38,11 @@ def train_network():
     return json.dumps({'success': True})
 
 
+@socketio.on('json')
+def handle_json(json):
+    print('received json: ' + str(json))
+# https://flask-socketio.readthedocs.io/en/latest/
+
 if __name__ == "__main__":
     app.run(host=5000)
+    socketio.run(app)
