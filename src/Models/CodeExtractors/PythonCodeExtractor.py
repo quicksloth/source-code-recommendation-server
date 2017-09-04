@@ -23,7 +23,8 @@ class PythonCodeExtractor(AbstractCodeExtractor):
         try:
             return ast.parse(code_text)
         except:
-            raise Exception('Error in parsing extracted_ast')
+            print('Error in parsing extracted_ast')
+            return False
 
     @staticmethod
     def extract_number_of_lines(code_text):
