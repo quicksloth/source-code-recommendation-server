@@ -20,6 +20,10 @@ class CrawlerResultDTO(object):
             # TODO: maybe extract ast in different threads
             ast = input_bus.code_extractor.extract_ast(code_text=code)
 
+            # Handle error in case that ast cannot be parsed
+            if not ast:
+                continue
+
             libs = input_bus.code_extractor.extract_libs(ast)
             comments = input_bus.code_extractor.extract_comments(code, ast)
             variable_names = input_bus.code_extractor.extract_variables_names(ast)

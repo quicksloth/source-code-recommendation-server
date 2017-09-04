@@ -33,7 +33,7 @@ def crawl():
                 'url': 'http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python',
                 'sourceCode': [
                     '''file_object = open(“filename”, “mode”) where\nfile_object is the variable to add the file object.''',
-                    '''file = open(“testfile.txt”,”w”)\nfile.write(“Hello World”)\nfile.write(“This is our new text file”)\nfile.write(“and this is another line.”)\nfile.write(“Why? Because we can.”)\n\nfile.close() ''',
+                    '''file = open("testfile.txt","w")\nfile.write("Hello World")\nfile.close()''',
                 ],
             },
         ],
