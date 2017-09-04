@@ -67,7 +67,8 @@ class EvaluatorController(object):
                 cls.evaluate_codes(code, idx, idy, input_bus)
                 code_results.add_code(CodeDTO().from_crawler_code(crawler_code=code, crawler_result=searched_code))
 
-        print(code_results.__dict__)
+        print(code_results.toJSON())
+        return code_results.toJSON()
 
     @classmethod
     def evaluate_codes(cls, code, idx, idy, input_bus):

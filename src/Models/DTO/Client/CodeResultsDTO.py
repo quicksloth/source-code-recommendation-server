@@ -1,3 +1,6 @@
+from flask import json
+
+
 class CodeResultsDTO(object):
     """
         Object to transfer all
@@ -12,5 +15,5 @@ class CodeResultsDTO(object):
     def add_code(self, code):
         self.codes.append(code)
 
-        # def serialize:
-        # TODO serialize this object to string
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
