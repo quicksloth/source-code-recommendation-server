@@ -108,4 +108,6 @@ ENV/
 */.idea/workspace.xml
 */.idea/tasks.xml
 
-*.npy
+*/*.npy
+*/*.pickle
+*/requestdb.json
