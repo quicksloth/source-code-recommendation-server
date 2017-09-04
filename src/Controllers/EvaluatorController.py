@@ -59,24 +59,25 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
-                low_coupling_score = cls.low_coupling_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
-                                                                           code_id=idy)
-
-                understanding_score = cls.understanding_module.evaluate_code(input_bus_vo=input_bus,
-                                                                             search_result_id=idx,
-                                                                             code_id=idy)
-
-                nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
-                                                         code_id=idy)
-
-                sum_weight = (cls.low_coupling_module.weight + cls.understanding_module.weight + cls.nlp_module.weight)
-                final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
-                code.score = final_score
+                cls.evaluate_codes(code, idx, idy, input_bus)
 
         # TODO: continue here => modules
-        for idx, searched_code in enumerate(input_bus.searched_codes):
-            for idy, code in enumerate(searched_code.codes):
-                print(code.score)
+        # for idx, searched_code in enumerate(input_bus.searched_codes):
+        #     for idy, code in enumerate(searched_code.codes):
+        #         print(code.score)
+
+    @classmethod
+    def evaluate_codes(cls, code, idx, idy, input_bus):
+        low_coupling_score = cls.low_coupling_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
+                                                                   code_id=idy)
+        understanding_score = cls.understanding_module.evaluate_code(input_bus_vo=input_bus,
+                                                                     search_result_id=idx,
+                                                                     code_id=idy)
+        nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
+                                                 code_id=idy)
+        sum_weight = (cls.low_coupling_module.weight + cls.understanding_module.weight + cls.nlp_module.weight)
+        final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
+        code.score = final_score
 
     @staticmethod
     def map_crawler_result(request_code, results):

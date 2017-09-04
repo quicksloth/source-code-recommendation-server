@@ -21,5 +21,3 @@ class NlpModule(AbstractModule):
         #  TODO evaluate code in nlp
         return self.complex_network.get_contextual_distance(one_word="lorem", second_word="ipsum")
 
-# t = NlpModule([1], 3)
-# t.evaluate_code("t", 12)
