@@ -1,7 +1,7 @@
 import json
 
 
-class RequestCode(object):
+class CrawlerRequestDTO(object):
     """
         Object that contains request code
     """

@@ -45,8 +45,7 @@ class ComplexNetwork(object):
         of all words of all strings in array
         At the end, save CcomplexNetwork.
         """
-        # TODO fix logic of saving
-        self.__save_complex_network(filename=self.complex_network_file_last_version)
+        # self.__save_complex_network(filename=self.complex_network_file_last_version)
 
         for doc in textual_train_base:
             words = doc.split()
