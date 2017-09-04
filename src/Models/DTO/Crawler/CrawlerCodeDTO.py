@@ -1,4 +1,4 @@
-class Code(object):
+class CrawlerCodeDTO(object):
     """
         Object that contains grouped all data of the code
     """

@@ -2,10 +2,8 @@ import os
 import sys
 from uuid import uuid4
 
-# TODO: try to find another way to solve this problem
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
-
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -16,10 +14,10 @@ from Modules.LowCouplingModule import LowCouplingModule
 from Modules.UnderstandingModule import UnderstandingModule
 from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
-from Models.RequestCode import RequestCode
+from Models.DTO.Crawler.CrawlerRequestDTO import CrawlerRequestDTO
 from Models.db.RequestDB import RequestDB
 from Models.InputBus import InputBus
-from Models.SearchResult import SearchResult
+from Models.DTO.Crawler.CrawlerResultDTO import CrawlerResultDTO
 
 
 class EvaluatorController(object):
@@ -38,11 +36,11 @@ class EvaluatorController(object):
         request_id = str(uuid4())
 
         # TODO: remove mocked data - get from request
-        request_code = RequestCode(query='read file',
-                                   libs=['json', 'requests'],
-                                   comments=['comments'],
-                                   language='Python',
-                                   request_id=request_id)
+        request_code = CrawlerRequestDTO(query='read file',
+                                         libs=['json', 'requests'],
+                                         comments=['comments'],
+                                         language='Python',
+                                         request_id=request_id)
         data = request_code.toRequestJSON()
         RequestDB().add(request_code)
         server.get_source_codes(data=data)
@@ -54,7 +52,7 @@ class EvaluatorController(object):
         request_id = request_json.get('requestID')
 
         rc = RequestDB().get_request_by_id(request_id)
-        request_code = RequestCode(**rc[0])
+        request_code = CrawlerRequestDTO(**rc[0])
         RequestDB().remove(request_id)
 
         input_bus = cls.map_crawler_result(request_code, results)
@@ -84,8 +82,8 @@ class EvaluatorController(object):
     def map_crawler_result(request_code, results):
         input_bus = InputBus(user=request_code)
         for idx, result in enumerate(results):
-            search_result = SearchResult(request_id=idx, source_link=result.get('url'),
-                                         documentation=result.get('documentation'))
+            search_result = CrawlerResultDTO(request_id=idx, source_link=result.get('url'),
+                                             documentation=result.get('documentation'))
 
             search_result.map_from_request(input_bus=input_bus, result=result)
             input_bus.add_searched_code(search_result)

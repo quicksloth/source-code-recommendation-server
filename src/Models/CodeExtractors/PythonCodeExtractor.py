@@ -27,8 +27,6 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_number_of_lines(code_text):
-        # TODO: issues-8 (https://github.com/quicksloth/source-code-recommendation-server/issues/8)
-        #  look another way to extract number of lines from ast instead of count \n
         return code_text.count(PythonSyntax.escape_char.value)
 
     @staticmethod
