@@ -24,3 +24,8 @@ Implements Evaluation Component of QuickSloth system
 `flask run --reload`
 
 (optional `--host=0.0.0.0`)
+
+Using gunicorn
+==
+
+`cd src; gunicorn -b 0.0.0.0:6060 server:app`
