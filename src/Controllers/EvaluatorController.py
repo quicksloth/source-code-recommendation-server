@@ -46,6 +46,7 @@ class EvaluatorController(object):
                                          language='Python',
                                          request_id=request_id)
         data = request_code.toRequestJSON()
+        print(data)
         RequestDB().add(request_code)
         server.get_source_codes(data=data)
 

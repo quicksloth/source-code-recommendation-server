@@ -19,6 +19,7 @@ def code_recommendations():
 
 @app.route('/source-codes', methods=['POST'])
 def source():
+    print('receive data in source-codes')
     EvaluatorController().evaluate_search_codes(request)
     return json.dumps({'success': True})
 
@@ -26,6 +27,7 @@ def source():
 def get_source_codes(data):
     url = 'http://0.0.0.0:1111/crawl'
     headers = {'Content-Type': 'application/json'}
+    print('going to request')
     requests.request(url=url, method='GET', data=data, headers=headers)
 
 
