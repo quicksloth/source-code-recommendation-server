@@ -7,10 +7,11 @@ class CodeResultsDTO(object):
         code recommendations
     """
 
-    def __init__(self, codes=None):
+    def __init__(self, codes=None, request_id=''):
         if codes is None:
             codes = []
         self.codes = codes
+        self.request_id = request_id
 
     def add_code(self, code):
         self.codes.append(code)

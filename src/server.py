@@ -1,24 +1,35 @@
-from flask import Flask, request
+from flask import Flask, request, json
+from flask_socketio import SocketIO, leave_room
 import requests
-from flask import json
 
 from Controllers.EvaluatorController import EvaluatorController
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='')
+app.config['SECRET_KEY'] = '@server-secret'
+socketio = SocketIO(app)
+
+
+class Socket:
+    """
+        Class used to emit answer to specific client
+    """
+    def __init__(self, sid):
+        self.sid = sid
+        self.connected = True
+
+    # Emits data to a socket's unique room
+    def emit(self, event, data):
+        print('going to emit to', self.sid)
+        socketio.emit(event, data, room=self.sid, namespace='/code-recommendations')
 
 
 @app.route('/')
-def hello_world():
+def index():
     return 'Hello, World!'
 
 
-@app.route('/code-recommendations', methods=['GET'])
-def code_recommendations():
-    return 'my code'
-
-
 @app.route('/source-codes', methods=['POST'])
-def source():
+def source_codes():
     print('receive data in source-codes')
     EvaluatorController().evaluate_search_codes(request)
     return json.dumps({'success': True})
@@ -38,5 +49,21 @@ def train_network():
     return json.dumps({'success': True})
 
 
+# TODO: maybe use on connect
+# @socketio.on('connect')
+
+@socketio.on('getCodes', namespace='/code-recommendations')
+def get_recommendation_codes(data):
+    EvaluatorController().get_recommendation_code(request_id=request.sid,
+                                                  language=data['language'],
+                                                  query=data['query'],
+                                                  comments=data['comments'],
+                                                  libs=data['libs'])
+
+
+def emit_code_recommendations(request_id, data):
+    Socket(request_id).emit('recommendationCodes', data)
+
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=6060)
+    socketio.run(app, host='0.0.0.0', port=6060, debug=True)
