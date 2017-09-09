@@ -47,7 +47,7 @@ class EvaluatorController(object):
         data = request_code.toRequestJSON()
         print(data)
         RequestDB().add(request_code)
-        # server.hello_to_random_client()
+        server.get_source_codes(data=data)
 
     @staticmethod
     def init_get_recommendation_code():
@@ -84,7 +84,7 @@ class EvaluatorController(object):
         RequestDB().remove(request_id)
 
         input_bus = cls.map_crawler_result(request_code, results)
-        code_results = CodeResultsDTO()
+        code_results = CodeResultsDTO(request_id=request_id)
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
@@ -93,6 +93,7 @@ class EvaluatorController(object):
                 code_results.add_code(CodeDTO().from_crawler_code(crawler_code=code, crawler_result=searched_code))
 
         print(code_results.toJSON())
+        server.emit_code_recommendations(request_id, code_results.toJSON())
         return code_results.toJSON()
 
     @classmethod
