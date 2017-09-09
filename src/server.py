@@ -21,13 +21,15 @@ def code_recommendations():
 
 @app.route('/source-codes', methods=['POST'])
 def source():
+    print('receive data in source-codes')
     EvaluatorController().evaluate_search_codes(request)
     return json.dumps({'success': True})
 
 
 def get_source_codes(data):
-    url = 'http://127.0.0.1:5001/crawl'
+    url = 'http://0.0.0.0:1111/crawl'
     headers = {'Content-Type': 'application/json'}
+    print('going to request')
     requests.request(url=url, method='GET', data=data, headers=headers)
 
 
@@ -44,5 +46,5 @@ def handle_json(json):
 # https://flask-socketio.readthedocs.io/en/latest/
 
 if __name__ == "__main__":
-    app.run(host=5000)
+    app.run(host='0.0.0.0', port=6060)
     socketio.run(app)
