@@ -19,22 +19,17 @@ class Socket:
 
     # Emits data to a socket's unique room
     def emit(self, event, data):
-        print('going to emit in ', self.sid)
-        socketio.emit(event, data, room=self.sid)
+        print('going to emit to', self.sid)
+        socketio.emit(event, data, room=self.sid, namespace='/code-recommendations')
 
 
 @app.route('/')
-def hello_world():
+def index():
     return 'Hello, World!'
 
 
-@app.route('/code-recommendations', methods=['GET'])
-def code_recommendations():
-    return 'my code'
-
-
 @app.route('/source-codes', methods=['POST'])
-def source():
+def source_codes():
     print('receive data in source-codes')
     EvaluatorController().evaluate_search_codes(request)
     return json.dumps({'success': True})
@@ -54,15 +49,20 @@ def train_network():
     return json.dumps({'success': True})
 
 
-# TODO: fix all names and function calls
-@socketio.on('connect')
-def foo():
-    EvaluatorController().init_get_recommendation_code_fake(request_id=request.sid)
+# TODO: maybe use on connect
+# @socketio.on('connect')
+
+@socketio.on('getCodes', namespace='/code-recommendations')
+def get_recommendation_codes(data):
+    EvaluatorController().get_recommendation_code(request_id=request.sid,
+                                                  language=data['language'],
+                                                  query=data['query'],
+                                                  comments=data['comments'],
+                                                  libs=data['libs'])
 
 
 def emit_code_recommendations(request_id, data):
-    print('hello_to_random_client')
-    Socket(request_id).emit('message', data)
+    Socket(request_id).emit('recommendationCodes', data)
 
 
 if __name__ == "__main__":

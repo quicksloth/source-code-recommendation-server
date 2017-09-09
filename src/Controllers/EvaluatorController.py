@@ -35,22 +35,21 @@ class EvaluatorController(object):
     understanding_module = UnderstandingModule(weight=1)
     nlp_module = NlpModule(weight=1)
 
-    # TODO: fix and use all data - tmp and fake
     @staticmethod
-    def init_get_recommendation_code_fake(request_id):
-        # TODO: remove mocked data - get from request
-        request_code = CrawlerRequestDTO(query='read file',
-                                         libs=['json', 'requests'],
-                                         comments=['comments'],
-                                         language='Python',
+    def get_recommendation_code(request_id, query, libs, comments, language):
+        request_code = CrawlerRequestDTO(query=query,
+                                         libs=libs,
+                                         comments=comments,
+                                         language=language,
                                          request_id=request_id)
+
         data = request_code.toRequestJSON()
         print(data)
         RequestDB().add(request_code)
         server.get_source_codes(data=data)
 
     @staticmethod
-    def init_get_recommendation_code():
+    def init_get_recommendation_code_with_mocked_data():
         request_id = str(uuid4())
 
         # TODO: remove mocked data - get from request

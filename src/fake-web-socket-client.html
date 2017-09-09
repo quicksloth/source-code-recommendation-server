@@ -7,12 +7,13 @@
 <body>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        var socket = io.connect('http://127.0.0.1:6060/');
+        var socket = io.connect('http://127.0.0.1:6060/code-recommendations');
         socket.on('connect', function() {
             console.log('connect');
+            socket.emit('getCodes', { query: "read file", language: "Python", libs:['os'], comments:['open file to read file']});
         });
         console.log('after connect');
-        socket.on('message', function (message) {
+        socket.on('recommendationCodes', function (message) {
             console.log(message);
             socket.disconnect();
         });
