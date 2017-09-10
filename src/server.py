@@ -59,6 +59,7 @@ def connect():
 @socketio.on('getCodes', namespace='/code-recommendations')
 def get_recommendation_codes(data):
     data = json.loads(data)
+    print(data)
     EvaluatorController().get_recommendation_code(request_id=request.sid,
                                                   language=data['language'],
                                                   query=data['query'],
