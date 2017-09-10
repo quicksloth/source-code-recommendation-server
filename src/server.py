@@ -47,12 +47,12 @@ def get_source_codes(data):
 def train_network():
     print('/train-network')
     print(request.get_json())
+    print('is json', request.is_json)
+    print(type(request.json))
     print(type(request.get_json()))
-    print(request.get_data())
-    print(type(request.get_data()))
-    print(json.load(request.get_json()))
-    print(json.load(request.get_data()))
-    train_base = json.load(request.get_json()).get('train_text')
+    print(type(request.get_json(force=True)))
+    print(json.loads(request.get_json()))
+    train_base = json.loads(request.get_json()).get('train_text')
     EvaluatorController().train_network(train_database=train_base)
     return json.dumps({'success': True})
 
