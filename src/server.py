@@ -47,6 +47,8 @@ def get_source_codes(data):
 def train_network():
     print('/train-network')
     print(request.get_json())
+    print(type(request.get_json()))
+    print(request.get_json()['train_text'])
     train_base = request.get_json().get('train_text')
     EvaluatorController().train_network(train_database=train_base)
     return json.dumps({'success': True})
