@@ -45,6 +45,8 @@ def get_source_codes(data):
 
 @app.route('/train-network', methods=['POST'])
 def train_network():
+    print('/train-network')
+    print(request.get_json())
     train_base = request.get_json().get('train_text')
     EvaluatorController().train_network(train_database=train_base)
     return json.dumps({'success': True})
