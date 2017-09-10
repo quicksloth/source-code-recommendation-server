@@ -1,5 +1,5 @@
 from flask import Flask, request, json
-from flask_socketio import SocketIO, leave_room
+from flask_socketio import SocketIO, leave_room, emit
 import requests
 
 from Controllers.EvaluatorController import EvaluatorController
@@ -13,6 +13,7 @@ class Socket:
     """
         Class used to emit answer to specific client
     """
+
     def __init__(self, sid):
         self.sid = sid
         self.connected = True
@@ -50,10 +51,14 @@ def train_network():
 
 
 # TODO: maybe use on connect
-# @socketio.on('connect')
+@socketio.on('connect')
+def connect():
+    print('connectttsssss')
+
 
 @socketio.on('getCodes', namespace='/code-recommendations')
 def get_recommendation_codes(data):
+    data = json.loads(data)
     EvaluatorController().get_recommendation_code(request_id=request.sid,
                                                   language=data['language'],
                                                   query=data['query'],
