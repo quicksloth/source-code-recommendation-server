@@ -67,7 +67,7 @@ class EvaluatorController(object):
     @classmethod
     def evaluate_search_codes(cls, request):
         print('evaluate_search_codes 2')
-        request_json = json.loads(request.get_json())
+        request_json = request.get_json()
         print('request_json 2')
         print(request_json)
         request_id = request_json.get('requestID')
@@ -128,5 +128,6 @@ class EvaluatorController(object):
         return input_bus
 
     def train_network(self, train_database):
+        print(train_database)
         self.complex_network.train_network(textual_train_base=train_database)
         print(self.complex_network.adjacency_list)
