@@ -26,12 +26,12 @@ class Socket:
 
 @app.route('/')
 def index():
-    return 'Hello, World!'
+    return 'Hello, World new version!'
 
 
 @app.route('/source-codes', methods=['POST'])
 def source_codes():
-    print('receive data in source-codes')
+    print('receive data in source-codes new version')
     EvaluatorController().evaluate_search_codes(request)
     return json.dumps({'success': True})
 
@@ -39,7 +39,7 @@ def source_codes():
 def get_source_codes(data):
     url = 'http://0.0.0.0:1111/crawl'
     headers = {'Content-Type': 'application/json'}
-    print('going to request')
+    print('going to request new version')
     requests.request(url=url, method='GET', data=data, headers=headers)
 
 
