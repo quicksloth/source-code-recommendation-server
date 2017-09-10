@@ -4,6 +4,7 @@ from uuid import uuid4
 
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
+from flask import json
 
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
@@ -66,7 +67,7 @@ class EvaluatorController(object):
     @classmethod
     def evaluate_search_codes(cls, request):
         print('evaluate_search_codes 2')
-        request_json = request.get_json()
+        request_json = json.loads(request.get_json())
         print('request_json 2')
         print(request_json)
         request_id = request_json.get('requestID')

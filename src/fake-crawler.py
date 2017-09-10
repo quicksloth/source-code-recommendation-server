@@ -38,7 +38,7 @@ def crawl():
     #         },
     #     ],
     # }
-    data = {"requestID": request_body.get('requestID'), "query": "read file", "searchResult": [
+    data = '''{"requestID": request_body.get('requestID'), "query": "read file", "searchResult": [
         {"url": "https://msdn.microsoft.com/en-us/library/windows/desktop/aa365467(v=vs.85).aspx",
          "documentation": "EMPTY DOC", "sourceCode": [
             "\r\n\r\nBOOL WINAPI ReadFile(\r\n  _In_&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;HANDLE &Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;hFile,\r\n  _Out_&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;LPVOID &Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;lpBuffer,\r\n  _In_&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;DWORD &Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;nNumberOfBytesToRead,\r\n  _Out_opt_&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;LPDWORD &Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;lpNumberOfBytesRead,\r\n  _Inout_opt_&Acirc;&nbsp;LPOVERLAPPED lpOverlapped\r\n);\r\n\r\n"]},
@@ -83,7 +83,7 @@ def crawl():
             "fs.watch('somedir', (eventType, filename) =&gt; {\n  console.log(`event type is: ${eventType}`);\n  if (filename) {\n    console.log(`filename provided: ${filename}`);\n  } else {\n    console.log('filename not provided');\n  }\n});\n",
             "fs.watchFile('message.text', (curr, prev) =&gt; {\n  console.log(`the current mtime is: ${curr.mtime}`);\n  console.log(`the previous mtime was: ${prev.mtime}`);\n});\n",
             "fs.writeFile('message.txt', 'Hello Node.js', (err) =&gt; {\n  if (err) throw err;\n  console.log('The file has been saved!');\n});\n",
-            "fs.writeFile('message.txt', 'Hello Node.js', 'utf8', callback);\n"]}]}
+            "fs.writeFile('message.txt', 'Hello Node.js', 'utf8', callback);\n"]}]}'''
     headers = {'Content-Type': 'application/json'}
 
     requests.post(url=url, data=json.dumps(data), headers=headers)
