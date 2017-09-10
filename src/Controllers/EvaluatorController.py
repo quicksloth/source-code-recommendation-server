@@ -69,10 +69,10 @@ class EvaluatorController(object):
         request_json = request.get_json()
         print('request_json')
         print(request_json)
-        results = request_json.get('searchResult')
         request_id = request_json.get('requestID')
-        print(results)
         print(request_id)
+        results = request_json.get('searchResult')
+        print(results)
 
         rc = RequestDB().get_request_by_id(request_id)
         print('rc')
