@@ -66,21 +66,14 @@ class EvaluatorController(object):
 
     @classmethod
     def evaluate_search_codes(cls, request):
-        print('evaluate_search_codes 2')
         request_json = request.get_json()
-        print('request_json 2')
         print(request_json)
         request_id = request_json.get('requestID')
-        print(request_id)
         results = request_json.get('searchResult')
-        print(results)
 
         rc = RequestDB().get_request_by_id(request_id)
-        print('rc')
 
         request_code = CrawlerRequestDTO(**rc[0])
-        print('request_code')
-        print(request_code)
         RequestDB().remove(request_id)
 
         input_bus = cls.map_crawler_result(request_code, results)
@@ -88,11 +81,9 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
-                print('code')
                 cls.evaluate_codes(code, idx, idy, input_bus)
                 code_results.add_code(CodeDTO().from_crawler_code(crawler_code=code, crawler_result=searched_code))
 
-        print(code_results.toJSON())
         server.emit_code_recommendations(request_id, code_results.toJSON())
         return code_results.toJSON()
 
@@ -105,14 +96,9 @@ class EvaluatorController(object):
                                                                      code_id=idy)
         nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                  code_id=idy)
-        print('all')
         sum_weight = (cls.low_coupling_module.weight + cls.understanding_module.weight + cls.nlp_module.weight)
-        print('sum_weight')
-        print(sum_weight)
         final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
-        print(final_score)
         code.score = final_score
-        print('code.score')
 
     @staticmethod
     def map_crawler_result(request_code, results):

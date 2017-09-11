@@ -30,7 +30,6 @@ class CrawlerResultDTO(object):
             function_names = input_bus.code_extractor.extract_functions_names(ast)
             class_name = input_bus.code_extractor.extract_classes(ast)
             lines = input_bus.code_extractor.extract_number_of_lines(code_text=code)
-            print('crawler lines', lines)
             self.add_code(CrawlerCodeDTO(id=code_idx,
                                          libs=libs,
                                          comments=comments,
