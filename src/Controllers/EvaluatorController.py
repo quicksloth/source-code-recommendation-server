@@ -66,6 +66,7 @@ class EvaluatorController(object):
 
     @classmethod
     def evaluate_search_codes(cls, request):
+        print(request.get_data())
         request_json = request.get_json()
         print(request_json)
         request_id = request_json.get('requestID')
