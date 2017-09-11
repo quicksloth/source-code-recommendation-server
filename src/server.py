@@ -1,3 +1,4 @@
+import flask
 from flask import Flask, request, json
 from flask_socketio import SocketIO, leave_room, emit
 import requests
@@ -48,6 +49,13 @@ def train_network():
     train_base = request.get_json().get('train_text')
     EvaluatorController().train_network(train_database=train_base)
     return json.dumps({'success': True})
+
+
+@app.route('/word-complex-network', methods=['GET'])
+def get_complex_network():
+    resp = flask.Response(json.dumps(EvaluatorController().get_complex_network()))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 
 # TODO: maybe use on connect
