@@ -38,7 +38,6 @@ class ComplexNetwork(object):
         except:
             print('error in dump dict')
 
-
     def train_network(self, textual_train_base):
         """
         Train ComplexNetwork based on textual_train_base:
