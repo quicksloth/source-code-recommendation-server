@@ -33,8 +33,10 @@ def index():
 
 @app.route('/source-codes', methods=['POST'])
 def source_codes():
-    print('receive data in source-codes new version')
+    start = time.time()
     EvaluatorController().evaluate_search_codes(request)
+    end = time.time()
+    print('Receive Source code and evaluate  took', (end - start), 'seconds')
     return json.dumps({'success': True})
 
 
