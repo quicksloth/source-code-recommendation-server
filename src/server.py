@@ -1,3 +1,5 @@
+import flask
+import time
 from flask import Flask, request, json
 from flask_socketio import SocketIO, leave_room, emit
 import requests
@@ -45,9 +47,18 @@ def get_source_codes(data):
 
 @app.route('/train-network', methods=['POST'])
 def train_network():
-    train_base = request.get_json().get('train_text')
-    EvaluatorController().train_network(train_database=train_base)
+    start = time.time()
+    EvaluatorController().train_network(train_database=request.get_json().get('train_text'))
+    end = time.time()
+    print('TrainNetwork took', (end - start), 'seconds')
     return json.dumps({'success': True})
+
+
+@app.route('/word-complex-network', methods=['GET'])
+def get_complex_network():
+    resp = flask.Response(json.dumps(EvaluatorController().get_complex_network()))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 
 # TODO: maybe use on connect

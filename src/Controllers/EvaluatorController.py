@@ -129,3 +129,6 @@ class EvaluatorController(object):
 
     def train_network(self, train_database):
         self.complex_network.train_network(textual_train_base=train_database)
+
+    def get_complex_network(self):
+        return self.complex_network.adjacency_list
