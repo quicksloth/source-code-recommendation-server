@@ -19,7 +19,6 @@ class ComplexNetwork(object):
 
     def __init__(self):
         self.adjacency_list = dict([])
-        print('load_complex_network')
         self.load_complex_network()
 
     def load_complex_network(self, filename=None):
@@ -27,7 +26,6 @@ class ComplexNetwork(object):
         try:
             pfile = open((filename or self.complex_network_file), 'rb+')
             self.adjacency_list = pickle.load(pfile)
-            print('load', self.adjacency_list)
         except:
             print('create new empty file')
             self.__save_complex_network(filename=filename)
@@ -73,7 +71,6 @@ class ComplexNetwork(object):
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         self.__save_complex_network()
-        print(self.adjacency_list)
         return self.adjacency_list
 
     # TODO: use this one function when complex network it's ok
