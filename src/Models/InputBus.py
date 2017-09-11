@@ -26,10 +26,19 @@ class InputBus:
         self.searched_codes.append(sc)
 
     def set_distance_min_max_lines_size(self):
+        print('set_distance_min_max_lines_size')
         lines = []
         for doc in self.searched_codes:
+            print('doc', doc)
             for code in doc.codes:
+                print('code', code)
+                print('code.lines_number', code.lines_number)
                 lines.append(code.lines_number)
 
+        print('lines', lines)
         self.code_max_lines = max(lines)
+        print('max', max(lines))
+        print('code_max_lines', self.code_max_lines)
         self.code_min_lines = min(lines)
+        print('min', min(lines))
+        print('code_min_lines', self.code_min_lines)

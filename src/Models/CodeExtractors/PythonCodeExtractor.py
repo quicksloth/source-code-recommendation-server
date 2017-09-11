@@ -28,6 +28,9 @@ class PythonCodeExtractor(AbstractCodeExtractor):
 
     @staticmethod
     def extract_number_of_lines(code_text):
+        print('extract_number_of_lines')
+        print('code_text', code_text)
+        print('text count', code_text.count(PythonSyntax.escape_char.value))
         return code_text.count(PythonSyntax.escape_char.value)
 
     @staticmethod

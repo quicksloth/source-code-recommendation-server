@@ -128,6 +128,4 @@ class EvaluatorController(object):
         return input_bus
 
     def train_network(self, train_database):
-        print(train_database)
         self.complex_network.train_network(textual_train_base=train_database)
-        print(self.complex_network.adjacency_list)
