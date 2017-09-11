@@ -32,9 +32,6 @@ class UnderstandingModule(AbstractModule):
         return (score / self.sum_internal_weights) * self.weight
 
     def evaluate_by_code_lines(self, code_id, input_bus_vo, search_result_id):
-        print('evaluate_by_code_lines')
-        print(input_bus_vo.code_max_lines)
-        print(input_bus_vo.code_min_lines)
         max_min_diff = input_bus_vo.code_max_lines - input_bus_vo.code_min_lines
         ti = input_bus_vo.searched_codes[search_result_id].codes[code_id].lines_number
 
