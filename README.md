@@ -15,7 +15,8 @@ Implements Evaluation Component of QuickSloth system
 
 ## Install and run
 
-###Run local (development)
+### Run local (development)
+
 `pip3 install -r requirements.txt`
 
 `cd src/`
@@ -26,7 +27,8 @@ Implements Evaluation Component of QuickSloth system
 
 (optional `--host=AnyHostYouWant --port=AnyPortYouWant`)
 
-###Run on PROD server
+### Run on PROD server
+
 `FLASK_APP=server.py flask run --host=0.0.0.0 --port=10443`
 
 Using gunicorn
