@@ -32,7 +32,5 @@ Implements Evaluation Component of QuickSloth system
 `FLASK_APP=server.py flask run --host=0.0.0.0 --port=10443`
 
 ### Using gunicorn
-(ISSUE: it's not working with websocket)
-
-`cd src; gunicorn -b 0.0.0.0:10443 server:app`
+`cd src; gunicorn -b 0.0.0.0:10443 --worker-class eventlet server:app`
 
