@@ -3,7 +3,7 @@ from flask import json
 
 
 def train_database():
-    url = 'http://0.0.0.0:6060/train-network'
+    url = 'http://0.0.0.0:10443/train-network'
     headers = {'Content-Type': 'application/json'}
     data = {
         'train_text': ['read file', 'flask', 'request',

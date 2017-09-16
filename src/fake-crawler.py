@@ -14,7 +14,7 @@ def hello_world():
 @app.route('/crawl', methods=['GET'])
 def crawl():
     request_body = request.get_json()
-    url = 'http://0.0.0.0:6060/source-codes'
+    url = 'http://0.0.0.0:10443/source-codes'
     # data = {
     #     "requestID": request_body.get('requestID'),
     #     'searchResult': [
@@ -48,7 +48,7 @@ def crawl():
 
 @app.route('/run_get')
 def run_get():
-    url = 'http://0.0.0.0:6060/code-recommendations'
+    url = 'http://0.0.0.0:10443/code-recommendations'
     data = {
         'query': 'read file',
         'libs': ['flask', 'request', 'json'],

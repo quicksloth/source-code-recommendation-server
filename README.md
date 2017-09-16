@@ -34,5 +34,5 @@ Implements Evaluation Component of QuickSloth system
 ### Using gunicorn
 (ISSUE: it's not working with websocket)
 
-`cd src; gunicorn -b 0.0.0.0:6060 server:app`
+`cd src; gunicorn -b 0.0.0.0:10443 server:app`
 
