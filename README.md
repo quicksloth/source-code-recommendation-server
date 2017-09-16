@@ -29,3 +29,4 @@ Using gunicorn
 ==
 
 `cd src; gunicorn -b 0.0.0.0:6060 server:app`
+(`cd src; gunicorn -b 0.0.0.0:10443 server:app`)
