@@ -36,7 +36,7 @@ def source_codes():
     start = time.time()
     EvaluatorController().evaluate_search_codes(request)
     end = time.time()
-    print('Receive Source code and evaluate  took', (end - start), 'seconds')
+    print('Receive Source code and evaluate took', (end - start), 'seconds')
     return json.dumps({'success': True})
 
 
