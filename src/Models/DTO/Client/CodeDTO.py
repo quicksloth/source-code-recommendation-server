@@ -1,3 +1,8 @@
+import os
+import requests
+from flask import json
+
+
 class CodeDTO(object):
     """
         Object to transfer code with score
@@ -15,5 +20,5 @@ class CodeDTO(object):
                        code=crawler_code.code,
                        score=crawler_code.score)
 
-    # def serialize:
-    # TODO serialize this object to string
+        # def serialize:
+        # TODO serialize this object to string
