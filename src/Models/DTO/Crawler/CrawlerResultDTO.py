@@ -15,13 +15,14 @@ class CrawlerResultDTO(object):
     def add_code(self, code):
         self.codes.append(code)
 
-    def map_from_request(self, input_bus, result):
+    def map_from_request(self, input_bus, result, ast_errors):
         for code_idx, code in enumerate(result.get('sourceCode')):
             # TODO: maybe extract ast in different threads
             ast = input_bus.code_extractor.extract_ast(code_text=code)
 
             # Handle error in case that ast cannot be parsed
             if not ast:
+                ast_errors += 1
                 continue
 
             libs = input_bus.code_extractor.extract_libs(ast)
@@ -38,3 +39,4 @@ class CrawlerResultDTO(object):
                                          class_name=class_name,
                                          lines_number=lines,
                                          code=code))
+        return ast_errors
