@@ -71,6 +71,7 @@ class ComplexNetwork(object):
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         self.__save_complex_network()
+
         return self.adjacency_list
 
     # TODO: use this one function when complex network it's ok

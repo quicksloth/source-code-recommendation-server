@@ -109,14 +109,16 @@ class EvaluatorController(object):
     @staticmethod
     def map_crawler_result(request_code, results):
         input_bus = InputBus(user=request_code)
+        ast_errors = 0
         for idx, result in enumerate(results):
             search_result = CrawlerResultDTO(request_id=idx, source_link=result.get('url'),
                                              documentation=result.get('documentation'))
 
-            search_result.map_from_request(input_bus=input_bus, result=result)
+            ast_errors = search_result.map_from_request(input_bus=input_bus, result=result, ast_errors=ast_errors)
             input_bus.add_searched_code(search_result)
 
         input_bus.set_distance_min_max_lines_size()
+        print("ERROR TO EXTRACT AST ", ast_errors)
         return input_bus
 
     def train_network(self, train_database):

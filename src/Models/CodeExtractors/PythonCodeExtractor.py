@@ -23,7 +23,7 @@ class PythonCodeExtractor(AbstractCodeExtractor):
         try:
             return ast.parse(code_text)
         except:
-            print('Error in parsing extracted_ast')
+            # print('------ Error in parsing extracted_ast =', code_text, '------')
             return False
 
     @staticmethod
@@ -76,12 +76,15 @@ class PythonCodeExtractor(AbstractCodeExtractor):
         var_names = set([])
         for node in ast.walk(extracted_ast):
             if isinstance(node, ast.Assign):
-                for node_target in node.targets:
-                    if isinstance(node_target, ast.Name):
-                        var_names.add(node_target.id)
-                    elif isinstance(node_target, ast.Tuple):
-                        for elt in node_target.elts:
-                            var_names.add(elt.id)
+                if hasattr(node, 'targets'):
+                    for node_target in node.targets:
+                        if isinstance(node_target, ast.Name):
+                            if hasattr(node_target, 'id'):
+                                var_names.add(node_target.id)
+                        elif isinstance(node_target, ast.Tuple):
+                            for elt in node_target.elts:
+                                if hasattr(elt, 'id'):
+                                    var_names.add(elt.id)
         return list(var_names)
 
     @staticmethod
