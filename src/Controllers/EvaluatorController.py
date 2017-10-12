@@ -2,10 +2,10 @@ import os
 import sys
 from uuid import uuid4
 
+# from flask import json
+
 # issue 12 https://github.com/quicksloth/source-code-recommendation-server/issues/11
 # Necessary to import modules in the same level
-from flask import json
-
 PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -32,7 +32,7 @@ class EvaluatorController(object):
 
     modules_weights = []
     complex_network = ComplexNetwork()
-    low_coupling_module = LowCouplingModule(weight=1)
+    low_coupling_module = LowCouplingModule(weight=5)
     understanding_module = UnderstandingModule(weight=1)
     nlp_module = NlpModule(weight=1)
 
@@ -66,12 +66,8 @@ class EvaluatorController(object):
 
     @classmethod
     def evaluate_search_codes(cls, request):
-        print(request.get_data())
-        print('GOING TO GET JSON')
-        print(type(request.get_data()))
         request_json = request.get_json()
-        print('JSON')
-        print(request_json)
+        # print(request_json)
         request_id = request_json.get('requestID')
         results = request_json.get('searchResult')
 
@@ -102,6 +98,9 @@ class EvaluatorController(object):
                                                                      code_id=idy)
         nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                  code_id=idy)
+        print('low_coupling_score', low_coupling_score)
+        print('understanding_score', understanding_score)
+        print('nlp_score', nlp_score)
         sum_weight = (cls.low_coupling_module.weight + cls.understanding_module.weight + cls.nlp_module.weight)
         final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
         code.score = final_score
