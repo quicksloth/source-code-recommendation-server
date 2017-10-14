@@ -117,7 +117,10 @@ class EvaluatorController(object):
             input_bus.add_searched_code(search_result)
 
         input_bus.set_distance_min_max_lines_size()
-        print("ERROR TO EXTRACT AST ", ast_errors)
+
+        if ast_errors > 0:
+            print("ERROR TO EXTRACT AST ", ast_errors)
+
         return input_bus
 
     def train_network(self, train_database):
