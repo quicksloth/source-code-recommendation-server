@@ -14,6 +14,7 @@ class ComplexNetwork(object):
     """
     complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
     complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
+    mcl_file = os.path.join(dirname, "mcl_input.txt")
     default_weight = 1
     neighbor_distance = 1
 
@@ -33,19 +34,24 @@ class ComplexNetwork(object):
     def __save_complex_network(self, filename=None):
         """Save complex network by file"""
         try:
-            # Save complex network on original format (pdict)
+            # Save complex network on original format
             pfile = open((filename or self.complex_network_file), 'wb+')
             pickle.dump(self.adjacency_list, pfile)
+        except:
+            print('error in dump dict')
 
+    def __save_mcl_input_data(self, filename=None):
+        """Save mcl input data in file"""
+        try:
             # Save complex network on MCL format
-            mcl_input = open('mcl_input.txt', 'w')
+            mcl_input = open(filename or self.mcl_file, 'w')
             for first_word in self.adjacency_list:
                 for second_word in self.adjacency_list[first_word]:
                     line = first_word + " " + second_word + " " + str(self.adjacency_list[first_word][second_word]) + "\n"
                     mcl_input.write(line)
             mcl_input.close()
         except:
-            print('error in dump dict')
+            print('error saving mcl input data')
 
     def train_network(self, textual_train_base):
         """
@@ -80,6 +86,7 @@ class ComplexNetwork(object):
                         self.adjacency_list[current_word] = {next_word: self.default_weight}
 
         self.__save_complex_network()
+        self.__save_mcl_input_data()
 
         return self.adjacency_list
 
