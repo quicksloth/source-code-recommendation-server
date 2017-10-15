@@ -33,8 +33,17 @@ class ComplexNetwork(object):
     def __save_complex_network(self, filename=None):
         """Save complex network by file"""
         try:
+            # Save complex network on original format (pdict)
             pfile = open((filename or self.complex_network_file), 'wb+')
             pickle.dump(self.adjacency_list, pfile)
+
+            # Save complex network on MCL format
+            mcl_input = open('mcl_input.txt', 'w')
+            for first_word in self.adjacency_list:
+                for second_word in self.adjacency_list[first_word]:
+                    line = first_word + " " + second_word + " " + str(self.adjacency_list[first_word][second_word]) + "\n"
+                    mcl_input.write(line)
+            mcl_input.close()
         except:
             print('error in dump dict')
 
@@ -106,3 +115,5 @@ class ComplexNetwork(object):
 # cn.load_complex_network()
 # cn_al = cn.train_network(textual_train_base=textual)
 # print(cn.adjacency_list)
+
+
