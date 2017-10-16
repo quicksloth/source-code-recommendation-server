@@ -31,5 +31,6 @@ class InputBus:
             for code in doc.codes:
                 lines.append(code.lines_number)
 
-        self.code_max_lines = max(lines)
-        self.code_min_lines = min(lines)
+        if len(lines) > 0:
+            self.code_max_lines = max(lines)
+            self.code_min_lines = min(lines)
