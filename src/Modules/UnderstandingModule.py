@@ -27,7 +27,8 @@ class UnderstandingModule(AbstractModule):
 
         count_lines = input_bus_vo.searched_codes[search_result_id].codes[code_id].lines_number
 
-        comments_score = comments_line_number / count_lines if count_lines > 0 else 0
+        divisor = (count_lines - comments_line_number)
+        comments_score = min(1, comments_line_number / divisor) if divisor > 0 else 0
         score = (code_lines_score * self.internal_weights[0]) + (comments_score * self.internal_weights[1])
 
         return (score / self.sum_internal_weights) * self.weight
