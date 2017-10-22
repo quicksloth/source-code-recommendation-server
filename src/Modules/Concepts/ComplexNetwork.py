@@ -14,7 +14,9 @@ class ComplexNetwork(object):
     """
     complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
     complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
-    mcl_file = os.path.join(dirname, "mcl_input.txt")
+
+    mcl_file_input = os.path.join(dirname, "mcl_input.txt")
+    mcl_file_output = os.path.join(dirname, "mcl_output.txt")
     default_weight = 1
     neighbor_distance = 1
 
@@ -53,6 +55,14 @@ class ComplexNetwork(object):
         except:
             print('error saving mcl input data')
 
+    def __run_mcl(self):
+        try:
+            command = "mcl " + self.mcl_file_input + " --abc -o " + self.mcl_file_output
+            os.system(command)
+        except:
+            print("Error while running MCL")
+
+
     def train_network(self, textual_train_base):
         """
         Train ComplexNetwork based on textual_train_base:
@@ -87,6 +97,7 @@ class ComplexNetwork(object):
 
         self.__save_complex_network()
         self.__save_mcl_input_data()
+        self.__run_mcl()
 
         return self.adjacency_list
 
