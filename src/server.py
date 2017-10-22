@@ -49,6 +49,7 @@ def get_source_codes(data):
 
 @app.route('/train-network', methods=['POST'])
 def train_network():
+    print('Train Start')
     start = time.time()
     EvaluatorController().train_network(train_database=request.get_json().get('train_text'))
     end = time.time()
