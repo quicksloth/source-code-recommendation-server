@@ -59,6 +59,7 @@ class ComplexNetwork(object):
         try:
             command = "mcl " + self.mcl_file_input + " --abc -o " + self.mcl_file_output
             os.system(command)
+            print("MCL run success")
         except:
             print("Error while running MCL")
 
