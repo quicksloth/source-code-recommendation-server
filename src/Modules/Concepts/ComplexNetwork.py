@@ -1,5 +1,6 @@
 import os
 import pickle
+import numpy
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
@@ -120,11 +121,30 @@ class ComplexNetwork(object):
         with open(self.mcl_file_output, "r") as mcl_file:
             return mcl_file.read().split("\n")
 
-#tests
+
+#NLP TESTS -------------------------------------------------------------------------------------------
 cn = ComplexNetwork()
 c = cn.get_clusters_content()
-print(len(c))
+doc = "python python python python python test file python test function one document file python"
+words = doc.split(" ")
+histogram = [0] * len(c)
+for word in words:
+    for i, cluster in enumerate(c):
+        clusterArray = cluster.split("\t")
+        if word in clusterArray:
+            histogram[i] += 1
+histogramSum = 0
+for value in histogram:
+    histogramSum += value
+for i, value in enumerate(histogram):
+    histogram[i] = value / histogramSum
+print(histogram)
 
+a = numpy.array([0.0, 0.0, 0.0])
+b = numpy.array([1, 0.0, 0.0])
+dist = numpy.linalg.norm(a-b)
+print(dist)
+#NLP TESTS -------------------------------------------------------------------------------------------
 # TESTING COMPLEX NETWORK class -------
 # t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
 # t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
