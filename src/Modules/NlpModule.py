@@ -36,23 +36,23 @@ class NlpModule(AbstractModule):
         return numpy.linalg.norm(histogram1 - histogram2)
 
     def evaluate_query_vs_doc(self, query, doc):
-        score = self.evaluate_docs_distance(query, doc)
+        score = 1 - self.evaluate_docs_distance(query, doc)
         return self.internal_weights[0] * score
 
     def evaluate_query_vs_comments(self, query, user_comments):
         groupedComments = user_comments.join(" ")
-        score = self.evaluate_docs_distance(query, groupedComments)
+        score = 1 - self.evaluate_docs_distance(query, groupedComments)
         return self.internal_weights[1] * score
 
     def evaluate_comments_vs_comments(self, user_comments, code_comments):
         grouped_user_comments = user_comments.join(" ")
         grouped_code_comments = code_comments.join(" ")
-        score = self.evaluate_docs_distance(grouped_user_comments, grouped_code_comments)
+        score = 1 - self.evaluate_docs_distance(grouped_user_comments, grouped_code_comments)
         return self.internal_weights[2] * score
 
     def evaluate_comments_vs_doc(self, user_comments, doc):
         grouped_user_comments = user_comments.join(" ")
-        score = self.evaluate_docs_distance(grouped_user_comments, doc)
+        score = 1 - self.evaluate_docs_distance(grouped_user_comments, doc)
         return self.internal_weights[3] * score
 
     def evaluate_code(self, input_bus_vo, search_result_id, code_id):
