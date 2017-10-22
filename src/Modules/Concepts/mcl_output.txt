@@ -1,0 +1,321 @@
+contents	language	evolutionedit	overviewedit	designedit	computer	variantsedit	supportedit	cfml	xsl	oberon07	tcl	dcl	historyedit	descriptionedit	historical	definitionedit	measurement	levelsedit	contentsedit	etymologyedit	definition	titleedit	origin	approachesedit	metaobject	applicationsedit	before	backgroundedit	design	actions	objectbased	ifthen	catalogue	main	overriding	machine	detailsedit	void	variant	conceptsedit	overview	conceptedit	patternsedit	genealogy	originsedit	fixed	features	versionsedit	beginnings	recent	prehistory	termination	architecture	readership	theoretical	motivation	earlier	formal	nameedit	popularization	semantics	metaprogramming	contract	softwareedit	startup	equivalent	fundamentalsedit	imperative	copying	composabilityedit	slicing	evaluation	coroutinesedit	structure	comprehension	repositories	permanent	actionscriptedit	metacompileredit	native	ml	formsedit	styleedit	ide	javascript	else	register	conditional	internal	sugar	science	expressive	philosophiesedit	medicineedit	testingedit	names	setl	goalsedit	shell	culture	backporting	protocoledit	comparisonedit	foobar	neologism	assignmentedit	foreach	loop	wolfram	method	lock	coroutine	continuation	expression	multiplication	tuple	here	document	power
+and	syntax	theoryedit	history	philosophyedit	literatureedit	semanticsedit	future	chainingedit	organizationedit	digital	beveragesedit	ecologyedit	unixlike	principles	completeness	challengesedit	xpathedit	independent	optimizationsedit	set	interpretersedit	castingedit	switch	inheritanceedit	concreteedit	reentrancyedit	overloadingedit	gcc	derivativesedit	representation	compactnessedit	unboxingedit	weak	keywordsedit	tree	1997	indentationedit	statements	dictionary	current	world	advanced	developersedit	standardization	wars	local	comprehensionedit	goroutines	dutch	procedures	conventions	uses	browser	statementsedit	objectivec	vs	handlingedit	optionals	value	ethics	coherence	element	people	musicedit	film	implicit	tortoise	mapping	criticismsedit	nomenclature	xquery	identifying	compilers	delay	pointer	declaration	making	within	variables	recursion	accessor	mutator	productsedit	communicationavoiding	deciding	identifier	interfaces
+languageedit	licenseedit	referencesedit	securityedit	see	eliminationedit	subtypingedit	hoistingedit	criticismedit	usageedit	sourcesedit	fieldsedit	notable	redit	alsoedit	also	notesedit	listsedit	notes	citationsedit	subroutine	categoriesedit	communityedit	inductionedit	posingedit	virtual	filesystemedit	memoryedit	derivative	smledit	disputeedit	bourne	backlog	release	termsedit	intermediate	printfedit	companyedit	bytecodeedit	shelledit	othersedit	dimensionedit	saccharinedit	namesedit	managersedit	representationedit	architectureedit	linguisticsedit	gamesedit	controversiesedit	datesedit	peopleedit	mentions	heritageedit	arpanetedit	policyedit	cross	unix	brandingedit	references	anomaliesedit	themesedit	pipelinesedit	machinesedit	trivialedit	authorsedit	it	lengthedit	operatoredit	referenceedit	typescriptedit	callsedit	inliningedit	exploitsedit	selfedit	caveatsedit	nmakeedit	xbaseedit
+languagesedit	elementsedit	alternativesedit	laziness	macro	assembly	authoring	begin	curlybracket	dataflow	dataoriented	datastructured	decision	esoteric	fourthgeneration	pureedit	interactive	interpreted	iterative	logicbased	textual	multiparadigm	numerical	offside	procedural	reflective	rulebased	stackbased	synchronous	wirth	xmlbased	simulating	fuzzy	com	eager	classbased	prototypebased	analysisedit	description	table	used	nonenglishbased	assemblersedit	clike	educational	end	impureedit	mode	little	substitution	rule
+timeline	evaledit	of	list	forms	codeedit	parallel	lack	measureedit	race	sloc	brian	subclassedit	classesedit	directionsedit	chain	matricesedit	msetsedit	releases	copyingedit	scopeedit	person	available	nonboolean	primitive	properties	meaning	concept	iterator	concatenation	lines	measuresedit	taxonomy	analysis	ntuples	kinds	zen	levels	review	orthogonality	organization	applications	number	os	determiners	treatment	datatypesedit
+channelsedit	extensionsedit	now	hdls	implementations	rustedit	for	monoedit	optimizationedit	suitability	lifeedit	something	analog	scalaedit	valaedit	tool	efficient	nonregular	cocoa	implications	benevolent	formula	dictator	dictators	scheme	time	taken	completely	algorithms	regexesedit	alternative	requests	namespace
+methods	parenthesesedit	constraint	concurrent	functional	programmingedit	urban	asynchronous	units	agent	analytical	scriptingedit	libraries	metalogic	inductive	linear	transaction	comprehensionsedit	originedit	subtleties	informationrich	areasedit	protocoloriented	logic	demographicsedit	abductive	transformationsedit	linqedit
+programming	home	characteredit	platformsedit	different	various	f	sharp	falcon	genie	go	groovy	julia	nim	swift	highlevel	block	structured	aspectoriented	selectorsedit	oberon	oberon2	outputedit
+use	examples	implementation	in	explicit	lazy	europe	dynamicallytyped	plsql	vb	production	tabular	practiceedit	support	interactionedit	delimiters	errorsedit	sandbox	grey	assertions	strong	linq	values
+8	thirdparty	versions	windows	microsoft	permissions	promptedit	powerbuilderedit	vexdisambiguation	powershelledit	3	9x	nt	xp	vista	7	10	defender	extensible	stylesheet	needededit	x	multilingual
+generaledit	conferencesedit	economic	treesedit	navigation	further	external	bibliographyedit	readingedit	reading	literature	linksedit	links	resourcesedit	iterators	community	menu	search	metadata	aspectsedit	axiomedit	binary
+newspaper	the	style	flesch	dalechall	gunning	forcast	john	lexile	seriesedit	showedit	pascalp	semantic	formulaedit	fog	readershipedit	bormuth	frameworkedit	behavioredit	during	reduce	find
+kingdom	beyond	clang	edit	celtic	burgundian	batavian	all	gccedit	portable	germanic	republic	15811795	17951890	1890present	clos	1983	1971	1979
+comparison	terminologyedit	with	updatesedit	inefficiency	error	subroutinesedit	mutual	indexingedit	streamsedit	recursionedit	interpretationedit	dealing	arithmeticedit	contrasting	classifying
+languages	major	projects	lispsedit	compiled	influenced	usually	without	interaction	personal	tools	namespaces	printexport	benchmark	listbased
+when	how	crosscompilers	to	legacy	do	optimizeedit	subroutineedit	help	define	not	introduction	five	relation	tagged
+xml	string	adjacent	expansionedit	literalsedit	literal	interpolation	processingedit	normal	multiline	modern	numbersedit	perlinfluencededit	subscriptingedit	concatenationedit
+version	matzs	ruby	1edit	2edit	1	2	crystaledit	releasesedit	8edit	9edit	0edit	4edit	beopenedit
+basic	visual	limitationsedit	logtalkedit	prologedit	6	posix	availabilityedit	basicedit	arithmetic	xedit	vbscriptedit	teststandedit	verilogedit
+turbo	pascaledit	embedded	modula2edit	isoiec	component	parasailedit	effortsedit	brief	maya	71851990	102061990	extended	oberonedit
+implementationsedit	interpreteredit	licensingedit	no	fixedsize	selfbalancing	commercial	freely	supported	longer	alternate	efficiencyedit	redistributable
+contributorsedit	timelineedit	common	lispedit	schemeedit	luaedit	juliaedit	coffeescriptedit	outcomeedit	deviationsedit	lisp	clojureedit	cluedit
+popularity	static	manager	methodsedit	indicesedit	emailedit	special	copyassignment	member	functions	operator
+runtime	dynamic	inferenceedit	type	checkingedit	checking	combining	informationedit	safety	optional	unified
+flowedit	expressionsedit	ecmascriptedit	algol	disjointness	generator	boolean	regular	generatorsedit	ifthenelse	familyedit
+toolsedit	development	environmentsedit	cycleedit	compiletime	application	nimbleedit	platformedit	limited	apple
+syntaxedit	specific	simple	tag	railolucee	messagesedit	script	this	responsibly	if
+extentedit	typingedit	mathematicsedit	parametersedit	meta	forwardingedit	specialized	duck	gradual	portabilityedit
+net	as	an	failureedit	statement	fibersedit	semicolons	knowledge	separatorsedit	framework
+by	contractedit	marketing	squaringedit	adoption	exponentiating	provided	uncaught	constructedit	role
+typesedit	platform	collection	subrange	boxing	scalar	intersection	existential	dependent
+cedit	bashedit	xledit	coboledit	ccliedit	microsoftspecificedit	pliedit	fedit	booedit
+outer	matrix	matrices	multiplicationedit	product	inner	two	any	onlyedit
+addressing	readability	childrens	adult	formulasedit	graphedit	popular	fry	atos
+5	compatibilityedit	3edit	php	prologs	actionscript	loopsedit	4	0
+python	live	reunionsedit	monty	after	pythons	fliegender	sketchesedit
+principlesedit	disadvantagesedit	kindsedit	utilityedit	advantagesedit	strategiesedit	graph	locksedit
+exception	handling	exitedit	handlingtraps	synchronicityedit	facilities	syntaxesedit	pointedit
+c11	c	extension	wrapping	pointersedit	nonstandard	since	cleanup
+blocksedit	blocks	allocationedit	buddy	stack	automatic	memorymapped	slab
+porting	a	stringedit	variableedit	fileedit	identifiers	scope	referencing
+potential	point	planes	modelsedit	join	aspectjs	intertype	declarationsedit
+javaedit	goedit	haskelledit	fortranedit	groovyedit	java	haxeedit
+manual	memory	managementedit	management	debugging	philosophical	namespaceedit
+objectivecedit	library	geos	uninstantiableedit	clangedit	matlabedit	mintedit
+parameter	fieldedit	flags	width	precision	length	custom
+other	recreationedit	translationsedit	introductionsedit	valuesedit	importedit
+roman	800	bc	bc410	influences	ad
+pattern	matchingedit	matching	hashbased	possessive	patterns
+docstringsedit	function	arbitraryprecision	indirectionedit	factorial	anonymous
+hello	worldedit	concurrency	samplesedit	reversing	insertion
+declarative	bracketed	delimitersedit	whitespace	substitutesedit	paired
+groovybeans	propertiesedit	descriptorsedit	scienceedit	nonfragile	lengthsedit
+toweredit	stackedit	delayed	stacking	evaluationedit	order
+featuresedit	fundamental	distinguishing	r6rsedit	r7rsedit
+mathematicaedit	mledit	matlab	octaveedit	maximaedit
+file	sugaredit	sizeedit	global	xojoedit
+engineeringedit	roboticsedit	transportedit	fashionedit	agricultureedit
+hareedit	brents	algorithmedit	gospers	timespace
+universal	extendededit	coded	character	setedit
+data	formatsedit	segmentedit	uri	infinite
+variablesedit	fast	immutable	instance	enumerationedit
+proceduresedit	standard	internationalizationedit	feathers	libraryedit
+structuresedit	base	working	listofsuccesses	patternedit
+exceptionsedit	template	documentsedit	checked	comments
+reference	countingedit	counting	tracingedit	weighted
+pythonedit	rubyedit	ocamledit	reboledit	rexxedit
+sortingedit	closuresedit	curryedit	curryingedit	json
+racketedit	phpedit	perl	6edit	5edit
+dedit	eiffeledit	dartedit	osjcledit	dylanedit
+views	more	appearances	than	theres
+on	terms	based	legal	servers
+web	pagesedit	compatibility	considerationsedit	outside
+garbage	systems	collectionedit	collected	advantages
+netedit	erlangedit	pascalabc	elixiredit	z
+flying	circus	circusedit	awards	filmographyedit
+recordsedit	religionedit	mediaedit	educationedit	healthcareedit
+definitionsedit	tuples	lists	sets	pairsedit
+systemsedit	continuable	input	polymorphism	realtime
+high	middle	ages	4111000	10001384
+administrative	divisionsedit	foreign	relationsedit	militaryedit
+climateedit	natureedit	caribbean	islandsedit	politicsedit
+placesedit	pythonesqueedit	tvedit	things	named
+constructsedit	similar	monad	demonstrating
+notationedit	delimiter	collisionedit	doubling
+variationsedit	pascal	compilersedit	borlandlike
+usage	device	share	sales
+format	placeholder	printf	specificationedit
+developmentedit	performanceedit	comparisons	namingedit
+ambiguityedit	running	unicodeedit	timesedit
+honoursedit	legacyedit	productionedit	transnational
+encodingsedit	transformation	unicode	consortiumedit
+controledit	problem	solvingedit	negation
+functionsedit	higherorder	defining	generic
+column	square	vectoredit	rectangular
+coldfusion	interfacesedit	markup	11specificedit
+swiftedit	smalltalkedit	slangedit	systemverilogedit
+constructorsedit	abstract	destructorsedit	finalizersedit
+north	americaedit	cleese	departs
+command	interface	line	user
+embeddable	runtimeedit	documentation	generatoredit
+assemblyedit	through	trampoliningedit	nextedit
+systemedit	module	package	categories
+frequently	charactersedit	recurring	composite
+chapmanedit	cleeseedit	gilliamedit	idleedit
+lexicaledit	macrosedit	automated	environments
+geographyedit	floodsedit	delta	worksedit
+secret	policemans	ball	benefit
+invalid	conversion	specificationsedit	field
+george	measuring	klare	studiesedit
+result	typeedit	side	effects
+arraysedit	onedimensional	multidimensional	dope
+text	levelingedit	vocabulary	frequency
+typographyedit	onscreen	displayedit	variablewidth
+governmentedit	political	ethicsedit	partiesedit
+art	philosophy	hacker	artists
+pointeredit	null	autorelative	dangling
+centrum	wiskunde	amp	informatica
+zirkusedit	stage	incarnationsedit	landing
+tradeoffsedit	bottlenecksedit	strength	reductionedit
+nop	protocol	commandsedit	crackingedit
+cultural	influenceedit	comedy	stylistsedit
+sortedit	mergesortedit	quicksortedit	writing
+annotationsedit	decoratorsedit	easter	eggsedit
+one	way	down	mostly
+lambda	calculusedit	case	initializationedit
+resource	acquisition	is	initialization
+copyedit	shallow	deep	combinationedit
+predicatesedit	commentsedit	inputoutputedit	redefinition
+membersedit	associate	pythonsedit
+paradigmsedit	proceduraledit	functionaledit
+early	first	publicationedit
+array	associative	indexedit
+related	movementsedit	ideologically
+open	difficultiesedit	sourceedit
+firstclass	continuationsedit	shared
+control	new	collectionsedit
+structurededit	dynamicedit	globaledit
+librariesedit	c2nimedit	idesedit
+nonbreaking	spacesedit	hair
+habsburg	netherlands	13841581
+organizingedit	storageedit	protectionedit
+eagernessedit	controlling	eagerness
+naming	receptionedit	conventionsedit
+tablesedit	architectural	rootsedit
+standardedit	third	partyedit
+instantiationedit	communication	protocolsedit
+make	name	resolution
+mapedit	filteredit	foldedit
+multiple	made	appearancesedit
+microsoftedit	standardizationedit	later
+indirect	jumpedit	jump
+general	propertyedit	category
+source	interpolationedit	embedding
+wild	branchedit	simulation
+equationsedit	group	theory
+stringsedit	raw	escapingedit
+procedure	argumentsedit	hygienic
+birthday	paradoxedit	sorting
+benefitsedit	unnamededit	typical
+union	green	ampdark
+delegativeedit	miscellaneousedit	vendorspecific
+objectorientationedit	messageorientededit	tabularedit
+syntactic	formedit	saltedit
+abstraction	penaltyedit	relative
+restarts	separate	mechanism
+interpolatorsedit	sciter	tiscript
+julia2c	compiler	sourcetosource
+copyonwriteedit	interningedit	thread
+address	translationedit	applicationedit
+perledit	gobjectedit	nemerleedit
+violating	immutabilityedit	languagespecific
+prototype	extensionedit	dot
+at	netscapeedit	serverside
+developmentsedit	trademarkedit	vanilla
+characters	six	who
+discrete	wavelet	transform
+crosssite	vulnerabilitiesedit	placeholdersedit
+misplaced	trust	clientedit
+holy	grail	1975
+hollywood	bowl	1982
+bash	zsh	etc
+nested	sequencesedit	ordered
+performance	implicationsedit	relationship
+termedit	economicsedit	licensing
+linked	listedit	passbyaddress
+maskingedit	alpha	renaming
+accessedit	exceptionedit	polymorphismedit
+filewikibookslogoennoslogan	svg	summary
+generalpurpose	spaceedit	breaking
+cohmetrix	psycholinguistics	measurementsedit
+setsedit	indic	scriptsedit
+spaces	around	dashesedit
+innovation	communitiesedit	arts
+fileguido	van	rossum
+oscon	2006	jpg
+internetedit	spinoff	companiesedit
+economyedit	natural	gasedit
+societyedit	aphorism	admitted
+sportsedit	cuisineedit	colonial
+filmsedit	albumsedit	theatreedit
+typed	pointers	saferedit
+from	operations	derived
+persons	sometimes	referred
+componentsedit	impactedit	free
+ligaturesedit	standardized	subsetsedit
+quotingedit	dual	constructor
+jonesedit	palinedit	lost
+webedit	fontsedit	newlinesedit
+operatorsedit	dictionariesedit	logical
+nonsubclassableedit	mixinsedit	partialedit
+cfmledit	lucee	railo
+synonymsedit	algebraic	datatypes
+program	optimization	codesedit
+showsedit	going	soloedit
+programsedit	proper	tail
+server	sideedit	client
+68edit	apledit	awkedit
+conditionalsedit	predicationedit	choice
+configuration	filesedit	exotic
+sqledit	mysqledit	oracle
+accessibilityedit	interclass	relationshipsedit
+compositionaledit	hierarchicaledit	definitions
+modulo	consedit	prolog
+productedit	illustrationedit	powers
+layoutsedit	resizingedit	nonlinear
+integrated	query
+exampleedit	interfaceedit
+late	binding
+plugin	coding
+compile	timeedit
+implementationedit	hash
+inneredit	metaclassesedit
+distributed	objectsedit
+shadowingedit	condition
+examplesedit	pli
+cyclesedit	variants
+software	assertion
+scripting	engineedit
+squirreledit	tcledit
+jqueryedit	angularedit
+javascriptedit	kotlinedit
+scripts	coverededit
+useedit	comedit
+life	closesedit
+metaprogrammingedit	staged
+opensource	model
+granularityedit	database
+minimalismedit	lexical
+safetyedit	omissionsedit
+variable	capture
+transformationedit	traitsedit
+operating	amoeba
+ascii	escape
+computing	enthusiasts
+codebaseedit	transcompiler
+execution	modesedit
+mclaughlins	smog
+electronicsedit	food
+otheredit	society
+ieee	754
+versus	readymade
+assertionsedit	disabling
+entryedit	state
+dispatchedit	single
+cycle	detection
+algorithmsedit	floyds
+differences	between
+foundationedit	debateedit
+joinpoint	modeledit
+cocoaedit	delphiedit
+back	upedit
+iconedit	jqedit
+alex	martelli
+justintime	compilation
+ce	xbox
+row	vector
+wikipediacitation	needed
+your	work
+has	been
+motivationedit	problemsedit
+vectorsedit	compact
+zerobased	numbering
+code
+operationsedit
+usesedit
+class
+objectoriented
+standardsedit
+iteratorsedit
+cultureedit
+televisionedit
+contentedit
+adaedit
+meaningedit
+structureedit
+return
+while
+hardwareedit
+object
+using
+system
+compileredit
+environmentedit
+or
+dialectsedit
+booksedit
+adoptionedit
+issuesedit
+equivalence
+european
+hardware
+researchedit
+shellsedit
+circuit
+example
+floating
+security
+guidelinesedit
+ifedit
+call
