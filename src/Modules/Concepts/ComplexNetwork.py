@@ -116,6 +116,15 @@ class ComplexNetwork(object):
     def get_contextual_distance(self, one_word, second_word):
         return 1
 
+    def get_clusters_content(self):
+        with open(self.mcl_file_output, "r") as mcl_file:
+            return mcl_file.read().split("\n")
+
+#tests
+cn = ComplexNetwork()
+c = cn.get_clusters_content()
+print(len(c))
+
 # TESTING COMPLEX NETWORK class -------
 # t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
 # t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
