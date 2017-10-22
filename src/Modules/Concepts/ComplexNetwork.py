@@ -46,7 +46,7 @@ class ComplexNetwork(object):
         """Save mcl input data in file"""
         try:
             # Save complex network on MCL format
-            mcl_input = open(filename or self.mcl_file, 'w')
+            mcl_input = open(filename or self.mcl_file_input, 'w')
             for first_word in self.adjacency_list:
                 for second_word in self.adjacency_list[first_word]:
                     line = first_word + " " + second_word + " " + str(self.adjacency_list[first_word][second_word]) + "\n"
