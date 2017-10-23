@@ -9,7 +9,10 @@ class NlpModule(AbstractModule):
         distance between searched code and
         documentation and user code
     """
-    def __init__(self, internal_weights=[0.25, 0.25, 0.25, 0.25], weight=1):
+
+    def __init__(self, internal_weights=None, weight=1):
+        if internal_weights is None:
+            internal_weights = [0.25, 0.25, 0.25, 0.25]
         AbstractModule.__init__(self, internal_weights, weight)
         self.complex_network = ComplexNetwork()
         self.clusters = self.complex_network.get_clusters_content()
@@ -20,8 +23,8 @@ class NlpModule(AbstractModule):
         words = doc.split(" ")
         for word in words:
             for i, cluster in enumerate(self.clusters):
-                clusterArray = cluster.split("\t")
-                if word in clusterArray:
+                cluster_array = cluster.split("\t")
+                if word in cluster_array:
                     histogram[i] += 1
         # Normalize Histogram
         histogram_sum = 0
@@ -29,7 +32,7 @@ class NlpModule(AbstractModule):
             histogram_sum += value
         if histogram_sum > 0:
             for i, value in enumerate(histogram):
-                histogram[i] = value/histogram_sum
+                histogram[i] = value / histogram_sum
         return histogram
 
     def evaluate_docs_distance(self, doc1, doc2):
@@ -61,15 +64,16 @@ class NlpModule(AbstractModule):
         score = 0
         # Search Query vs Doc
         score += self.evaluate_query_vs_doc(input_bus_vo.user.query,
-                                   input_bus_vo.searched_codes[search_result_id].documentation)
+                                            input_bus_vo.searched_codes[search_result_id].documentation)
         # Search Query vs Comments
         score += self.evaluate_query_vs_comments(input_bus_vo.user.query,
-                                        input_bus_vo.searched_codes[search_result_id].codes[code_id].comments)
+                                                 input_bus_vo.searched_codes[search_result_id].codes[code_id].comments)
         # User Comments vs Doc
         score += self.evaluate_comments_vs_doc(input_bus_vo.user.comments,
-                                           input_bus_vo.searched_codes[search_result_id].documentation)
+                                               input_bus_vo.searched_codes[search_result_id].documentation)
         # User Comments vs Comments
         score += self.evaluate_comments_vs_comments(input_bus_vo.user.comments,
-                                           input_bus_vo.searched_codes[search_result_id].codes[code_id].comments)
+                                                    input_bus_vo.searched_codes[search_result_id].codes[
+                                                        code_id].comments)
 
         return self.weight * score
