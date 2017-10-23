@@ -1,14 +1,19 @@
 import flask
 import time
 from flask import Flask, request, json
-from flask_socketio import SocketIO, leave_room, emit
+from flask_socketio import SocketIO
 import requests
+from logging.config import fileConfig
+import logging
 
 from Controllers.EvaluatorController import EvaluatorController
 
+fileConfig('logging.conf')
+log = logging.getLogger(__name__)
+
 app = Flask(__name__, static_folder='')
 app.config['SECRET_KEY'] = '@server-secret'
-socketio = SocketIO(app)
+socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
 
 
 class Socket:
@@ -84,5 +89,10 @@ def emit_code_recommendations(request_id, data):
     Socket(request_id).emit('recommendationCodes', data)
 
 
+def run_server():
+    socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
+
+
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port=10443)
+    socketio.start_background_task(run_server)
+    # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
