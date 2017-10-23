@@ -2,6 +2,7 @@ from Modules.AbstractModule import AbstractModule
 from Modules.Concepts.ComplexNetwork import ComplexNetwork
 import numpy
 
+
 class NlpModule(AbstractModule):
     """
         Module to extract natural language
@@ -23,11 +24,12 @@ class NlpModule(AbstractModule):
                 if word in clusterArray:
                     histogram[i] += 1
         # Normalize Histogram
-        histogramSum = 0
+        histogram_sum = 0
         for value in histogram:
-            histogramSum += value
-        for i, value in enumerate(histogram):
-            histogram[i] = value/histogramSum
+            histogram_sum += value
+        if histogram_sum > 0:
+            for i, value in enumerate(histogram):
+                histogram[i] = value/histogram_sum
         return histogram
 
     def evaluate_docs_distance(self, doc1, doc2):
@@ -40,18 +42,18 @@ class NlpModule(AbstractModule):
         return self.internal_weights[0] * score
 
     def evaluate_query_vs_comments(self, query, user_comments):
-        groupedComments = user_comments.join(" ")
-        score = 1 - self.evaluate_docs_distance(query, groupedComments)
+        grouped_comments = " ".join(user_comments)
+        score = 1 - self.evaluate_docs_distance(query, grouped_comments)
         return self.internal_weights[1] * score
 
     def evaluate_comments_vs_comments(self, user_comments, code_comments):
-        grouped_user_comments = user_comments.join(" ")
-        grouped_code_comments = code_comments.join(" ")
+        grouped_user_comments = " ".join(user_comments)
+        grouped_code_comments = " ".join(code_comments)
         score = 1 - self.evaluate_docs_distance(grouped_user_comments, grouped_code_comments)
         return self.internal_weights[2] * score
 
     def evaluate_comments_vs_doc(self, user_comments, doc):
-        grouped_user_comments = user_comments.join(" ")
+        grouped_user_comments = " ".join(user_comments)
         score = 1 - self.evaluate_docs_distance(grouped_user_comments, doc)
         return self.internal_weights[3] * score
 
