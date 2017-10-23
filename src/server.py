@@ -11,7 +11,6 @@ from Controllers.EvaluatorController import EvaluatorController
 fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 
-
 app = Flask(__name__, static_folder='')
 app.config['SECRET_KEY'] = '@server-secret'
 socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
@@ -70,7 +69,7 @@ def get_complex_network():
 
 
 # TODO: maybe use on connect
-@socketio.on('connect') 
+@socketio.on('connect')
 def connect():
     print('connectttsssss')
 
@@ -90,5 +89,10 @@ def emit_code_recommendations(request_id, data):
     Socket(request_id).emit('recommendationCodes', data)
 
 
-if __name__ == "__main__":
+def run_server():
     socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
+
+
+if __name__ == "__main__":
+    socketio.start_background_task(run_server)
+    # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
