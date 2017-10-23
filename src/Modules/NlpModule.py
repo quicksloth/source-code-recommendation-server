@@ -31,9 +31,9 @@ class NlpModule(AbstractModule):
         return histogram
 
     def evaluate_docs_distance(self, doc1, doc2):
-        histogram1 = self.populate_histogram([0] * self.clustersCount, doc1)
-        histogram2 = self.populate_histogram([0] * self.clustersCount, doc2)
-        return numpy.linalg.norm(numpy.array(histogram1) - numpy.array(histogram2))
+        histogram1 = numpy.array(self.populate_histogram([0] * self.clustersCount, doc1))
+        histogram2 = numpy.array(self.populate_histogram([0] * self.clustersCount, doc2))
+        return numpy.linalg.norm(histogram1 - histogram2)
 
     def evaluate_query_vs_doc(self, query, doc):
         score = 1 - self.evaluate_docs_distance(query, doc)
