@@ -34,7 +34,7 @@ class EvaluatorController(object):
     complex_network = ComplexNetwork()
     low_coupling_module = LowCouplingModule(weight=5)
     understanding_module = UnderstandingModule(weight=1)
-    nlp_module = NlpModule(weight=1)
+    nlp_module = NlpModule(weight=5)
 
     @staticmethod
     def get_recommendation_code(request_id, query, libs, comments, language):
@@ -98,6 +98,8 @@ class EvaluatorController(object):
                                                                      code_id=idy)
         nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                  code_id=idy)
+        # nlp_score = 1
+
         print('low_coupling_score', low_coupling_score)
         print('understanding_score', understanding_score)
         print('nlp_score', nlp_score)

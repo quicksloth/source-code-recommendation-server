@@ -1,5 +1,6 @@
 import os
 import pickle
+import numpy
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
@@ -14,7 +15,9 @@ class ComplexNetwork(object):
     """
     complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
     complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
-    mcl_file = os.path.join(dirname, "mcl_input.txt")
+
+    mcl_file_input = os.path.join(dirname, "mcl_input.txt")
+    mcl_file_output = os.path.join(dirname, "mcl_output.txt")
     default_weight = 1
     neighbor_distance = 1
 
@@ -44,7 +47,7 @@ class ComplexNetwork(object):
         """Save mcl input data in file"""
         try:
             # Save complex network on MCL format
-            mcl_input = open(filename or self.mcl_file, 'w')
+            mcl_input = open(filename or self.mcl_file_input, 'w')
             for first_word in self.adjacency_list:
                 for second_word in self.adjacency_list[first_word]:
                     line = first_word + " " + second_word + " " + str(self.adjacency_list[first_word][second_word]) + "\n"
@@ -52,6 +55,15 @@ class ComplexNetwork(object):
             mcl_input.close()
         except:
             print('error saving mcl input data')
+
+    def __run_mcl(self):
+        try:
+            command = "mcl " + self.mcl_file_input + " --abc -o " + self.mcl_file_output
+            os.system(command)
+            print("MCL run success")
+        except:
+            print("Error while running MCL")
+
 
     def train_network(self, textual_train_base):
         """
@@ -87,6 +99,7 @@ class ComplexNetwork(object):
 
         self.__save_complex_network()
         self.__save_mcl_input_data()
+        self.__run_mcl()
 
         return self.adjacency_list
 
@@ -103,6 +116,10 @@ class ComplexNetwork(object):
 
     def get_contextual_distance(self, one_word, second_word):
         return 1
+
+    def get_clusters_content(self):
+        with open(self.mcl_file_output, "r") as mcl_file:
+            return mcl_file.read().split("\n")
 
 # TESTING COMPLEX NETWORK class -------
 # t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'

@@ -1,0 +1,226 @@
+innovationsedit	status	definitionedit	oop	philosophyedit	and	wordmark	classesedit	delegationedit	behavioral	databasesedit	relationshipsedit	grasp	modularityedit	closed	weak	subtypingedit	multitasking	unixlike	roadmapedit	commentsedit	outputedit	iso	operator	function	quotingedit	closureedit	compilersedit	comprehensionsedit	channelsedit	xml	iteratorsedit	chainingedit	organizationedit	digital	beveragesedit	habsburg	kingdom	beyond	literatureedit	ecologyedit	terminologyedit	completeness	contentedit	challengesedit	compile	syntax	tree	indentationedit	symbolic	statements	structuresedit	current	objects	conferences	prealphaedit	practiceedit	developersedit	ethics	list	methods	polymorphismedit	composition	inheritance	gang	strong	realworld	firstclass	lambda	blocks	science	alphaedit	betaedit	dutch	single	unix	disk	access	electronicsedit	coverededit	differences	expressions	books	channels	overloadingedit	atomsedit	conses	scope	evaluation	functions	goroutines	browser	value	coherence	food	medicineedit	controversiesedit	germanic	people	musicedit	film	mapping	format	criticismsedit	timeedit
+python	contents	language	paradigm	featuresedit	evolutionedit	overviewedit	designedit	popularity	historyedit	procedures	historical	exampleedit	types	details	overview	basic	descriptionedit	measurement	contentsedit	etymologyedit	definition	titleedit	origin	features	machine	conceptsedit	qualifications	stages	definitions	version	unladen	syntaxedit	timelineedit	versionsedit	beginnings	recent	prehistory	termination	architecture	readership	theoretical	motivation	counting	notable	fundamentalsedit	interactionedit	solid	system	backgroundedit	developer	testingedit	javascript	life	styleedit	cycle	detection	typing	algorithmic	register	itselfedit	model	cpython	swallowedit	ironpython	jython	numba	pypy	statusedit	cython	informatica	beopenedit	limitationsedit	modula3	coffeescript	setl	culture	circus	backporting	metaprogramming
+paradigmsedit	referencesedit	usageedit	see	fundingedit	skillsedit	algebraedit	hoistingedit	performanceedit	notes	alsoedit	also	notesedit	educationedit	namesedit	multiparadigmedit	simple	bytecodeedit	conductedit	useedit	extensibilityedit	alternativesedit	rubyedit	architectureedit	religionedit	datesedit	memoryedit	share	references	termsedit	abstract	machinesedit	apple	micropython	adoptionedit	companyedit	peopleedit	anomaliesedit	policyedit	quotesedit	dylanedit	scanningedit	editions	arpanetedit	functionedit	classedit	disputeedit	mediaedit	mentions	heritageedit	brandingedit	themesedit	pipelinesedit	trivialedit
+programming	toolkits	home	computer	parenthesesedit	functional	urban	reflection	definitionsedit	across	falcon	stackless	abc	dylan	icon	lisp	boo	cobra	d	f	sharp	genie	go	groovy	julia	nim	swift	highlevel	block	structured	aspectoriented
+in	languages	tools	biographyedit	use	related	other	recreationedit	projects	components	usesedit	influenced	usually	interaction	personal	lifeedit	namespaces	printexport	uses	nonfunctional	industryedit	statically	jupyter	europe	using	webedit	notebookedit	movementsedit	benchmark	ideologically
+runtime	dynamic	inferenceedit	type	specialized	systemsedit	macro	static	dependent	typecheckingedit	checking	modeling	referential	polymorphism	structural	protocols	popular	continuable	evaluationedit	checkingedit	informationedit	safety	conversions	punningedit	transparencyedit	optional	combining	unified	storageedit
+conferencesedit	economic	booksedit	sourcesedit	navigation	further	external	bibliographyedit	citationsedit	readingedit	reading	literature	linksedit	links	community	menu	search	wikipediagood	articles	metadata	sources	aspectsedit
+imperative	objectoriented	programmingedit	logic	rationale	approaches	object	asynchronous	parallel	agent	analytical	scriptingedit	lack	metalogic	constraint	concurrent	inductive	transaction	informationrich	prototypebased	abductive
+of	foundations	mainframes	timeline	different	race	sloc	communityedit	microcomputers	examples	processingedit	table	structure	state	lines	measuresedit	philosophiesedit	entryedit
+the	newspaper	revisionsedit	outside	term	unrevised	readevalprint	flesch	dalechall	gunning	forcast	john	conceptedit	formulaedit	fog	readershipedit	bormuth
+general	edit	celtic	burgundian	batavian	availability	category	introductionsedit	ga	rtw	endoflife	13841581	republic	15811795	17951890	1890present	propertyedit
+implementationsedit	environmentsedit	compiletime	reference	no	fixedsize	implementationedit	countingedit	supported	longer	alternate	efficiencyedit	escape	weighted	indirect
+matzs	1	1edit	2edit	3edit	wg	2	0edit	4edit	ruby	releasesedit	8edit	9edit	interpreteredit
+memory	libraries	virtual	management	managementedit	modes	filesystemedit	interchangeability	paralleledit	concurrentedit	safededit	debugging
+challenges	crosscompilers	to	manufacturing	legacy	make	rtm	connection	0	compiled	relationship
+comparison	with	shared	nonoop	thirdparty	inefficiency	predecessor	updatesedit	hierarchy	interpretationedit	dealing
+read	file	usage	history	svg	summary	global	syntactic	sugaredit	filewikibookslogoennoslogan
+exception	handlingedit	support	exitedit	handling	handlingtraps	synchronicityedit	optionals	facilities	pointedit
+typesedit	linear	intersection	union	existential	gradual	protocoloriented	green	european	struct
+future	optimizingedit	haskelledit	perl	6edit	5edit	pastimesedit	erlangedit	onionedit	ponieedit
+librariesedit	methodsedit	typingedit	indicesedit	originsedit	emailedit	mathematicsedit	explicit	duck	c2nimedit
+levelsedit	systems	operating	sampleedit	bsd	device	written	realtime	amoeba
+javaedit	pythonedit	stylesedit	phpedit	objectivecedit	perledit	limited	workedit	basicedit
+as	porting	a	network	hobby	stringedit	an	failureedit	diversity
+metaobject	design	protocoledit	patternsedit	considerationsedit	objectorientation	techniqueedit	four
+hello	example	samplesedit	world	worldedit	programedit	wars	reversing
+by	macros	microsoftedit	contractedit	contract	exploitation	provided	uncaught
+classbased	versus	prototypebasededit	nonstrict	composite	recursionedit	strict	readymade
+software	opensource	foundation	license	licenses	licensesedit	free
+algol	68	68edit	68s	reportsedit	true	specification
+generic	or	implicit	weakedit	declaration	templates	six
+blocksedit	subroutinesedit	allocationedit	detailsedit	buddy	stack	slab
+potential	join	point	planes	modelsedit	aspectjs	intertype
+cedit	delphiedit	cocoaedit	ecedit	gobjectedit	ecmascriptedit	comedit
+standard	library	libraryedit	compatibilityedit	multithreadededit	summaryedit	feathers
+vs	datadriven	licensingedit	namespaceedit	safe	proprietary	modules
+readability	childrens	adult	formulasedit	graphedit	formula	fry
+languagesedit	interpreted	data	frequently	typed	used
+traitsedit	gpu	kernelsedit	nvidia	cudaedit	transformationedit
+control	flowedit	expressionsedit	responsibility	collectionsedit	loopedit
+engineeringedit	roboticsedit	transportedit	fashionedit	demographicsedit	agricultureedit
+hareedit	brents	algorithmedit	gospers	timespace	tradeoffsedit
+imperativeedit	measureedit	metaprogrammingedit	objectorientededit	wrapping	staged
+adoption	kotlinedit	javascriptedit	dedit	serverside	vanilla
+storage	duration	objectsedit	thread	automatic	templatesedit
+pr	amp	co	structures	pragmats	unions
+for	benevolent	suitability	dictator	dictators
+principlesedit	disadvantagesedit	advantagesedit	utilityedit	graph
+haskell	workshopsedit	98edit	2010edit	base
+reserved	units	wordsedit	words	set
+apisedit	program	representationedit	kernel	knowledge
+jqueryedit	string	interpolationedit	expansionedit	compilingedit
+platform	java	implementations	performance	implicationsedit
+crossplatform	video	playedit	platformedit	gamesedit
+command	improvementsedit	name	line	resolution
+squirreledit	sequenceledit	tcledit	scalaedit	xojoedit
+garbage	variablesedit	collectionedit	collection	advantages
+exceptionsedit	orientededit	checked	template	documentsedit
+flying	monty	pythons	fliegender	sketchesedit
+scripting	application	generics	areasedit	engineedit
+guido	van	rossum	oscon	fileguido
+high	middle	ages	4111000	10001384
+safetyedit	variable	omissionsedit	levels	condition
+800	before	bc	bc410	ad
+administrative	divisionsedit	foreign	relationsedit	militaryedit
+climateedit	natureedit	caribbean	islandsedit	politicsedit
+supportedit	universal	repositories	ide
+early	first	developments	publicationedit
+approachesedit	amd	hsaedit	alternative
+higherorder	functionsedit	pure	member
+arraysedit	proceduresedit	proc	listprocessing
+filesedit	formatted	transputedit	par
+ambiguityedit	whitespace	unicodeedit	substitutesedit
+televisionedit	sportsedit	cuisineedit	colonial
+honoursedit	legacyedit	productionedit	transnational
+encodingsedit	unicode	consortiumedit	transformation
+controledit	problem	solvingedit	negation
+criticismedit	guidelinesedit	criticism	conventions
+mode	declarationsedit	coercions	castingedit
+availabilityedit	windowsedit	database	analysisedit
+comparisons	representationsedit	some	vanitasedit
+on	terms	legal	based
+abstraction	penaltyedit	relative	meaningedit
+dispatchmessage	passingedit	encapsulationedit	inheritanceedit
+strategiesedit	testing	traditional	tracingedit
+compileredit	julia2c	sourcetosource	compiler
+input	charactersedit	transput	recurring
+systemedit	compatibility	package	equivalence
+issuesedit	philosophical	fontsedit	newlinesedit
+stringsedit	goaldirected	executionedit	generatorsedit
+everybodyedit	mondrianedit	dropboxedit	recognitionedit
+geographyedit	floodsedit	delta	worksedit
+interface	user	interfaces	graphical
+clientedit	vulnerabilitiesedit	misplaced	trust
+george	measuring	klare	studiesedit
+proposals	from	ifip	mechanism
+chapmanedit	cleeseedit	gilliamedit	idleedit
+op	operatorsedit	dyadic	monadic
+multiple	who	made	appearancesedit
+text	levelingedit	vocabulary	frequency
+typographyedit	onscreen	displayedit	variablewidth
+governmentedit	political	ethicsedit	partiesedit
+art	philosophy	hacker	artists
+zirkusedit	stage	incarnationsedit	landing
+sites	stackoverflow	lore
+lorem	ipsumb	amdksd
+implementation	errorsedit	sandbox
+elementsedit	bold	symbols
+licenseedit	cpythonedit	silverlightedit
+toolsedit	development	nimbleedit
+variantsedit	historically	significant
+platformsedit	hardwareedit	hardware
+standardsedit	componentsedit	impactedit
+interfacesedit	comparative	markup
+multiuser	distributed	templated
+its	descendants	macos
+copyright	lawedit	ownership
+motivationedit	rpythonedit	project
+identity	relations	etcedit
+listsedit	sexpressions	represent
+nonbreaking	spacesedit	hair
+roman	modula3edit	influences
+principles	versions	practices
+extensionsedit	specific	prologedit
+character	setedit	coded
+cyclesedit	variants	views
+artificial	intelligenceedit	genealogy
+more	advanced	appearances
+softwareedit	scripts	binary
+simulating	stateedit	efficiency
+closuresedit	curryedit	json
+structureedit	selfevaluating	forms
+associated	prioritiesedit	assignation
+native	coroutinesedit	metacompileredit
+objectorientationedit	messageorientededit	tabularedit
+sourceedit	otheredit	society
+termedit	economicsedit	licensing
+unsafeedit	genericsedit	traceabilityedit
+distributionedit	enterprise	linuxedit
+security	drivers	networking
+elixiredit	lispedit	clojureedit
+innovation	communitiesedit	arts
+interval	testedit	loops
+release	candidateedit	releaseedit
+persons	sometimes	referred
+address	translationedit	applicationedit
+lexile	frameworkedit	atos
+pointersedit	untagged	unionsedit
+pointers	arrays	arraypointer
+embedded	c99	c11
+c	ansi	kampr
+linux	microsoft	windows
+execution	interrupts	modesedit
+filename	extension	reportedit
+maskingedit	alpha	renaming
+dialect	computing	enthusiasts
+cohmetrix	psycholinguistics	measurementsedit
+later	developmentsedit	trademarkedit
+array	procedure	dereference
+classes	applet	servlet
+ligaturesedit	standardized	subsetsedit
+algorithmsedit	floyds	tortoise
+setsedit	indic	scriptsedit
+android	controversy	class
+javaserver	pages	swing
+ircedit	cpan	acmeedit
+camel	symboledit	onion
+fibonacci	series	generator
+delegativeedit	miscellaneousedit	vendorspecific
+prototype	extensionedit	dot
+generalpurpose	spaceedit	breaking
+spaces	around	dashesedit
+internetedit	spinoff	companiesedit
+economyedit	natural	gasedit
+jonesedit	palinedit	lost
+outcomeedit	common	deviationsedit
+todo:	test
+open	source
+semanticsedit	formal
+procedural	codeedit
+portability	market
+compound	statementsedit
+coercion	operationsedit
+structurededit	dynamicedit
+plugin	coding
+developmentedit	namingedit
+cultureedit	healthcareedit
+web	pagesedit
+filepython	logo
+proceduraledit	functionaledit
+groovybeans	propertiesedit
+codebaseedit	transcompiler
+languageedit	intermediate
+receptionedit	naming
+securityedit	crosssite
+dialectsedit	major
+documentation	generatoredit
+restarts	separate
+latest	additionsedit
+embeddable	runtimeedit
+at	netscapeedit
+mclaughlins	smog
+2006	jpg
+centrum	wiskunde
+ampdark	grey
+ieee	754
+circusedit	awards
+foundationedit	debateedit
+joinpoint	modeledit
+assemblersedit	metaclassesedit
+code
+standardizationedit
+examplesedit
+applicationsedit
+redit
+goedit
+characters
+concurrency
+variation
+operators
+special
+researchedit
+nameedit
+internationalizationedit
+netherlands
+floating
