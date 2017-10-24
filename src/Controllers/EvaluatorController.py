@@ -98,7 +98,6 @@ class EvaluatorController(object):
                                                                      code_id=idy)
         nlp_score = cls.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                  code_id=idy)
-        # nlp_score = 1
 
         print('low_coupling_score', low_coupling_score)
         print('understanding_score', understanding_score)

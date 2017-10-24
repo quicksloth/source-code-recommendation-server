@@ -14,18 +14,22 @@ class ComplexNetwork(object):
         textual_train_base: A array of strings to train complex network based on co-occurrence
     """
     complex_network_file = os.path.join(dirname, "adjacency_list_complex_network.pickle")
-    complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
+    # complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
 
     mcl_file_input = os.path.join(dirname, "mcl_input.txt")
-    mcl_file_output = os.path.join(dirname, "mcl_output.txt")
+    mcl_file_output = os.path.join(dirname, "tmp_mcl_output.txt")
+
     default_weight = 1
     neighbor_distance = 1
 
     def __init__(self):
         self.adjacency_list = dict([])
-        self.load_complex_network()
+        self.cluster_list = dict([])
+        self.cluster_count = 0
+        self.__load_clusters()
+        # self.load_complex_network()
 
-    def load_complex_network(self, filename=None):
+    def __load_complex_network(self, filename=None):
         """Load complex network by file"""
         try:
             pfile = open((filename or self.complex_network_file), 'rb+')
@@ -50,20 +54,21 @@ class ComplexNetwork(object):
             mcl_input = open(filename or self.mcl_file_input, 'w')
             for first_word in self.adjacency_list:
                 for second_word in self.adjacency_list[first_word]:
-                    line = first_word + " " + second_word + " " + str(self.adjacency_list[first_word][second_word]) + "\n"
+                    line = first_word + " " + second_word + " " + \
+                           str(self.adjacency_list[first_word][second_word]) + "\n"
                     mcl_input.write(line)
             mcl_input.close()
         except:
             print('error saving mcl input data')
 
     def __run_mcl(self):
+        """run mcl in terminal to get clustered words"""
         try:
             command = "mcl " + self.mcl_file_input + " --abc -o " + self.mcl_file_output
             os.system(command)
             print("MCL run success")
         except:
             print("Error while running MCL")
-
 
     def train_network(self, textual_train_base):
         """
@@ -73,7 +78,7 @@ class ComplexNetwork(object):
         At the end, save CcomplexNetwork.
         """
         # self.__save_complex_network(filename=self.complex_network_file_last_version)
-        self.load_complex_network()
+        self.__load_complex_network()
 
         for doc in textual_train_base:
             words = doc.split()
@@ -82,7 +87,6 @@ class ComplexNetwork(object):
                     break
 
                 for neighbor in range(1, self.neighbor_distance + 1):
-                    # TODO improve this logic inside range
                     if idx + neighbor == len(words):
                         break
 
@@ -103,29 +107,50 @@ class ComplexNetwork(object):
 
         return self.adjacency_list
 
-    # TODO: use this one function when complex network it's ok
-    def get_contextual_distance_right(self, one_word, second_word):
-        """Get distance between one_word to another (second_word) """
-        one_word = one_word.lower()
-        second_word = second_word.lower()
-        if one_word in self.adjacency_list.keys() \
-                and second_word in self.adjacency_list[one_word].keys():
-            return 1.0 / self.adjacency_list[one_word][second_word]
-        else:
-            return 0
-
-    def get_contextual_distance(self, one_word, second_word):
-        return 1
-
     def get_clusters_content(self):
         with open(self.mcl_file_output, "r") as mcl_file:
             return mcl_file.read().split("\n")
 
+    def __load_clusters(self):
+        clusters_content = self.get_clusters_content()
+        self.cluster_count = len(clusters_content)
+        for idx, cluster in enumerate(clusters_content):
+            words_cluster = cluster.split("\t")
+            for word in words_cluster:
+                self.cluster_list[word] = idx
+        print(self.cluster_list)
+
+    def get_doc_cluster_histogram(self, doc):
+        histogram = [0] * self.cluster_count
+        cluster_words_count = 0
+
+        for word in doc.split():
+            if word in self.cluster_list.keys():
+                histogram[self.cluster_list[word]] += 1
+                cluster_words_count += 1
+
+        print(histogram)
+        normalized_histogram = self.normalize_doc_cluster_histogram(histogram, cluster_words_count)
+        print(normalized_histogram)
+
+        return normalized_histogram
+
+    @staticmethod
+    def normalize_doc_cluster_histogram(histogram, cluster_words_count):
+        for idx, value in enumerate(histogram):
+            histogram[idx] = value / cluster_words_count
+        return histogram
+
+    def get_contextual_distance_between_docs(self, first_doc, second_doc):
+        histogram_doc1 = numpy.array(self.get_doc_cluster_histogram(first_doc))
+        histogram_doc2 = numpy.array(self.get_doc_cluster_histogram(second_doc))
+        return numpy.linalg.norm(histogram_doc1 - histogram_doc2)
+
 # TESTING COMPLEX NETWORK class -------
-# t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
-# t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
-# textual = [t1, t2]
-# cn = ComplexNetwork()
+t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
+t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
+textual = [t1, t2]
+cn = ComplexNetwork()
 # print(len(cn_al))
 
 # textual = ["bla ble bli blo bu", "la le li lo lu"]
@@ -139,5 +164,3 @@ class ComplexNetwork(object):
 # cn.load_complex_network()
 # cn_al = cn.train_network(textual_train_base=textual)
 # print(cn.adjacency_list)
-
-
