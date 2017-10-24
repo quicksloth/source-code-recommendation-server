@@ -17,7 +17,7 @@ class ComplexNetwork(object):
     # complex_network_file_last_version = os.path.join(dirname, "adjacency_list_complex_network_last_version.pickle")
 
     mcl_file_input = os.path.join(dirname, "mcl_input.txt")
-    mcl_file_output = os.path.join(dirname, "tmp_mcl_output.txt")
+    mcl_file_output = os.path.join(dirname, "mcl_output.txt")
 
     default_weight = 1
     neighbor_distance = 1
