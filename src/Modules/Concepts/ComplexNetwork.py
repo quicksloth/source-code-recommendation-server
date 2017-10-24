@@ -118,49 +118,67 @@ class ComplexNetwork(object):
             words_cluster = cluster.split("\t")
             for word in words_cluster:
                 self.cluster_list[word] = idx
-        print(self.cluster_list)
 
     def get_doc_cluster_histogram(self, doc):
+        # print(self.cluster_count)
         histogram = [0] * self.cluster_count
         cluster_words_count = 0
 
         for word in doc.split():
+            # print(word)
             if word in self.cluster_list.keys():
+                # print('has word = ', word)
+                # print('has word', word, 'in cluster', self.cluster_list[word])
+                # print('histogram in position before', histogram[self.cluster_list[word]])
                 histogram[self.cluster_list[word]] += 1
+                # print('histogram in position after', histogram[self.cluster_list[word]])
                 cluster_words_count += 1
 
         print(histogram)
         normalized_histogram = self.normalize_doc_cluster_histogram(histogram, cluster_words_count)
         print(normalized_histogram)
-
         return normalized_histogram
 
     @staticmethod
     def normalize_doc_cluster_histogram(histogram, cluster_words_count):
+        if cluster_words_count <= 0:
+            print(histogram)
+            return histogram
+
         for idx, value in enumerate(histogram):
             histogram[idx] = value / cluster_words_count
         return histogram
 
     def get_contextual_distance_between_docs(self, first_doc, second_doc):
+        """ get euclidean distance between two non empty docs """
+        if first_doc == '' or second_doc == '':
+            return 1
+
         histogram_doc1 = numpy.array(self.get_doc_cluster_histogram(first_doc))
         histogram_doc2 = numpy.array(self.get_doc_cluster_histogram(second_doc))
+        print('histogram_doc1', histogram_doc1)
+        print('histogram_doc2', histogram_doc2)
         return numpy.linalg.norm(histogram_doc1 - histogram_doc2)
 
 # TESTING COMPLEX NETWORK class -------
-t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
-t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
-textual = [t1, t2]
-cn = ComplexNetwork()
+# t1 = 'Lorem ipsum dolor Lorem Lorem sit amet Nullam metus.'
+# t2 = 'Lorem ipsum sit Consectetur sit adipiscing sit elit.'
+# textual = [t1, t2]
 # print(len(cn_al))
-
 # textual = ["bla ble bli blo bu", "la le li lo lu"]
 # cn_al = cn.train_network(textual_train_base=textual)
 # print len(cn_al)
-
 # print cn.get_contextual_distance(one_word='dolor', second_word='Lorem')
-
 # cn.save_complex_network()
 # print cn.adjacency_list
 # cn.load_complex_network()
 # cn_al = cn.train_network(textual_train_base=textual)
 # print(cn.adjacency_list)
+
+
+cn = ComplexNetwork()
+
+doc = 'open source web pages github read file pages'
+doc2 = 'open'
+
+print('cn.get_contextual_distance_between_docs =', cn.get_contextual_distance_between_docs(doc, doc2))
