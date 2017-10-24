@@ -33,8 +33,8 @@ class EvaluatorController(object):
     modules_weights = []
     complex_network = ComplexNetwork()
     low_coupling_module = LowCouplingModule(weight=5)
-    understanding_module = UnderstandingModule(weight=1)
-    nlp_module = NlpModule(weight=5)
+    understanding_module = UnderstandingModule(weight=2)
+    nlp_module = NlpModule(weight=2)
 
     @staticmethod
     def get_recommendation_code(request_id, query, libs, comments, language):

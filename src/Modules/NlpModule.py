@@ -56,10 +56,14 @@ class NlpModule(AbstractModule):
     def __evaluate_comments_vs_comments(self, user_comments, code_comments):
         grouped_user_comments = " ".join(user_comments)
         grouped_code_comments = " ".join(code_comments)
+        #print(grouped_code_comments)
+        #print(grouped_user_comments)
         score = 1 - self.__evaluate_docs_distance(grouped_user_comments, grouped_code_comments)
+        print("comments vs comments", score)
         return self.internal_weights[2] * score
 
     def __evaluate_comments_vs_doc(self, user_comments, doc):
+        print("qty", self.clustersCount)
         grouped_user_comments = " ".join(user_comments)
         score = 1 - self.__evaluate_docs_distance(grouped_user_comments, doc)
         return self.internal_weights[3] * score
