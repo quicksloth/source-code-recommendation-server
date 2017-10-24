@@ -8,12 +8,14 @@ import logging
 
 from Controllers.EvaluatorController import EvaluatorController
 
-fileConfig('logging.conf')
-log = logging.getLogger(__name__)
+# fileConfig('logging.conf')
+# log = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='')
 app.config['SECRET_KEY'] = '@server-secret'
-socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
+# socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
+
+socketio = SocketIO(app, allow_upgrades=True)
 
 
 class Socket:

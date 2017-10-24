@@ -47,7 +47,6 @@ class NlpModule(AbstractModule):
         return 1 - self.complex_network.get_contextual_distance_between_docs(first_doc, second_doc)
 
     def __evaluate_query_vs_doc(self, query, doc):
-        print("__evaluate_query_vs_doc")
         score = self.__get_score_by_doc_combination(query, doc)
         return self.internal_weights[0] * score
 

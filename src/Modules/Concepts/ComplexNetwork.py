@@ -134,15 +134,14 @@ class ComplexNetwork(object):
                 # print('histogram in position after', histogram[self.cluster_list[word]])
                 cluster_words_count += 1
 
-        print(histogram)
+        # print(histogram)
         normalized_histogram = self.normalize_doc_cluster_histogram(histogram, cluster_words_count)
-        print(normalized_histogram)
+        # print(normalized_histogram)
         return normalized_histogram
 
     @staticmethod
     def normalize_doc_cluster_histogram(histogram, cluster_words_count):
         if cluster_words_count <= 0:
-            print(histogram)
             return histogram
 
         for idx, value in enumerate(histogram):
@@ -156,8 +155,8 @@ class ComplexNetwork(object):
 
         histogram_doc1 = numpy.array(self.get_doc_cluster_histogram(first_doc))
         histogram_doc2 = numpy.array(self.get_doc_cluster_histogram(second_doc))
-        print('histogram_doc1', histogram_doc1)
-        print('histogram_doc2', histogram_doc2)
+        # print('histogram_doc1', histogram_doc1)
+        # print('histogram_doc2', histogram_doc2)
         return numpy.linalg.norm(histogram_doc1 - histogram_doc2)
 
 # TESTING COMPLEX NETWORK class -------
@@ -175,10 +174,9 @@ class ComplexNetwork(object):
 # cn_al = cn.train_network(textual_train_base=textual)
 # print(cn.adjacency_list)
 
-
-cn = ComplexNetwork()
-
-doc = 'open source web pages github read file pages'
-doc2 = 'open'
-
-print('cn.get_contextual_distance_between_docs =', cn.get_contextual_distance_between_docs(doc, doc2))
+# cn = ComplexNetwork()
+#
+# doc = 'open source web pages github read file pages'
+# doc2 = 'open'
+#
+# print('cn.get_contextual_distance_between_docs =', cn.get_contextual_distance_between_docs(doc, doc2))
