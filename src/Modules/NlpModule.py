@@ -9,11 +9,14 @@ class NlpModule(AbstractModule):
         documentation and user code
     """
 
-    def __init__(self, internal_weights=None, weight=1):
+    def __init__(self, internal_weights=None, weight=1, complex_network=None):
         if internal_weights is None:
             internal_weights = [0.25, 0.25, 0.25, 0.25]
         AbstractModule.__init__(self, internal_weights, weight)
-        self.complex_network = ComplexNetwork()
+
+        if complex_network is None:
+            complex_network = ComplexNetwork()
+        self.complex_network = complex_network
 
     def __get_score_by_doc_combination(self, first_doc, second_doc):
         return 1 - self.complex_network.get_contextual_distance_between_docs(first_doc, second_doc)
