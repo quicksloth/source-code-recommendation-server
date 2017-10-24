@@ -14,34 +14,6 @@ class NlpModule(AbstractModule):
             internal_weights = [0.25, 0.25, 0.25, 0.25]
         AbstractModule.__init__(self, internal_weights, weight)
         self.complex_network = ComplexNetwork()
-    #
-    # def __populate_histogram(self, histogram, doc):
-    #     # Populate histogram
-    #     words = doc.split(" ")
-    #     for word in words:
-    #         for i, cluster in enumerate(self.clusters):
-    #             cluster_array = cluster.split("\t")
-    #             if word in cluster_array:
-    #                 histogram[i] += 1
-    #     # Return normalized histogram
-    #     return self.__normalize_histogram(histogram)
-    #
-    # @staticmethod
-    # def __normalize_histogram(histogram):
-    #     histogram_sum = 0
-    #     for value in histogram:
-    #         histogram_sum += value
-    #     if histogram_sum > 0:
-    #         for i, value in enumerate(histogram):
-    #             histogram[i] = value / histogram_sum
-    #     return histogram
-    #
-    # def __evaluate_docs_distance(self, doc1, doc2):
-    #     print("doc1", doc1)
-    #     print("doc2", doc2)
-    #     histogram1 = numpy.array(self.__populate_histogram([0] * self.clustersCount, doc1))
-    #     histogram2 = numpy.array(self.__populate_histogram([0] * self.clustersCount, doc2))
-    #     return numpy.linalg.norm(histogram1 - histogram2)
 
     def __get_score_by_doc_combination(self, first_doc, second_doc):
         return 1 - self.complex_network.get_contextual_distance_between_docs(first_doc, second_doc)
