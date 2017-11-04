@@ -112,12 +112,14 @@ class ComplexNetwork(object):
             return mcl_file.read().split("\n")
 
     def __load_clusters(self):
+        print('loading complex network (clusters)....')
         clusters_content = self.get_clusters_content()
         self.cluster_count = len(clusters_content)
         for idx, cluster in enumerate(clusters_content):
             words_cluster = cluster.split("\t")
             for word in words_cluster:
                 self.cluster_list[word] = idx
+        print('Complex Network Loaded')
 
     def get_doc_cluster_histogram(self, doc):
         # print(self.cluster_count)
