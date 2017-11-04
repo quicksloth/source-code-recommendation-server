@@ -1,4 +1,4 @@
-python programming 920
+python programming 923
 python software 666
 python contents 627
 python principlesedit 56
@@ -40,7 +40,7 @@ python compilersedit 450
 python edit 104
 python wrappersedit 68
 python docstringsedit 63
-programming language 29148
+programming language 29157
 programming paradigm 460
 programming contents 13482
 programming in 877
@@ -144,7 +144,7 @@ programming vba 13
 programming history 13
 programming ruby 11
 programming library 10
-language contents 20037
+language contents 20040
 language implementation 616
 language algol 316
 language elementsedit 392
@@ -157,7 +157,7 @@ language overviewedit 530
 language licenseedit 170
 language designedit 701
 language toolsedit 458
-language popularity 62
+language popularity 68
 language computer 199
 language referencesedit 829
 language variantsedit 311
@@ -324,7 +324,7 @@ language graphical 13
 language usesedit 11
 language b 8
 language or 3
-contents historyedit 97880
+contents historyedit 97886
 contents overviewedit 35148
 contents featuresedit 13607
 contents imperative 109
@@ -1463,12 +1463,12 @@ contents circle 3
 contents perspectivesedit 3
 contents concrete 3
 contents branches 3
-contents international 1
+contents international 4
 contents glennies 1
 contents preworld 1
 contents chronology 1
 contents linguisticsedit 1
-historyedit features 904
+historyedit features 907
 historyedit machine 262
 historyedit oop 391
 historyedit conceptsedit 401
@@ -1562,7 +1562,7 @@ historyedit technical 605
 historyedit suzanneedit 35
 historyedit use 595
 historyedit modeler 35
-historyedit awardsedit 90
+historyedit awardsedit 93
 historyedit workflowedit 34
 historyedit referencesedit 4338
 historyedit developmentedit 1229
@@ -2315,8 +2315,8 @@ historyedit ingredientsedit 3
 historyedit mathematical 3
 historyedit productionedit 3
 historyedit functionality 3
-historyedit acquisitions 1
-features and 2333
+historyedit acquisitions 4
+features and 2336
 features user 45
 features aqua 157
 features of 1067
@@ -2371,9 +2371,9 @@ features continued 26
 features basic 13
 features organisation 2
 features tweets 1
-and philosophyedit 1045
-and semanticsedit 1880
-and control 1416
+and philosophyedit 1048
+and semanticsedit 1883
+and control 1419
 and wordmark 314
 and classesedit 721
 and delegationedit 391
@@ -5212,7 +5212,7 @@ and war 1
 and slave 1
 and warfare 1
 and semioticsedit 1
-philosophyedit syntax 1032
+philosophyedit syntax 1035
 philosophyedit standardizationedit 597
 philosophyedit hello 170
 philosophyedit featuresedit 658
@@ -5237,7 +5237,7 @@ philosophyedit development 54
 philosophyedit social 47
 philosophyedit content 36
 philosophyedit strong 4
-syntax and 2611
+syntax and 2614
 syntax character 95
 syntax hello 62
 syntax tree 635
@@ -5274,7 +5274,7 @@ syntax can 34
 syntax semanticsedit 33
 syntax extensionedit 32
 syntax compatibilityedit 17
-semanticsedit indentationedit 863
+semanticsedit indentationedit 866
 semanticsedit see 692
 semanticsedit symbolic 293
 semanticsedit syntaxedit 450
@@ -5330,11 +5330,11 @@ semanticsedit truthconditional 1
 semanticsedit conceptual 1
 semanticsedit computational 1
 semanticsedit computer 1
-indentationedit statements 863
+indentationedit statements 866
 indentationedit data 110
 indentationedit regular 84
 indentationedit moduliqedit 74
-statements and 863
+statements and 866
 statements pages 10
 statements navigation 19
 statements from 9080
@@ -5344,7 +5344,7 @@ statements pointofview 5
 statements referring 83
 statements of 132
 statements likely 84
-control flowedit 2664
+control flowedit 2667
 control structuresedit 2897
 control tablesedit 212
 control characteredit 51
@@ -5412,7 +5412,7 @@ control sexually 4
 control engineering 6
 control store 3
 control usageedit 3
-flowedit expressionsedit 863
+flowedit expressionsedit 866
 flowedit responsibility 391
 flowedit ioedit 231
 flowedit functionsedit 25
@@ -5425,7 +5425,7 @@ flowedit evolution 2
 flowedit an 157
 flowedit decompositionedit 155
 flowedit virtual 89
-expressionsedit methodsedit 863
+expressionsedit methodsedit 866
 expressionsedit mode 316
 expressionsedit exception 597
 expressionsedit ecmascriptedit 161
@@ -5455,7 +5455,7 @@ expressionsedit modifiersedit 120
 expressionsedit precise 77
 expressionsedit simplificationedit 74
 expressionsedit usesedit 69
-methodsedit typingedit 863
+methodsedit typingedit 866
 methodsedit indicesedit 60
 methodsedit originsedit 109
 methodsedit emailedit 202
@@ -5597,7 +5597,7 @@ methodsedit methods 15
 methodsedit colonial 3
 methodsedit participant 1
 methodsedit factors 3
-typingedit mathematicsedit 863
+typingedit mathematicsedit 866
 typingedit specialized 2857
 typingedit explicit 2857
 typingedit parametersedit 317
@@ -5629,7 +5629,7 @@ typingedit podsedit 86
 typingedit is 64
 typingedit requested 63
 typingedit wpnps 35
-mathematicsedit librariesedit 863
+mathematicsedit librariesedit 866
 mathematicsedit prettyprinting 33
 mathematicsedit reference 20
 mathematicsedit mediaedit 36
@@ -5656,7 +5656,7 @@ mathematicsedit chemistry 118
 mathematicsedit fractionsedit 32
 mathematicsedit finance 3
 mathematicsedit computer 1
-librariesedit development 863
+librariesedit development 866
 librariesedit examplesedit 221
 librariesedit see 1322
 librariesedit referencesedit 787
@@ -5717,7 +5717,7 @@ librariesedit generaledit 18
 librariesedit parallel 17
 librariesedit related 17
 librariesedit system 16
-development environmentsedit 962
+development environmentsedit 965
 development as 491
 development toolsedit 2933
 development and 2310
@@ -5813,7 +5813,7 @@ development framework 60
 development stagesedit 56
 development distribution 7
 development rbrad 4
-environmentsedit implementationsedit 863
+environmentsedit implementationsedit 866
 environmentsedit challenges 64
 environmentsedit compiletime 117
 environmentsedit typesedit 44
@@ -5842,9 +5842,9 @@ environmentsedit mobileedit 57
 environmentsedit other 50
 environmentsedit command 48
 environmentsedit migrationedit 2
-implementationsedit reference 863
-implementationsedit no 863
-implementationsedit crosscompilers 863
+implementationsedit reference 866
+implementationsedit no 866
+implementationsedit crosscompilers 866
 implementationsedit applicationsedit 112
 implementationsedit booksedit 262
 implementationsedit development 170
@@ -5972,7 +5972,7 @@ implementationsedit similar 19
 implementationsedit processorsedit 18
 implementationsedit computation 10
 implementationsedit erbedit 8
-reference implementationedit 863
+reference implementationedit 866
 reference implementation 107
 reference countingedit 754
 reference counting 106
@@ -6008,7 +6008,7 @@ reference until 58
 reference systems 43
 reference manualedit 13
 reference toolsedit 6
-implementationedit other 863
+implementationedit other 866
 implementationedit examplesedit 722
 implementationedit availabilityedit 88
 implementationedit supported 195
@@ -6112,9 +6112,9 @@ implementationedit tunnelingedit 11
 implementationedit variantsedit 7
 implementationedit source 4
 implementationedit early 3
-other implementationsedit 1446
-other languagesedit 5959
-other projects 184656
+other implementationsedit 1449
+other languagesedit 5962
+other projects 184659
 other programming 855
 other type 411
 other components 245
@@ -6499,7 +6499,7 @@ other prevalence 4
 other mindsedit 4
 other small 3
 other notionsedit 3
-no longer 924
+no longer 927
 no costs 346
 no formal 514
 no contract 7
@@ -6535,11 +6535,11 @@ no criticism 20
 no zoom 17
 no runtime 11
 no starch 9
-longer supported 863
+longer supported 866
 longer periodsedit 142
 longer than 200
 longer actively 61
-supported implementationsedit 863
+supported implementationsedit 866
 supported platformsedit 2219
 supported devicesedit 366
 supported backendsedit 105
@@ -6582,8 +6582,8 @@ supported video 20
 supported solversedit 16
 supported machinesedit 5
 supported music 5
-crosscompilers to 863
-to other 5817
+crosscompilers to 866
+to other 5820
 to imperative 363
 to manufacturing 291
 to web 291
@@ -7087,8 +7087,8 @@ to natural 4
 to format 3
 to eigenvalues 3
 to drinkedit 3
-to measuring 1
-languagesedit performanceedit 911
+to measuring 4
+languagesedit performanceedit 914
 languagesedit objectoriented 618
 languagesedit objects 391
 languagesedit oop 782
@@ -7361,7 +7361,7 @@ languagesedit grammaredit 2
 languagesedit largest 2
 languagesedit influence 2
 languagesedit semantic 1
-performanceedit developmentedit 1097
+performanceedit developmentedit 1100
 performanceedit see 494
 performanceedit optimizingedit 88
 performanceedit comparisons 60
@@ -7430,7 +7430,7 @@ performanceedit implementationsedit 28
 performanceedit styleedit 22
 performanceedit flops 19
 performanceedit where 12
-developmentedit namingedit 863
+developmentedit namingedit 866
 developmentedit prealphaedit 291
 developmentedit see 1334
 developmentedit syntaxedit 62
@@ -7616,7 +7616,7 @@ developmentedit matingedit 2
 developmentedit ancestorsedit 4
 developmentedit curry 3
 developmentedit growthedit 3
-namingedit usesedit 863
+namingedit usesedit 866
 namingedit applications 37
 namingedit end 30
 namingedit historyedit 859
@@ -7635,7 +7635,7 @@ namingedit scopeedit 147
 namingedit sun 81
 namingedit version 60
 namingedit antitrust 41
-usesedit languages 863
+usesedit languages 866
 usesedit implementationedit 584
 usesedit see 4081
 usesedit historyedit 259
@@ -7744,7 +7744,7 @@ usesedit tone 6
 usesedit culinary 4
 usesedit composting 4
 usesedit nutritional 3
-languages influenced 863
+languages influenced 866
 languages history 95
 languages see 180
 languages notes 62
@@ -7807,9 +7807,9 @@ languages before 54
 languages method 46
 languages problems 11
 languages on 2
-influenced by 866
+influenced by 869
 influenced sectionedit 88
-by pythonedit 863
+by pythonedit 866
 by macros 216
 by microsoftedit 61
 by the 1055
@@ -8000,8 +8000,8 @@ by chromatographic 4
 by physical 4
 by separation 4
 by continentedit 3
-by dhi 1
-pythonedit see 1658
+by dhi 4
+pythonedit see 1661
 pythonedit haskelledit 296
 pythonedit redit 1044
 pythonedit computer 65
@@ -8037,7 +8037,7 @@ pythonedit external 63
 pythonedit content 63
 pythonedit r 60
 pythonedit navigation 15
-see alsoedit 403531
+see alsoedit 403543
 see also 28838
 see the 64
 see wikipediatask 7
@@ -8045,7 +8045,7 @@ see wikipediamaintenance 7
 see projectedit 149
 see rac 100
 see how 34
-alsoedit referencesedit 300217
+alsoedit referencesedit 300229
 alsoedit systemsedit 391
 alsoedit notesedit 55713
 alsoedit navigation 10014
@@ -8110,8 +8110,8 @@ alsoedit user 9
 alsoedit technical 7
 alsoedit list 3
 alsoedit linguistics 1
-referencesedit further 84871
-referencesedit external 268480
+referencesedit further 84874
+referencesedit external 268489
 referencesedit navigation 103007
 referencesedit bibliographyedit 11961
 referencesedit citationsedit 3295
@@ -8184,7 +8184,7 @@ referencesedit book 8
 referencesedit converting 6
 referencesedit bibliography 3
 referencesedit cited 6
-further readingedit 97136
+further readingedit 97139
 further paradigmsedit 262
 further reading 6023
 further workedit 43
@@ -8214,7 +8214,7 @@ further applicationsedit 10
 further generalizationsedit 2
 further variantsedit 3
 further methodsedit 3
-readingedit external 72734
+readingedit external 72737
 readingedit literature 388
 readingedit navigation 17274
 readingedit booksedit 560
@@ -8243,7 +8243,7 @@ readingedit guide 55
 readingedit specificationsedit 25
 readingedit articles 17
 readingedit in 15
-external linksedit 390829
+external linksedit 390841
 external links 17185
 external resourcesedit 56
 external iterators 52
@@ -8279,7 +8279,7 @@ external parties 26
 external data 13
 external internal 2
 external morphologyedit 2
-linksedit navigation 376829
+linksedit navigation 376841
 linksedit booksedit 67
 linksedit community 392
 linksedit related 45
@@ -8374,20 +8374,20 @@ linksedit descriptionsedit 2
 linksedit dictionariesedit 4
 linksedit converting 3
 linksedit journalsedit 3
-navigation menu 633500
-navigation interaction 633500
+navigation menu 633530
+navigation interaction 633530
 navigation in 8
 navigation and 4
 navigation designedit 205
 navigation d 101
 navigation operator 35
 navigation communication 2
-menu personal 633500
+menu personal 633530
 menu and 158
 menu backward 149
 menu contents 142
 menu baredit 4
-personal tools 633500
+personal tools 633530
 personal lifeedit 3517
 personal information 341
 personal control 346
@@ -8411,9 +8411,9 @@ personal or 141
 personal health 101
 personal tabedit 86
 personal useedit 29
-tools namespaces 633500
-tools printexport 602730
-tools languages 30591
+tools namespaces 633530
+tools printexport 602754
+tools languages 30597
 tools uses 95
 tools for 915
 tools metadata 241
@@ -8445,19 +8445,19 @@ tools fire 61
 tools energy 61
 tools appstream 58
 tools to 112
-namespaces variants 633500
+namespaces variants 633530
 namespaces and 285
-variants views 633500
+variants views 633530
 variants and 913
 variants of 400
 variants minnesota 379
 variants letter 179
 variants computer 179
 variants modules 10
-views more 633500
+views more 633530
 views on 364
 views of 97
-more search 633500
+more search 633530
 more advanced 182
 more examplesedit 474
 more appearances 58
@@ -8489,7 +8489,7 @@ more recent 79
 more definitionsedit 70
 more compact 34
 more of 12
-search navigation 633500
+search navigation 633530
 search treesedit 126
 search engine 1073
 search and 360
@@ -8545,7 +8545,7 @@ search hardware 36
 search relevance 30
 search capabilitiesedit 26
 search vs 15
-interaction tools 633500
+interaction tools 633530
 interaction with 730
 interaction designedit 157
 interaction and 465
@@ -8564,9 +8564,9 @@ interaction other 132
 interaction networksedit 70
 interaction modeledit 41
 interaction chromatographyedit 4
-printexport in 184149
-printexport languages 418760
-in other 188521
+printexport in 184152
+printexport languages 418781
+in other 188524
 in dynamic 391
 in a 2629
 in nonfunctional 222
@@ -8648,7 +8648,7 @@ in commercial 244
 in ocamledit 30
 in usage 29
 in barcodes 29
-in category 37317
+in category 37326
 in anglophone 21
 in free 445
 in linuxedit 26
@@ -9185,7 +9185,7 @@ in cultural 1
 in interestedit 1
 in disc 3
 in 1944 1
-projects languages 184149
+projects languages 184152
 projects using 1218
 projects wikimedia 39
 projects controversy 39
@@ -9610,7 +9610,7 @@ usage metadata 5420
 usage overviewedit 2857
 usage navigation 3026
 usage of 960
-usage share 1110
+usage share 1113
 usage in 2311
 usage helpedit 802
 usage as 908
@@ -11478,7 +11478,7 @@ a stick 96
 a r 12751
 a sister 26
 a c 3940
-a b 18602
+a b 18605
 a projectedit 145
 a software 243
 a hardware 19
@@ -11486,7 +11486,7 @@ a service 1322
 a creative 162
 a category 11
 a d 656
-a navigation 6359
+a navigation 6362
 a problem 194
 a research 8
 a 1912 7
@@ -15753,7 +15753,7 @@ use related 39
 use flagsedit 31
 use of 6111
 use via 13
-use dmy 1070
+use dmy 1073
 use pages 7
 use it 424
 use a 5
@@ -18488,7 +18488,7 @@ edit delegates 200
 edit function 200
 edit inline 200
 edit generic 38
-edit navigation 706
+edit navigation 709
 edit business 117
 edit organizationedit 36
 edit introduction 629
@@ -19134,7 +19134,7 @@ web technologiesedit 21
 web programming 20
 web featuresedit 9
 web galleryedit 5
-web trafficedit 1
+web trafficedit 4
 rtw edit 291
 supportedit endoflife 291
 supportedit coroutinesedit 170
@@ -19666,7 +19666,7 @@ informationedit referencesedit 21
 informationedit nintendo 20
 informationedit subjective 16
 informationedit complexityedit 16
-informationedit ad 1
+informationedit ad 4
 combining static 2857
 combining charactersedit 202
 combining characteredit 82
@@ -23372,8 +23372,8 @@ share play 151
 share marketing 150
 share in 149
 share business 7
-share pages 1
-share b 1
+share pages 4
+share b 4
 also references 7133
 also notes 5524
 also comparison 62
@@ -25796,7 +25796,7 @@ computing developmentsedit 72
 computing engineedit 30
 computing recordsedit 19
 computing big 14
-computing comparisons 1
+computing comparisons 4
 cython contents 63
 cython navigation 129
 using in 63
@@ -27234,8 +27234,8 @@ vanitasedit comparisons 316
 comparisons with 489
 comparisons to 180
 comparisons across 144
-comparisons subcategories 1
-comparisons a 1
+comparisons subcategories 4
+comparisons a 4
 revisionsedit the 316
 revisionsedit display 164
 revisionsedit specificationsedit 160
@@ -27269,7 +27269,7 @@ from a 303
 from patent 13
 from october 1420
 from january 2872
-from september 1520
+from september 1526
 from august 1604
 from march 2006
 from todays 8
@@ -27811,7 +27811,7 @@ c l 191
 c o 170
 c a 361
 c s 85
-c g 555
+c g 558
 c pierce 172
 c p 305
 c solutionsedit 169
@@ -28514,7 +28514,7 @@ related versions 34
 related portals 863
 related bad 17
 related conceptsedit 1579
-related changes 5394
+related changes 5397
 related protocols 8
 related mediawiki 8
 related collaboration 7
@@ -30107,7 +30107,7 @@ pages swing 62
 pages of 241
 pages sound 241
 pages linking 252
-pages in 36091
+pages in 36100
 pages into 11
 pages retrieving 11
 pages default 11
@@ -30116,7 +30116,7 @@ pages related 11
 pages thirdparty 8
 pages timelines 8
 pages wikipedia 8
-pages that 5643
+pages that 5646
 pages maintenance 7
 pages login 7
 pages high 7
@@ -34858,7 +34858,7 @@ summary style 258
 summary tablesedit 26
 summary summary 20
 summary impact 13
-measuring programming 61
+measuring programming 64
 measuring coherence 60
 measuring language 358
 measuring and 143
@@ -34871,9 +34871,9 @@ popularity methodsedit 60
 popularity featured 8
 popularity with 177
 popularity golf 67
-popularity popularity 1
-popularity metricsedit 1
-popularity navigation 1
+popularity popularity 4
+popularity metricsedit 4
+popularity navigation 4
 indicesedit referencesedit 60
 indicesedit supercomputersedit 97
 highlevel programming 293
@@ -37348,7 +37348,7 @@ ad content 133
 ad grants 38
 ad tracking 31
 ad blocking 26
-ad campaignsedit 1
+ad campaignsedit 4
 middle ages 1562
 middle agesedit 469
 middle eastedit 271
@@ -38059,7 +38059,7 @@ ieee foundationedit 120
 ieee 7542008 110
 ieee floating 89
 ieee spectrum 3
-ieee xplore 1
+ieee xplore 4
 754 floating 506
 754 design 394
 754 contents 389
@@ -39215,7 +39215,7 @@ category all 2368
 category articles 11332
 category wikipedia 2608
 category good 9
-category use 1215
+category use 1218
 category system 8
 category delisted 4
 category wikiproject 125
@@ -39246,7 +39246,7 @@ category linksedit 314
 category operating 152
 category with 302
 category commons 151
-category computing 147
+category computing 150
 category copyright 144
 category terms 143
 category metadata 139
@@ -39318,7 +39318,7 @@ category numerical 60
 category parallel 12
 category ruby 8
 category apple 3
-category usage 1
+category usage 4
 propertyedit abstract 202
 propertyedit namespaceedit 160
 propertyedit other 97
@@ -40404,7 +40404,7 @@ counting and 77
 counting sortedit 166
 counting upedit 119
 counting is 77
-counting wikipedia 1
+counting wikipedia 4
 advantages and 3109
 advantages of 545
 advantages amp 147
@@ -40550,7 +40550,7 @@ binding predictionsedit 3
 dynamicallytyped objectoriented 56
 com languagesedit 56
 com and 241
-com contents 403
+com contents 406
 com search 150
 com domainsedit 141
 com file 141
@@ -48035,7 +48035,7 @@ scopeedit editionsedit 94
 scopeedit the 94
 scopeedit standard 147
 scopeedit bootstrapedit 60
-scopeedit subsidiariesedit 1
+scopeedit subsidiariesedit 4
 determiners of 50
 globaledit dynamicedit 50
 globaledit nationaledit 287
@@ -50368,7 +50368,7 @@ read request 141
 read system 140
 read error 137
 dates and 624
-dates from 2430
+dates from 2436
 dates of 100
 dates months 84
 reprints of 241
@@ -51728,7 +51728,7 @@ awardsedit corporate 35
 awardsedit devicesedit 21
 awardsedit notesedit 21
 awardsedit similar 20
-awardsedit consumer 1
+awardsedit consumer 4
 highlighting contents 45
 highlighting lostedit 137
 practical benefitsedit 45
@@ -54706,7 +54706,7 @@ that lack 296
 that editors 26
 that it 13
 that you 14
-that link 5511
+that link 5514
 that are 794
 that mirror 424
 that have 4
@@ -54866,7 +54866,7 @@ wikipedia indefinitely 304
 wikipedia introduction 131
 wikipedia contentstyleedit 122
 wikipedia is 1530
-wikipedia pageviews 1
+wikipedia pageviews 4
 nupedia launch 39
 nupedia contents 52
 launch and 190
@@ -54907,7 +54907,7 @@ restrictions digital 7
 changes vandalism 39
 changes to 66
 changes with 11
-changes navigation 5390
+changes navigation 5393
 changes and 44
 changes other 7
 changes protection 357
@@ -55662,7 +55662,7 @@ acquisitions expansion 36
 acquisitions offices 36
 acquisitions 20102017 149
 acquisitions contents 79
-acquisitions by 127
+acquisitions by 130
 acquisitions act 58
 partnerships google 129
 partnerships and 44
@@ -55792,7 +55792,7 @@ consumer appliancesedit 78
 consumer healthedit 47
 consumer usage 7
 consumer contents 3
-consumer complaintsedit 1
+consumer complaintsedit 4
 webbased services 129
 webbased integrated 37
 webbased softwareedit 40
@@ -55975,9 +55975,9 @@ u chatedit 20
 u d 4
 s cities 129
 s a 12632
-s t 12555
+s t 12558
 s v 896
-s pages 3345
+s pages 3348
 s w 547
 s state 6
 s c 113
@@ -56083,7 +56083,7 @@ international reachedit 29
 international components 10
 international competitionedit 2
 international exports 3
-international scopeedit 1
+international scopeedit 4
 doodles easter 129
 eggs and 129
 eggs theory 86
@@ -57431,7 +57431,7 @@ company characteristics 47
 company history 42
 company overviewedit 34
 company timelineedit 29
-company informationedit 1
+company informationedit 4
 partnershipsedit technologyedit 37
 partnershipsedit awards 77
 partnershipsedit worldwide 60
@@ -57443,7 +57443,7 @@ partnershipsedit mobi 47
 partnershipsedit see 39
 partnershipsedit nampt 39
 partnershipsedit former 34
-partnershipsedit company 1
+partnershipsedit company 4
 mailboxedit carouseledit 37
 carouseledit dropbox 37
 paperedit usercreated 37
@@ -58467,7 +58467,7 @@ link with 35
 link how 26
 link where 26
 link placement 7
-link to 6104
+link to 6107
 link boxes 5
 link in 67
 link handlingedit 162
@@ -62899,8 +62899,8 @@ david abrahams 108
 david drummond 37
 david heinemeier 8
 m beazley 28
-m n 10945
-m o 3115
+m n 10948
+m o 3121
 m p 1728
 m navigation 410
 m pages 280
@@ -63017,7 +63017,7 @@ j russell 27
 j k 8114
 j r 212
 j l 2274
-j m 1053
+j m 1056
 j o 219
 j b 113
 j mellor 100
@@ -64098,7 +64098,7 @@ subcategories f 1076
 subcategories i 478
 subcategories w 181
 subcategories g 305
-subcategories b 805
+subcategories b 808
 subcategories m 138
 subcategories s 290
 subcategories o 261
@@ -64126,7 +64126,7 @@ e p 112
 e hotchkissedit 87
 e dubai 47
 e indentation 12
-h i 11316
+h i 11319
 h j 788
 h l 693
 h s 236
@@ -64148,7 +64148,7 @@ h pages 88
 h n 63
 h u 4
 i l 2109
-i j 10617
+i j 10620
 i m 700
 i o 242
 i am 117
@@ -64210,7 +64210,7 @@ l mosse 76
 l schwartz 136
 l hennessy 37
 n o 10247
-n p 1813
+n p 1816
 n eddy 2
 n eddyedit 516
 n ltparamgtaccess 67
@@ -64229,7 +64229,7 @@ n displaystyle 119
 n carmanedit 87
 n n 3
 n matricesedit 3
-o p 12714
+o p 12720
 o v 11
 o r 882
 o s 685
@@ -64250,8 +64250,8 @@ o edit 24
 o u 12
 p r 7592
 p q 5665
-p s 3366
-p w 245
+p s 3372
+p w 248
 p u 21
 p t 380
 p x 107
@@ -64271,7 +64271,7 @@ p gabriel 72
 p g 24
 t v 3446
 t u 6595
-t w 792
+t w 795
 t x 335
 t pages 1499
 t navigation 1433
@@ -64336,8 +64336,8 @@ v shaney 36
 v xedit 29
 v 2 90
 v 3 18
-b c 17647
-b m 13
+b c 17650
+b m 19
 b navigation 1851
 b rosser 113
 b cedit 48
@@ -64362,7 +64362,7 @@ b p 64
 b de 64
 b shah 19
 b e 12
-g h 12575
+g h 12578
 g n 61
 g i 2077
 g u 125
@@ -64583,7 +64583,7 @@ categorypython libraries 134
 categorypython software 131
 w z 1065
 w pages 1571
-w navigation 2949
+w navigation 2955
 w x 3087
 w y 1636
 w floyd 115
@@ -64640,7 +64640,7 @@ groupedit exampleedit 164
 groupedit x 305
 groupedit final 153
 groupedit sustainability 153
-groupedit see 140
+groupedit see 143
 groupedit demandsedit 135
 groupedit semicustom 132
 groupedit diacritical 102
@@ -64775,7 +64775,7 @@ september 24 83
 september 21 83
 september 2015 376
 september 2014 128
-september 2016 102
+september 2016 108
 september 2006 30
 september 2009 26
 september 2008 26
@@ -67880,11 +67880,11 @@ august 2017edit 112
 august 2017 182
 august 2014 47
 2016 see 97
-2016 a 1726
+2016 a 1729
 2016 edit 28
 2016 release 74
 2016 contents 1628
-2016 pages 181
+2016 pages 184
 2016 navigation 180
 2016 updatesedit 142
 2016 to 49
@@ -67895,9 +67895,9 @@ lccn identifiers 18
 lccn value 67
 bnf identifiers 18
 categorygood articles 9
-categoryuse dmy 1070
+categoryuse dmy 1073
 categoryuse mdy 145
-dmy dates 2140
+dmy dates 2146
 2015 pages 176
 2015 navigation 173
 2015 contents 1834
@@ -76679,7 +76679,7 @@ metricsedit serifsedit 125
 metricsedit external 102
 metricsedit qualityinuse 102
 metricsedit historyedit 102
-metricsedit builtwithedit 1
+metricsedit builtwithedit 4
 orders of 262
 orders to 47
 orders distribution 2
@@ -84525,7 +84525,7 @@ developeredit originsedit 54
 developeredit performanceedit 34
 artistedit conceptedit 7
 dice gamesedit 7
-dice com 1
+dice com 4
 casino gamesedit 7
 gameplay alterationedit 7
 gameplay survival 326
@@ -86977,7 +86977,7 @@ subsidiariesedit employeesedit 48
 subsidiariesedit campusedit 38
 subsidiariesedit venturesedit 34
 subsidiariesedit mozilla 33
-subsidiariesedit partnershipsedit 1
+subsidiariesedit partnershipsedit 4
 divestituresedit referencesedit 321
 wayback machine 177
 wayback links 525
@@ -87052,7 +87052,7 @@ campaignsedit controversyedit 177
 campaignsedit thorium 161
 campaignsedit solidstate 149
 campaignsedit see 137
-campaignsedit web 1
+campaignsedit web 4
 highestgrossing campaignsedit 177
 kickstarter campaignsedit 177
 kickstarter contents 133
@@ -91735,7 +91735,7 @@ finderedit monopoly 150
 trafficedit google 150
 trafficedit see 69
 trafficedit hidden 24
-trafficedit historyedit 1
+trafficedit historyedit 4
 biking directionsedit 150
 underwater street 150
 underwater acousticsedit 2
@@ -91866,7 +91866,7 @@ anticompetitive practices 32
 regulators in 298
 20082010 edit 149
 complaintsedit tax 149
-complaintsedit see 1
+complaintsedit see 4
 powervm lx86 149
 lx86 referencesedit 149
 newline contents 149
@@ -92285,7 +92285,7 @@ categorisededit comparison 147
 paravirtualizationedit operatingsystemlevel 147
 binarycode compatibility 147
 categorycomputing platforms 146
-categorycomputing comparisons 1
+categorycomputing comparisons 4
 talkcrossplatform contents 146
 uncategorized discussionedit 146
 cleaning it 146
@@ -102397,7 +102397,7 @@ beltsedit see 14
 segreg contents 14
 xplore contents 14
 xplore quantlet 14
-xplore see 1
+xplore see 4
 quantlet clientedit 14
 winbugs referencesedit 14
 graphpad instat 14
@@ -103950,12 +103950,12 @@ frequent communication 1
 twitterbot effect 1
 gchq television 1
 follower base 1
-careerbuilder contents 1
-dhi groupedit 1
-categoryusage share 1
-talkmeasuring programming 1
-builtwithedit counting 1
-pageviews edit 1
+careerbuilder contents 4
+dhi groupedit 4
+categoryusage share 4
+talkmeasuring programming 4
+builtwithedit counting 4
+pageviews edit 4
 autocode contents 1
 glennies autocodeedit 1
 autocodeedit mark 1
