@@ -36,7 +36,6 @@ class EvaluatorController(object):
 
         self.complex_network = complex_network
         self.nlp_module = NlpModule(weight=5, complex_network=complex_network)
-        self.modules_weights = []
         self.low_coupling_module = LowCouplingModule(weight=5)
         self.understanding_module = UnderstandingModule(weight=1)
 
@@ -69,8 +68,9 @@ class EvaluatorController(object):
         server.get_source_codes(data=data)
 
     def evaluate_search_codes(self, request):
+        max_score = 0
+
         request_json = request.get_json()
-        # print(request_json)
         request_id = request_json.get('requestID')
         results = request_json.get('searchResult')
 
@@ -84,8 +84,12 @@ class EvaluatorController(object):
 
         for idx, searched_code in enumerate(input_bus.searched_codes):
             for idy, code in enumerate(searched_code.codes):
-                self.evaluate_codes(code, idx, idy, input_bus)
+                max_score = max(self.evaluate_codes(code, idx, idy, input_bus), max_score)
                 code_results.add_code(CodeDTO().from_crawler_code(crawler_code=code, crawler_result=searched_code))
+
+        # make score proportional with the highest score
+        for code in code_results.codes:
+            code.score = code.score / max_score
 
         code_results = code_results.toJSON()
         print(code_results)
@@ -108,6 +112,7 @@ class EvaluatorController(object):
         print('----------')
         final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
         code.score = final_score
+        return final_score
 
     @staticmethod
     def map_crawler_result(request_code, results):
