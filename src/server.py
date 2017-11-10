@@ -2,7 +2,6 @@ import flask
 import time
 from flask import Flask, request, json
 from flask_socketio import SocketIO
-import requests
 from logging.config import fileConfig
 import logging
 
@@ -44,18 +43,10 @@ def index():
 @app.route('/source-codes', methods=['POST'])
 def source_codes():
     start = time.time()
-    evaluator_controller.evaluate_search_codes(request)
+    evaluator_controller.evaluate_search_codes(request, emit_code_recommendations)
     end = time.time()
     print('Receive Source code and evaluate took', (end - start), 'seconds')
     return json.dumps({'success': True})
-
-
-def get_source_codes(data):
-    url = 'http://0.0.0.0:1111/crawl'
-    headers = {'Content-Type': 'application/json'}
-    print('going to request new version')
-    requests.request(url=url, method='GET', data=data, headers=headers)
-
 
 @app.route('/train-network', methods=['POST'])
 def train_network():
@@ -103,9 +94,7 @@ def emit_code_recommendations(request_id, data):
 
 
 def run_server():
-    socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
-
+    socketio.run(app=None, host='0.0.0.0', port='10443', async_mode='eventlet', ping_timeout=60)
 
 if __name__ == "__main__":
     socketio.start_background_task(run_server)
-    # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
