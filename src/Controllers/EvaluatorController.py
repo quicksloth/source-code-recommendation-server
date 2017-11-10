@@ -37,7 +37,7 @@ class EvaluatorController(object):
         self.complex_network = complex_network
         self.nlp_module = NlpModule(weight=5, complex_network=complex_network)
         self.low_coupling_module = LowCouplingModule(weight=5)
-        self.understanding_module = UnderstandingModule(weight=1)
+        self.understanding_module = UnderstandingModule(weight=5)
 
     @staticmethod
     def get_recommendation_code(request_id, query, libs, comments, language):
@@ -105,9 +105,9 @@ class EvaluatorController(object):
         nlp_score = self.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                   code_id=idy)
 
-        print('low_coupling_score', low_coupling_score / self.low_coupling_module.weight)
-        print('understanding_score', understanding_score / self.understanding_module.weight)
-        print('nlp_score', nlp_score / self.nlp_module.weight)
+        # print('low_coupling_score', low_coupling_score / self.low_coupling_module.weight)
+        # print('understanding_score', understanding_score / self.understanding_module.weight)
+        # print('nlp_score', nlp_score / self.nlp_module.weight)
         sum_weight = (self.low_coupling_module.weight + self.understanding_module.weight + self.nlp_module.weight)
         print('----------')
         final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
