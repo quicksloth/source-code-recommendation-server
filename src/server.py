@@ -103,7 +103,7 @@ def emit_code_recommendations(request_id, data):
 
 
 def run_server():
-    socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
+    socketio.run(app=None, host='0.0.0.0', port='10443', async_mode='eventlet')
 
 
 if __name__ == "__main__":
