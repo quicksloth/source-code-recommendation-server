@@ -32,6 +32,9 @@ class MyProjectObjectList(object):
 
     def __reading_file(self):
         # Return a file with list of lines
+        # Open the file for reading.
+        with open('my_file.txt', 'r') as infile:
+            data = infile.read()  # Read the contents of the file into memory.
 
 
 
