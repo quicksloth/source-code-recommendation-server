@@ -35,8 +35,8 @@ class EvaluatorController(object):
             complex_network = ComplexNetwork()
 
         self.complex_network = complex_network
-        self.nlp_module = NlpModule(weight=5, complex_network=complex_network)
-        self.low_coupling_module = LowCouplingModule(weight=5)
+        self.nlp_module = NlpModule(weight=3, complex_network=complex_network)
+        self.low_coupling_module = LowCouplingModule(weight=1)
         self.understanding_module = UnderstandingModule(weight=1)
 
     @staticmethod
