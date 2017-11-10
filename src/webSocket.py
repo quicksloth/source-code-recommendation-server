@@ -1,9 +1,7 @@
 from flask import Flask, request, json
 from flask_socketio import SocketIO
-import requests
 from logging.config import fileConfig
 import logging
-
 
 app = Flask(__name__, static_folder='')
 app.config['SECRET_KEY'] = '@server-secret'
@@ -20,6 +18,7 @@ from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 complex_network = ComplexNetwork()
 evaluator_controller = EvaluatorController(complex_network=complex_network)
+
 
 class Socket:
     """
@@ -50,6 +49,10 @@ def get_recommendation_codes(data):
                                                  query=data['query'],
                                                  comments=data['comments'],
                                                  libs=data['libs'])
+
+
+def emit_code_recommendations(request_id, data):
+    Socket(request_id).emit('recommendationCodes', data)
 
 
 if __name__ == "__main__":

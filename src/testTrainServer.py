@@ -1,4 +1,4 @@
-import requests
+import request
 from flask import json
 
 
@@ -11,7 +11,7 @@ def train_database():
                        'Python', 'sites stackoverflow lore lorem', 'lorem ipsumb amdksd'],
     }
     print('going to request')
-    requests.post(url=url, data=json.dumps(data), headers=headers)
+    request.post(url=url, data=json.dumps(data), headers=headers)
 
 
 train_database()

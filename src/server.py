@@ -9,6 +9,7 @@ from Controllers.EvaluatorController import EvaluatorController
 # fileConfig('logging.conf')
 # log = logging.getLogger(__name__)
 from Modules.Concepts.ComplexNetwork import ComplexNetwork
+import webSocket
 
 app = Flask(__name__, static_folder='')
 
@@ -24,7 +25,7 @@ def index():
 @app.route('/source-codes', methods=['POST'])
 def source_codes():
     start = time.time()
-    evaluator_controller.evaluate_search_codes(request)
+    evaluator_controller.evaluate_search_codes(request, webSocket.emit_code_recommendations)
     end = time.time()
     print('Receive Source code and evaluate took', (end - start), 'seconds')
     return json.dumps({'success': True})

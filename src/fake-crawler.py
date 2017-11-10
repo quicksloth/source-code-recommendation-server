@@ -13,7 +13,9 @@ def hello_world():
 # TODO: temporary until all set client and crawler
 @app.route('/crawl', methods=['GET'])
 def crawl():
+    print('REQUEST AQUI')
     request_body = request.get_json()
+    print('request_body', request_body)
     url = 'http://0.0.0.0:10443/source-codes'
     data = {
         "requestID": request_body.get('requestID'),
@@ -237,8 +239,9 @@ def crawl():
     #                     "Days of the Week\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday\n"]}]}
     headers = {'Content-Type': 'application/json'}
 
+    print("POST")
     requests.post(url=url, data=json.dumps(data), headers=headers)
-
+    print("POST")
     return json.dumps({'success': True})
 
 
