@@ -10,7 +10,7 @@ PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
-import server
+import requests
 from Modules.NlpModule import NlpModule
 from Modules.LowCouplingModule import LowCouplingModule
 from Modules.UnderstandingModule import UnderstandingModule
@@ -50,7 +50,7 @@ class EvaluatorController(object):
         data = request_code.toRequestJSON()
         print(data)
         RequestDB().add(request_code)
-        server.get_source_codes(data=data)
+        requests.get_source_codes(data=data)
 
     @staticmethod
     def init_get_recommendation_code_with_mocked_data():
@@ -65,7 +65,7 @@ class EvaluatorController(object):
         data = request_code.toRequestJSON()
         print(data)
         RequestDB().add(request_code)
-        server.get_source_codes(data=data)
+        requests.get_source_codes(data=data)
 
     def evaluate_search_codes(self, request):
         max_score = 0

@@ -1,10 +1,8 @@
 import flask
 import time
 from flask import Flask, request, json
-from flask_socketio import SocketIO
-import requests
-from logging.config import fileConfig
-import logging
+# from logging.config import fileConfig
+# import logging
 
 from Controllers.EvaluatorController import EvaluatorController
 
@@ -13,8 +11,6 @@ from Controllers.EvaluatorController import EvaluatorController
 from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 app = Flask(__name__, static_folder='')
-# app.config['SECRET_KEY'] = '@server-secret'
-# socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
 
 complex_network = ComplexNetwork()
 evaluator_controller = EvaluatorController(complex_network=complex_network)
@@ -32,13 +28,6 @@ def source_codes():
     end = time.time()
     print('Receive Source code and evaluate took', (end - start), 'seconds')
     return json.dumps({'success': True})
-
-
-def get_source_codes(data):
-    url = 'http://0.0.0.0:1111/crawl'
-    headers = {'Content-Type': 'application/json'}
-    print('going to request new version')
-    requests.request(url=url, method='GET', data=data, headers=headers)
 
 
 @app.route('/train-network', methods=['POST'])
@@ -66,5 +55,4 @@ def get_complex_network_cluster():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=10442)
-    # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
+    app.run(host='0.0.0.0', port=10443)

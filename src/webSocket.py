@@ -4,20 +4,22 @@ import requests
 from logging.config import fileConfig
 import logging
 
-from Controllers.EvaluatorController import EvaluatorController
-
-# fileConfig('logging.conf')
-# log = logging.getLogger(__name__)
-from Modules.Concepts.ComplexNetwork import ComplexNetwork
 
 app = Flask(__name__, static_folder='')
 app.config['SECRET_KEY'] = '@server-secret'
+socketio = SocketIO(app)
+
 # socketio = SocketIO(app, allow_upgrades=True, engineio_logger=log, logger=log)
 
-socketio = SocketIO(app, allow_upgrades=True)
+# fileConfig('logging.conf')
+# log = logging.getLogger(__name__)
+
+
+from Controllers.EvaluatorController import EvaluatorController
+from Modules.Concepts.ComplexNetwork import ComplexNetwork
+
 complex_network = ComplexNetwork()
 evaluator_controller = EvaluatorController(complex_network=complex_network)
-
 
 class Socket:
     """
@@ -50,10 +52,5 @@ def get_recommendation_codes(data):
                                                  libs=data['libs'])
 
 
-def run_server():
-    socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
-
-
 if __name__ == "__main__":
-    socketio.start_background_task(run_server)
-    # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
+    socketio.run(app, host='0.0.0.0', port=10442, threaded=True)
