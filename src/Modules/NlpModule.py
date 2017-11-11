@@ -11,7 +11,7 @@ class NlpModule(AbstractModule):
 
     def __init__(self, internal_weights=None, weight=1, complex_network=None):
         if internal_weights is None:
-            internal_weights = [0.5, 0.125, 0.125, 0.125, 0.125]
+            internal_weights = [0.2, 0.2, 0.2, 0.2, 0.2]
         AbstractModule.__init__(self, internal_weights, weight)
 
         if complex_network is None:
