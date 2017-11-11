@@ -56,7 +56,6 @@ class EvaluatorController(object):
     def init_get_recommendation_code_with_mocked_data():
         request_id = str(uuid4())
 
-        # TODO: remove mocked data - get from request
         request_code = CrawlerRequestDTO(query='read file',
                                          libs=['json', 'requests'],
                                          comments=['comments'],
