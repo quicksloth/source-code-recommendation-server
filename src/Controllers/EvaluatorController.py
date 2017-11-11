@@ -35,8 +35,8 @@ class EvaluatorController(object):
             complex_network = ComplexNetwork()
 
         self.complex_network = complex_network
-        self.nlp_module = NlpModule(weight=3, complex_network=complex_network)
-        self.low_coupling_module = LowCouplingModule(weight=1)
+        self.nlp_module = NlpModule(weight=10, complex_network=complex_network)
+        self.low_coupling_module = LowCouplingModule(weight=3)
         self.understanding_module = UnderstandingModule(weight=1)
 
     @staticmethod
@@ -56,7 +56,6 @@ class EvaluatorController(object):
     def init_get_recommendation_code_with_mocked_data():
         request_id = str(uuid4())
 
-        # TODO: remove mocked data - get from request
         request_code = CrawlerRequestDTO(query='read file',
                                          libs=['json', 'requests'],
                                          comments=['comments'],
