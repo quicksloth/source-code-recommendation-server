@@ -104,11 +104,11 @@ class EvaluatorController(object):
         nlp_score = self.nlp_module.evaluate_code(input_bus_vo=input_bus, search_result_id=idx,
                                                   code_id=idy)
 
-        print('low_coupling_score', low_coupling_score / self.low_coupling_module.weight)
-        print('understanding_score', understanding_score / self.understanding_module.weight)
-        print('nlp_score', nlp_score / self.nlp_module.weight)
+        # print('low_coupling_score', low_coupling_score / self.low_coupling_module.weight)
+        # print('understanding_score', understanding_score / self.understanding_module.weight)
+        # print('nlp_score', nlp_score / self.nlp_module.weight)
         sum_weight = (self.low_coupling_module.weight + self.understanding_module.weight + self.nlp_module.weight)
-        print('----------')
+        # print('----------')
         final_score = (low_coupling_score + understanding_score + nlp_score) / sum_weight
         code.score = final_score
         return final_score
