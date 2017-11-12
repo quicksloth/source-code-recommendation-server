@@ -103,6 +103,8 @@ def emit_code_recommendations(request_id, data):
 
 
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port='5000')
+    port = int(os.environ.get('PORT', 5000))
+    # The port to be listening to — hence, the URL must be <hostname>:<port>/ inorder to send the request to this program
+    socketio.run(app, host='0.0.0.0', port=port)
     # socketio.start_background_task(run_server)
     # socketio.run(app, host='0.0.0.0', port=10443, threaded=True)
