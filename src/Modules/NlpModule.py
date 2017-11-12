@@ -45,11 +45,11 @@ class NlpModule(AbstractModule):
         grouped_variable = " ".join(code_dto.variable_names)
         grouped_functions = " ".join(code_dto.function_names)
         grouped_classes = " ".join(code_dto.class_name)
-        print('grouped_variable ', grouped_variable)
-        print('grouped_functions ', grouped_functions)
-        print('grouped_classes ', grouped_classes)
+        # print('grouped_variable ', grouped_variable)
+        # print('grouped_functions ', grouped_functions)
+        # print('grouped_classes ', grouped_classes)
         code = grouped_variable + ' ' + grouped_functions + ' ' + grouped_classes
-        print('code ', code)
+        # print('code ', code)
         score = self.__get_score_by_doc_combination(query, code)
         return self.internal_weights[pos] * score
 
