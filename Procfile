@@ -1,1 +1,1 @@
-web: cd src && gunicorn -b 0.0.0.0:5000 --worker-class eventlet --thread 4 server:app
+web: cd src && gunicorn --worker-class eventlet -w 1 server:app
