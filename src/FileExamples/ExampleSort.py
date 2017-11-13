@@ -30,7 +30,7 @@ class MyProjectObjectList(object):
         pfile = open((filename or self.file), 'wb+')
         pickle.dump(self.list, pfile)
 
-    # def __reading_file(self):
+    def __reading_file(self):
         # Return a file with list of lines
 
 
