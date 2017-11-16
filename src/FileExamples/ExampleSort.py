@@ -52,7 +52,3 @@ class MyProjectObjectList(object):
 
 
 
-
-
-
-
