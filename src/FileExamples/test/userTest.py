@@ -32,4 +32,4 @@ distance = bfs(graphFile, 'A')
 print(distance)
 
 # TASK 3
-print([key for key in sorted(distance.keys(), reverse=True)])
+print([key for key, value in sorted(distance.items(), key=lambda t: t[1], reverse=True)])
