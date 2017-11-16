@@ -10,7 +10,7 @@ class UnderstandingModule(AbstractModule):
     D = 10
     E = 100
 
-    def __init__(self, internal_weights=[1, 1], weight=1):
+    def __init__(self, internal_weights=[3, 1], weight=1):
         AbstractModule.__init__(self, internal_weights, weight)
         self.sum_internal_weights = sum(self.internal_weights)
 
