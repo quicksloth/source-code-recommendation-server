@@ -5,8 +5,8 @@ import time
 from flask import Flask, request, json
 from flask_socketio import SocketIO
 import requests
-from logging.config import fileConfig
-import logging
+# from logging.config import fileConfig
+# import logging
 
 from Controllers.EvaluatorController import EvaluatorController
 
@@ -53,8 +53,7 @@ def source_codes():
 
 
 def get_source_codes(data):
-    # url = 'http://0.0.0.0:1111/crawl'
-    url = 'http://quickslothsearchserver.herokuapp.com/crawl'
+    url = os.environ.get('CRAWLER_HOST', 'http://0.0.0.0:1111/crawl')
     headers = {'Content-Type': 'application/json'}
     print('going to request new version')
     requests.request(url=url, method='GET', data=data, headers=headers)
